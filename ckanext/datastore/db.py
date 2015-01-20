@@ -228,15 +228,29 @@ def _guess_type(field):
 def _get_fields(context, data_dict):
     fields = []
     all_fields = context['connection'].execute(
-        u'SELECT * FROM "{0}" LIMIT 1'.format(data_dict['resource_id'])
+        u'SELECT field, datatype FROM _resorce_descriptor WHERE resource_id="{0}"'
+        .format(data_dict['resource_id'])
     )
     for field in all_fields.cursor.description:
-        if not field[0].startswith('_'):
-            fields.append({
-                'id': field[0].decode('utf-8'),
-                'type': _get_type(context, field[1])
-            })
+        fields.append({
+            'id': field['field'].decode('utf-8'),
+            'type': _get_type(context, field['datatype'])
+        })
     return fields
+
+
+def _get_attrs(context, data_dict):
+    attrs = []
+    all_attrs = context['connection'].execute(
+        u'SELECT attr, datatype FROM _field_mapping WHERE resource_id="{0}"'
+        .format(data_dict['resource_id'])
+    )
+    for col in all_attrs:
+        attrs.append({
+            'id': field['field'].decode('utf-8'),
+            'type': _get_type(context, field['datatype'])
+        })
+    return attrs
 
 
 def _get_fields_types(context, data_dict):
@@ -291,6 +305,27 @@ def convert(data, type_name):
         return data
     return unicode(data)
 
+def init_resource_descriptor(context):
+    """ Creeate a table for resource descriptor
+        resource_id, field, attr, typecode
+    """
+    context['connection'].execute(
+        'CREATE TABLE IF NOT EXISTS _resource_descriptor'
+        '(resource_id TEXT PRIMARY KEY NOT NULL, field TEXT, attr TEXT, datatype TEXT)'
+    )
+
+
+def field_mapper(context, data_dict):
+    """ Return a dict mapping from fields to attrs
+        :context: containing key 'connection'
+        :data_dict: containing key 'resource_id'
+    """
+    res = context['connection'].execute(
+        'SELECT * FROM _resource_descriptor WHERE resource_id=:resource_id',
+        data_dict
+    )
+    return {r['field']: r['attr'] for r in res}
+
 
 def create_table(context, data_dict):
     '''Create table from combination of fields and first row of data.'''
@@ -331,15 +366,24 @@ def create_table(context, data_dict):
                 })
 
     fields = datastore_fields + supplied_fields + extra_fields
+    attrs = [{'resource_id': data_dict['resource_id'],
+                'attr': 'u%05d' % (i,),
+                'field': f['id'],
+                'type': f['type']} for i, f in enumerate(fields)]
     sql_fields = u", ".join([u'"{0}" {1}'.format(
-        f['id'], f['type']) for f in fields])
+        f['field'], f['type']) for f in attrs])
 
     sql_string = u'CREATE TABLE "{0}" ({1});'.format(
         data_dict['resource_id'],
         sql_fields
     )
+    init_resource_descriptor(context)
 
     context['connection'].execute(sql_string.replace('%', '%%'))
+    context['connection'].execute(
+        'INSERT INTO init_resource_descriptor '
+        'VALUES(:resource_id,:field,:attr,:datatype)',
+        attrs)
 
 
 def _get_aliases(context, data_dict):
@@ -460,6 +504,7 @@ def create_indexes(context, data_dict):
 
 def _build_fts_indexes(connection, data_dict, sql_index_str_method, fields):
     fts_indexes = []
+    #TODO do fields translation
     resource_id = data_dict['resource_id']
     # FIXME: This is repeated on the plugin.py, we should keep it DRY
     default_fts_lang = pylons.config.get('ckan.datastore.default_fts_lang')
@@ -547,6 +592,7 @@ def alter_table(context, data_dict):
     '''alter table from combination of fields and first row of data
     return: all fields of the resource table'''
     supplied_fields = data_dict.get('fields', [])
+    #TODO be careful for translating column names
     current_fields = _get_fields(context, data_dict)
     if not supplied_fields:
         supplied_fields = current_fields
@@ -621,6 +667,7 @@ def upsert_data(context, data_dict):
 
     method = data_dict.get('method', _UPSERT)
 
+    #TODO using internal field names
     fields = _get_fields(context, data_dict)
     field_names = _pluck('id', fields)
     records = data_dict['records']
@@ -769,6 +816,7 @@ def _get_unique_key(context, data_dict):
     '''
     key_parts = context['connection'].execute(sql_get_unique_key,
                                               data_dict['resource_id'])
+    # TODO my need field name mapping
     return [x[0] for x in key_parts]
 
 
@@ -997,6 +1045,7 @@ def _execute_single_statement(context, sql_string, where_values):
 
 def format_results(context, results, data_dict):
     result_fields = []
+    # TODO translate int -> ext
     for field in results.cursor.description:
         result_fields.append({
             'id': field[0].decode('utf-8'),
