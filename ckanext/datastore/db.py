@@ -172,7 +172,10 @@ def _is_valid_pg_type(context, type_name):
 
 def _get_type(context, oid):
     _cache_types(context)
-    return _pg_types[oid]
+    if isinstance(oid, int):
+        return _pg_types[oid]
+    else:
+        return oid
 
 
 def _rename_json_field(data_dict):
@@ -226,15 +229,18 @@ def _guess_type(field):
 
 
 def _get_fields(context, data_dict):
+    """ Return """
     fields = []
     all_fields = context['connection'].execute(
-        u'SELECT field, datatype FROM _resorce_descriptor WHERE resource_id="{0}"'
-        .format(data_dict['resource_id'])
+        u'SELECT field, datatype FROM fielddescriptor WHERE resource_id=%s',
+        data_dict['resource_id']
     )
-    for field in all_fields.cursor.description:
+    for field in all_fields:
+        if field[0].startswith('_'):
+            continue
         fields.append({
-            'id': field['field'].decode('utf-8'),
-            'type': _get_type(context, field['datatype'])
+            'id': field[0].decode('utf-8'),
+            'type': _get_type(context, field[1])
         })
     return fields
 
@@ -242,13 +248,13 @@ def _get_fields(context, data_dict):
 def _get_attrs(context, data_dict):
     attrs = []
     all_attrs = context['connection'].execute(
-        u'SELECT attr, datatype FROM _field_mapping WHERE resource_id="{0}"'
-        .format(data_dict['resource_id'])
+        u'SELECT attr, datatype FROM fielddescriptor WHERE resource_id=%s',
+        data_dict['resource_id']
     )
-    for col in all_attrs:
+    for attr in all_attrs:
         attrs.append({
-            'id': field['field'].decode('utf-8'),
-            'type': _get_type(context, field['datatype'])
+            'id': attr[0].decode('utf-8'),
+            'type': _get_type(context, attr[1])
         })
     return attrs
 
@@ -305,30 +311,48 @@ def convert(data, type_name):
         return data
     return unicode(data)
 
-def init_resource_descriptor(context):
+def init_field_descriptor(context):
     """ Creeate a table for resource descriptor
         resource_id, field, attr, typecode
     """
-    context['connection'].execute(
-        'CREATE TABLE IF NOT EXISTS _resource_descriptor'
-        '(resource_id TEXT PRIMARY KEY NOT NULL, field TEXT, attr TEXT, datatype TEXT)'
+    conn = context['connection']
+    conn.execute(
+        'CREATE TABLE IF NOT EXISTS fielddescriptor'
+        '(resource_id TEXT NOT NULL, field TEXT, attr TEXT, datatype TEXT)'
     )
 
 
-def field_mapper(context, data_dict):
-    """ Return a dict mapping from fields to attrs
+def field_translator(connection, resource_id, toattr=True):
+    """ Return a function that can translate the obj
         :context: containing key 'connection'
         :data_dict: containing key 'resource_id'
     """
-    res = context['connection'].execute(
-        'SELECT * FROM _resource_descriptor WHERE resource_id=:resource_id',
-        data_dict
+    res = connection.execute(
+        'SELECT field, attr FROM fielddescriptor WHERE resource_id=%s',
+        resource_id
     )
-    return {r['field']: r['attr'] for r in res}
+    if toattr:
+        mapper = {r[0]: r[1] for r in res}
+    else:
+        mapper = {r[1]: r[0] for r in res}
+    def trans(obj):
+        if obj:
+            if isinstance(obj, list):
+                if isinstance(obj[0], dict):
+                    return [({'id': mapper[f['id']], 'type': f['type']} if f['id'] in mapper else f) for f in obj]
+                else:
+                    return [(mapper[k] if k in mapper else k) for k in obj]
+            elif isinstance(obj, dict):
+                return {'id': mapper[obj['id']], 'type': obj['type']}
+            else:
+                return mapper(obj)
+    return trans
 
 
 def create_table(context, data_dict):
     '''Create table from combination of fields and first row of data.'''
+
+    log.info('create_table : %r', data_dict.keys())
 
     datastore_fields = [
         {'id': '_id', 'type': 'serial primary key'},
@@ -367,23 +391,25 @@ def create_table(context, data_dict):
 
     fields = datastore_fields + supplied_fields + extra_fields
     attrs = [{'resource_id': data_dict['resource_id'],
-                'attr': 'u%05d' % (i,),
-                'field': f['id'],
-                'type': f['type']} for i, f in enumerate(fields)]
+              'attr': ('u%05d' % (i,)) if not f['id'].startswith('_') else f['id'],
+              'field': f['id'],
+              'type': f['type']}
+             for i, f in enumerate(fields)]
     sql_fields = u", ".join([u'"{0}" {1}'.format(
-        f['field'], f['type']) for f in attrs])
+        f['attr'], f['type']) for f in attrs])
 
     sql_string = u'CREATE TABLE "{0}" ({1});'.format(
         data_dict['resource_id'],
         sql_fields
     )
-    init_resource_descriptor(context)
+    init_field_descriptor(context)
 
     context['connection'].execute(sql_string.replace('%', '%%'))
     context['connection'].execute(
-        'INSERT INTO init_resource_descriptor '
-        'VALUES(:resource_id,:field,:attr,:datatype)',
-        attrs)
+        'INSERT INTO fielddescriptor (resource_id, field, attr, datatype) VALUES(%s, %s, %s, %s)',
+        *[(a['resource_id'], a['field'], a['attr'], a['type'])
+          for a in attrs])
+    a = _get_fields(context, data_dict)
 
 
 def _get_aliases(context, data_dict):
@@ -450,6 +476,7 @@ def create_indexes(context, data_dict):
     sql_index_string = sql_index_tmpl + u' ({fields})'
     sql_index_strings = []
 
+    f_trans = field_translator(context['connection'], data_dict['resource_id'])
     fields = _get_fields(context, data_dict)
     field_ids = _pluck('id', fields)
     json_fields = [x['id'] for x in fields if x['type'] == 'nested']
@@ -457,7 +484,7 @@ def create_indexes(context, data_dict):
     fts_indexes = _build_fts_indexes(connection,
                                      data_dict,
                                      sql_index_string_method,
-                                     fields)
+                                     f_trans(fields))
     sql_index_strings = sql_index_strings + fts_indexes
 
     if indexes is not None:
@@ -481,16 +508,16 @@ def create_indexes(context, data_dict):
                         ('The field "{0}" is not a valid column name.').format(
                             index)]
                 })
-        fields_string = u', '.join(
-            ['(("{0}").json::text)'.format(field)
+        attrs_string = u', '.join(
+            ['(("{0}").json::text)'.format(f_trans(field))
                 if field in json_fields else
-                '"%s"' % field
+                '"%s"' % f_trans(field)
                 for field in index_fields])
         sql_index_strings.append(sql_index_string.format(
             res_id=data_dict['resource_id'],
             unique='unique' if index == primary_key else '',
-            name=_generate_index_name(data_dict['resource_id'], fields_string),
-            fields=fields_string))
+            name=_generate_index_name(data_dict['resource_id'], attrs_string),
+            fields=attrs_string))
 
     sql_index_strings = map(lambda x: x.replace('%', '%%'), sql_index_strings)
     current_indexes = _get_index_names(context['connection'],
@@ -670,9 +697,12 @@ def upsert_data(context, data_dict):
     #TODO using internal field names
     fields = _get_fields(context, data_dict)
     field_names = _pluck('id', fields)
+    f_trans = field_translator(context['connection'], data_dict['resource_id'])
+    attrs = f_trans(fields)
+    attr_names = f_trans(field_names)
     records = data_dict['records']
     sql_columns = ", ".join(['"%s"' % name.replace(
-        '%', '%%') for name in field_names] + ['"_full_text"'])
+        '%', '%%') for name in attr_names] + ['"_full_text"'])
 
     if method == _INSERT:
         rows = []
@@ -693,7 +723,7 @@ def upsert_data(context, data_dict):
             VALUES ({values}, to_tsvector(%s));'''.format(
             res_id=data_dict['resource_id'],
             columns=sql_columns,
-            values=', '.join(['%s' for field in field_names])
+            values=', '.join(['%s' for _ in attr_names])
         )
 
         try:
@@ -756,7 +786,7 @@ def upsert_data(context, data_dict):
                     res_id=data_dict['resource_id'],
                     columns=u', '.join(
                         [u'"{0}"'.format(field)
-                         for field in used_field_names]),
+                         for field in f_trans(used_field_names)]),
                     values=u', '.join(
                         ['%s' for _ in used_field_names]),
                     primary_key=u','.join(
@@ -784,7 +814,7 @@ def upsert_data(context, data_dict):
                 '''.format(
                     res_id=data_dict['resource_id'],
                     columns=u', '.join([u'"{0}"'.format(field)
-                                        for field in used_field_names]),
+                                        for field in f_trans(used_field_names)]),
                     values=u', '.join(['%s::nested'
                                        if field['type'] == 'nested' else '%s'
                                        for field in used_fields]),
@@ -1201,6 +1231,7 @@ def upsert(context, data_dict):
 
 
 def delete(context, data_dict):
+    log.info('delete_table [res]: %r', data_dict.keys())
     engine = _get_engine(data_dict)
     context['connection'] = engine.connect()
     _cache_types(context)
@@ -1211,6 +1242,10 @@ def delete(context, data_dict):
         if not 'filters' in data_dict:
             context['connection'].execute(
                 u'DROP TABLE "{0}" CASCADE'.format(data_dict['resource_id'])
+            )
+            context['connection'].execute(
+                u'DELETE FROM fielddescriptor where resource_id=%s',
+                data_dict['resource_id']
             )
         else:
             delete_data(context, data_dict)
