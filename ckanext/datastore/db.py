@@ -12,6 +12,8 @@ import hashlib
 import pylons
 import distutils.version
 import sqlalchemy
+from sqlparse import parse as sparse
+import sqlparse.sql as sql
 from sqlalchemy.exc import (ProgrammingError, IntegrityError,
                             DBAPIError, DataError)
 import psycopg2.extras
@@ -335,6 +337,8 @@ def field_translator(connection, resource_id, toattr=True):
         mapper = {r[0]: r[1] for r in res}
     else:
         mapper = {r[1]: r[0] for r in res}
+    # add quoted identifier translate
+    mapper.update({'"' + k + '"': '"' + v + '"' for k, v in mapper.items()})
     def trans(obj):
         if obj:
             if isinstance(obj, list):
@@ -343,9 +347,19 @@ def field_translator(connection, resource_id, toattr=True):
                 else:
                     return [(mapper[k] if k in mapper else k) for k in obj]
             elif isinstance(obj, dict):
-                return {'id': mapper[obj['id']], 'type': obj['type']}
+                try:
+                    return {'id': mapper[obj['id']], 'type': obj['type']}
+                except KeyError:
+                    return {mapper[k]: v for k, v in obj.items()}
+            elif isinstance(obj, sql.Statement):
+                return sql.Statement([
+                    (sql.Identifier(mapper[f.get_real_name()])
+                     if f.get_real_name() in mapper else f)
+                    for f in obj.tokens
+                ])
+
             else:
-                return mapper(obj)
+                return mapper[obj]
     return trans
 
 
@@ -1013,6 +1027,9 @@ def validate(context, data_dict):
 def search_data(context, data_dict):
     validate(context, data_dict)
     fields_types = _get_fields_types(context, data_dict)
+    f_trans = field_translator(context['connection'], data_dict['resource_id'])
+    f_trans_inv = field_translator(context['connection'], data_dict['resource_id'], toattr=False)
+    columns_types = f_trans(fields_types)
 
     query_dict = {
         'select': [],
@@ -1024,10 +1041,14 @@ def search_data(context, data_dict):
         query_dict = plugin.datastore_search(context, data_dict,
                                              fields_types, query_dict)
 
-    where_clause, where_values = _where(query_dict['where'])
 
-    # FIXME: Remove duplicates on select columns
-    select_columns = ', '.join(query_dict['select']).replace('%', '%%')
+
+    import sys
+    # print >>sys.stderr, 'WHERE clause', query_dict['where']
+    where_snippets = [(str(f_trans(sparse(s[0]))),) + tuple(s[1:]) for s in query_dict['where']]
+    where_clause, where_values = _where(where_snippets)
+
+    select_columns = ', '.join(f_trans(query_dict['select'])).replace('%', '%%')
     ts_query = query_dict['ts_query'].replace('%', '%%')
     resource_id = data_dict['resource_id'].replace('%', '%%')
     sort = query_dict['sort']
@@ -1056,10 +1077,11 @@ def search_data(context, data_dict):
         limit=limit,
         offset=offset)
 
+    print >>sys.stderr, '[datastore_search] SQL:', sql_string
     results = _execute_single_statement(context, sql_string, where_values)
 
     _insert_links(data_dict, limit, offset)
-    return format_results(context, results, data_dict)
+    return format_results(context, results, data_dict, f_trans_inv)
 
 
 def _execute_single_statement(context, sql_string, where_values):
@@ -1073,7 +1095,7 @@ def _execute_single_statement(context, sql_string, where_values):
     return results
 
 
-def format_results(context, results, data_dict):
+def format_results(context, results, data_dict, f_trans=lambda x: x):
     result_fields = []
     # TODO translate int -> ext
     for field in results.cursor.description:
@@ -1090,11 +1112,11 @@ def format_results(context, results, data_dict):
         if '_full_count' in row:
             data_dict['total'] = row['_full_count']
         for field in result_fields:
-            converted_row[field['id']] = convert(row[field['id']],
+            converted_row[f_trans(field['id'])] = convert(row[field['id']],
                                                  field['type'])
         records.append(converted_row)
     data_dict['records'] = records
-    data_dict['fields'] = result_fields
+    data_dict['fields'] = f_trans(result_fields)
 
     return _unrename_json_field(data_dict)
 
