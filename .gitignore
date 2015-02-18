@@ -4,6 +4,7 @@ syntax: glob
 *.swp
 *.swo
 .DS_Store
+.*
 ckan.egg-info/*
 sandbox/*
 dist
