@@ -166,11 +166,11 @@ setup(
     zip_safe=False,
     install_requires=[
         "Babel>=0.9.6,<1.0.0",
-        "Jinja2==2.6"  # newer version causes problem in CkanInternationalizationExtension.parse
+        "Jinja2==2.6",  # newer version causes problem in CkanInternationalizationExtension.parse
                     # when creating a new dataset
         "Pylons==0.9.7",
         "Genshi==0.6",
-        "WebTest==1.4.3"  # need to pin this so that Pylons does not install a newer version that conflicts with WebOb==1.0.8
+        "WebTest==1.4.3",  # need to pin this so that Pylons does not install a newer version that conflicts with WebOb==1.0.8
         "fanstatic==0.12",
         "ofs==0.4.1",
         "Pairtree==0.7.1-T",
@@ -181,17 +181,17 @@ setup(
         "pyutilib.component.core==4.5.3",
         "repoze.who-friendlyform==1.0.8",
         "repoze.who==2.0",
-        "requests==2.3.0",
+        "requests==2.5.0",
         "Routes==1.13",
         "solrpy==0.9.5",
         "sqlalchemy-migrate==0.9.1",
-        "SQLAlchemy==0.9.6",
+        "SQLAlchemy==0.9.8",
         "vdm==0.13",
         "sqlparse==0.1.11",
         "WebHelpers==1.3",
         "WebOb==1.0.8",
         "zope.interface==4.1.1",
-        "unicodecsv>=0.9",
+        "unicodecsv>=0.9"
     ],
     packages=find_packages(exclude=['ez_setup']),
     namespace_packages=['ckanext', 'ckanext.stats'],
