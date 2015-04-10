@@ -1035,6 +1035,19 @@ def resource_show(context, data_dict):
 
     return resource_dict
 
+def resource_download(context, data_dict):
+    ''' Return the metadata of a resource for preparing downloading
+    :param id: the id of the resource
+    :type id: string
+    :param include_tracking: add tracking information to dataset and
+        resources (default: False)
+    :type include_tracking: bool
+
+    :rtype: dictionary
+
+    '''
+    _check_access('resource_download', context, data_dict)
+    return resource_show(context, data_dict)
 
 def resource_view_show(context, data_dict):
     '''

@@ -1176,7 +1176,7 @@ class PackageController(base.BaseController):
                    'user': c.user or c.author, 'auth_user_obj': c.userobj}
 
         try:
-            rsc = get_action('resource_show')(context, {'id': resource_id})
+            rsc = get_action('resource_download')(context, {'id': resource_id})
             pkg = get_action('package_show')(context, {'id': id})
         except NotFound:
             abort(404, _('Resource not found'))

@@ -142,6 +142,9 @@ def resource_show(context, data_dict):
     else:
         return {'success': True}
 
+def resource_download(context, data_dict):
+    return resource_show(context, data_dict)
+
 
 def resource_view_show(context, data_dict):
     return resource_show(context, data_dict)
