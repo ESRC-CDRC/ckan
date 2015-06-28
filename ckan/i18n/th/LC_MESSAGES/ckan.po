@@ -1,5 +1,5 @@
 # Thai translations for ckan.
-# Copyright (C) 2013 ORGANIZATION
+# Copyright (C) 2015 ORGANIZATION
 # This file is distributed under the same license as the ckan project.
 #
 # Translators:
@@ -7,7 +7,6 @@
 # Chutika Udomsinn <chutika@goodfactory.co>, 2014
 # kaanpakpum <kaanpakpum@gmail.com>, 2014
 # Klaikong Vaidhyakarn <klaikong@gmail.com>, 2014
-# Misharim <misharim@gmail.com>, 2014-2015
 # Misharim <misharim@gmail.com>, 2014
 # ODM Thailand <thailand@opendevmekong.net>, 2014
 # Sakchai <sakchai@toitmall.com>, 2014
@@ -17,114 +16,114 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  CKAN\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-01-26 11:29+0000\n"
-"PO-Revision-Date: 2015-01-15 14:47+0000\n"
-"Last-Translator: Misharim <misharim@gmail.com>\n"
+"POT-Creation-Date: 2015-06-23 20:40+0000\n"
+"PO-Revision-Date: 2015-01-26 12:21+0000\n"
+"Last-Translator: Adrià Mercader <adria.mercader@okfn.org>\n"
 "Language-Team: Thai "
 "(http://www.transifex.com/projects/p/ckan/language/th/)\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 0.9.6\n"
+"Generated-By: Babel 2.0-dev\n"
 
-#: ckan/new_authz.py:178
+#: ckan/authz.py:178
 #, python-format
 msgid "Authorization function not found: %s"
 msgstr "ไม่พบฟังก์ชั่นการอนุมัติ: %s "
 
-#: ckan/new_authz.py:190
+#: ckan/authz.py:190 ckan/templates/header.html:14
 msgid "Admin"
 msgstr "ผู้ดูแลระบบ"
 
-#: ckan/new_authz.py:194
+#: ckan/authz.py:194
 msgid "Editor"
 msgstr "บรรณาธิการ"
 
-#: ckan/new_authz.py:198
+#: ckan/authz.py:198
 msgid "Member"
 msgstr "สมาชิก"
 
-#: ckan/controllers/admin.py:27
+#: ckan/controllers/admin.py:31
 msgid "Need to be system administrator to administer"
 msgstr "ต้องเป็นผู้ดูแลระบบถึงจะจัดการได้"
 
-#: ckan/controllers/admin.py:43
+#: ckan/controllers/admin.py:47
 msgid "Site Title"
 msgstr "ชื่อไซต์"
 
-#: ckan/controllers/admin.py:44
+#: ckan/controllers/admin.py:48
 msgid "Style"
 msgstr "รูปแบบ"
 
-#: ckan/controllers/admin.py:45
+#: ckan/controllers/admin.py:49
 msgid "Site Tag Line"
 msgstr "คำอธิบายของไซต์"
 
-#: ckan/controllers/admin.py:46
+#: ckan/controllers/admin.py:50
 msgid "Site Tag Logo"
 msgstr "โลโก้ของไซต์"
 
-#: ckan/controllers/admin.py:47 ckan/templates/header.html:102
+#: ckan/controllers/admin.py:51 ckan/templates/header.html:106
 #: ckan/templates/group/about.html:3 ckan/templates/group/read_base.html:19
 #: ckan/templates/home/about.html:3 ckan/templates/home/about.html:6
 #: ckan/templates/home/about.html:16 ckan/templates/organization/about.html:3
 #: ckan/templates/organization/read_base.html:19
-#: ckan/templates/user/edit_user_form.html:15
+#: ckan/templates/user/edit_user_form.html:14
 msgid "About"
 msgstr "เกี่ยวกับ"
 
-#: ckan/controllers/admin.py:47
+#: ckan/controllers/admin.py:51
 msgid "About page text"
 msgstr "ข้อความบนหน้า \"เกี่ยวกับ\""
 
-#: ckan/controllers/admin.py:48
+#: ckan/controllers/admin.py:52
 msgid "Intro Text"
 msgstr "ข้อความเกริ่นนำ"
 
-#: ckan/controllers/admin.py:48
+#: ckan/controllers/admin.py:52
 msgid "Text on home page"
 msgstr "ข้อความบนหน้าหลัก"
 
-#: ckan/controllers/admin.py:49
+#: ckan/controllers/admin.py:53
 msgid "Custom CSS"
 msgstr "CSS ที่กำหนดเอง"
 
-#: ckan/controllers/admin.py:49
+#: ckan/controllers/admin.py:53
 msgid "Customisable css inserted into the page header"
 msgstr "ได้แทรก CSS ที่ปรับแต่งได้ลงในส่วนหัวของหน้าไว้แล้ว"
 
-#: ckan/controllers/admin.py:50
+#: ckan/controllers/admin.py:54
 msgid "Homepage"
 msgstr "หน้าหลัก"
 
-#: ckan/controllers/admin.py:131
+#: ckan/controllers/admin.py:157
 #, python-format
 msgid ""
 "Cannot purge package %s as associated revision %s includes non-deleted "
 "packages %s"
 msgstr "ไม่สามารถถอดถอนแพคเกจ %s เนื่องจากรุ่นที่ %s ใช้แพคเกจ %s ที่ยังไม่ถูกลบ"
 
-#: ckan/controllers/admin.py:153
+#: ckan/controllers/admin.py:179
 #, python-format
 msgid "Problem purging revision %s: %s"
 msgstr "เกิดปัญหาในการถอดถอนรุ่น %s: %s"
 
-#: ckan/controllers/admin.py:155
+#: ckan/controllers/admin.py:181
 msgid "Purge complete"
 msgstr "การถอดถอนเสร็จสมบูรณ์"
 
-#: ckan/controllers/admin.py:157
+#: ckan/controllers/admin.py:183
 msgid "Action not implemented."
 msgstr "การกระทำนี้ยังไม่ถูกสร้างขึ้น"
 
-#: ckan/controllers/api.py:60 ckan/controllers/group.py:151
+#: ckan/controllers/api.py:60 ckan/controllers/group.py:165
 #: ckan/controllers/home.py:29 ckan/controllers/package.py:145
 #: ckan/controllers/related.py:86 ckan/controllers/related.py:113
 #: ckan/controllers/revision.py:31 ckan/controllers/tag.py:23
-#: ckan/controllers/user.py:45 ckan/controllers/user.py:72
-#: ckan/controllers/user.py:101 ckan/controllers/user.py:550
-#: ckanext/datapusher/plugin.py:67
+#: ckan/controllers/user.py:46 ckan/controllers/user.py:73
+#: ckan/controllers/user.py:102 ckan/controllers/user.py:562
+#: ckanext/datapusher/plugin.py:68
 msgid "Not authorized to see this page"
 msgstr "ไม่ได้รับอนุญาตให้ดูหน้านี้"
 
@@ -134,13 +133,13 @@ msgstr "ปฏิเสธการเข้าใช้"
 
 #: ckan/controllers/api.py:124 ckan/controllers/api.py:218
 #: ckan/logic/converters.py:119 ckan/logic/converters.py:144
-#: ckan/logic/converters.py:169 ckan/logic/validators.py:141
-#: ckan/logic/validators.py:162 ckan/logic/validators.py:183
-#: ckan/logic/validators.py:192 ckan/logic/validators.py:206
-#: ckan/logic/validators.py:223 ckan/logic/validators.py:236
-#: ckan/logic/validators.py:250 ckan/logic/validators.py:274
-#: ckan/logic/validators.py:283 ckan/logic/validators.py:719
-#: ckan/logic/action/create.py:874
+#: ckan/logic/converters.py:169 ckan/logic/validators.py:146
+#: ckan/logic/validators.py:167 ckan/logic/validators.py:188
+#: ckan/logic/validators.py:197 ckan/logic/validators.py:211
+#: ckan/logic/validators.py:228 ckan/logic/validators.py:241
+#: ckan/logic/validators.py:255 ckan/logic/validators.py:279
+#: ckan/logic/validators.py:288 ckan/logic/validators.py:724
+#: ckan/logic/action/create.py:969
 msgid "Not found"
 msgstr "ไม่พบ"
 
@@ -164,7 +163,7 @@ msgstr "JSON ผิดพลาด: %s"
 msgid "Bad request data: %s"
 msgstr "ข้อมูลคำขอไม่เหมาะสม: %s"
 
-#: ckan/controllers/api.py:288 ckan/logic/action/get.py:2228
+#: ckan/controllers/api.py:288 ckan/logic/action/get.py:2322
 #, python-format
 msgid "Cannot list entity of this type: %s"
 msgstr "ไม่สามารถแสดง entity ประเภทนี้ได้: %s"
@@ -234,35 +233,36 @@ msgstr "ค่า qjson ผิดรูปแบบ: %r"
 msgid "Request params must be in form of a json encoded dictionary."
 msgstr "พารามิเตอร์ในการร้องขอต้องอยู่ในรูปแบบ json encoded dictionary"
 
-#: ckan/controllers/feed.py:223 ckan/controllers/group.py:190
-#: ckan/controllers/group.py:385 ckan/controllers/group.py:484
-#: ckan/controllers/group.py:529 ckan/controllers/group.py:561
-#: ckan/controllers/group.py:572 ckan/controllers/group.py:617
-#: ckan/controllers/group.py:632 ckan/controllers/group.py:679
-#: ckan/controllers/group.py:708 ckan/controllers/group.py:739
-#: ckan/controllers/group.py:795 ckan/controllers/group.py:880
-#: ckan/controllers/package.py:1288 ckan/controllers/package.py:1303
+#: ckan/controllers/feed.py:223 ckan/controllers/group.py:138
+#: ckan/controllers/group.py:204 ckan/controllers/group.py:388
+#: ckan/controllers/group.py:496 ckan/controllers/group.py:543
+#: ckan/controllers/group.py:575 ckan/controllers/group.py:586
+#: ckan/controllers/group.py:640 ckan/controllers/group.py:659
+#: ckan/controllers/group.py:709 ckan/controllers/group.py:740
+#: ckan/controllers/group.py:772 ckan/controllers/group.py:831
+#: ckan/controllers/group.py:925 ckan/controllers/package.py:1292
+#: ckan/controllers/package.py:1307
 msgid "Group not found"
 msgstr "ไม่พบกลุ่ม"
 
-#: ckan/controllers/feed.py:234 ckan/controllers/group.py:364
+#: ckan/controllers/feed.py:234
 msgid "Organization not found"
 msgstr ""
 
-#: ckan/controllers/group.py:172
+#: ckan/controllers/group.py:140 ckan/controllers/group.py:589
 msgid "Incorrect group type"
 msgstr "ประเภทของกลุ่มไม่ถูกต้อง"
 
-#: ckan/controllers/group.py:192 ckan/controllers/group.py:387
-#: ckan/controllers/group.py:486 ckan/controllers/group.py:527
-#: ckan/controllers/group.py:559 ckan/controllers/group.py:882
+#: ckan/controllers/group.py:206 ckan/controllers/group.py:390
+#: ckan/controllers/group.py:498 ckan/controllers/group.py:541
+#: ckan/controllers/group.py:573 ckan/controllers/group.py:927
 #, python-format
 msgid "Unauthorized to read group %s"
 msgstr "ไม่ได้รับอนุญาตให้อ่านข้อมูลจากกลุ่ม %s"
 
-#: ckan/controllers/group.py:285 ckan/controllers/home.py:70
-#: ckan/controllers/package.py:241 ckan/lib/helpers.py:681
-#: ckan/templates/header.html:100 ckan/templates/organization/edit_base.html:5
+#: ckan/controllers/group.py:291 ckan/controllers/home.py:70
+#: ckan/controllers/package.py:241 ckan/lib/helpers.py:697
+#: ckan/templates/header.html:104 ckan/templates/organization/edit_base.html:5
 #: ckan/templates/organization/edit_base.html:8
 #: ckan/templates/organization/index.html:3
 #: ckan/templates/organization/index.html:6
@@ -273,9 +273,9 @@ msgstr "ไม่ได้รับอนุญาตให้อ่านข้
 msgid "Organizations"
 msgstr "องค์กร"
 
-#: ckan/controllers/group.py:286 ckan/controllers/home.py:71
-#: ckan/controllers/package.py:242 ckan/lib/helpers.py:682
-#: ckan/templates/header.html:101 ckan/templates/group/base_form_page.html:6
+#: ckan/controllers/group.py:292 ckan/controllers/home.py:71
+#: ckan/controllers/package.py:242 ckan/lib/helpers.py:698
+#: ckan/templates/header.html:105 ckan/templates/group/base_form_page.html:6
 #: ckan/templates/group/edit.html:4 ckan/templates/group/edit_base.html:3
 #: ckan/templates/group/edit_base.html:8 ckan/templates/group/index.html:3
 #: ckan/templates/group/index.html:6 ckan/templates/group/index.html:18
@@ -287,9 +287,9 @@ msgstr "องค์กร"
 msgid "Groups"
 msgstr "กลุ่ม"
 
-#: ckan/controllers/group.py:287 ckan/controllers/home.py:72
-#: ckan/controllers/package.py:243 ckan/lib/helpers.py:683
-#: ckan/logic/__init__.py:108
+#: ckan/controllers/group.py:293 ckan/controllers/home.py:72
+#: ckan/controllers/package.py:243 ckan/lib/helpers.py:699
+#: ckan/logic/__init__.py:113
 #: ckan/templates/package/snippets/package_basic_fields.html:24
 #: ckan/templates/snippets/context/dataset.html:17
 #: ckan/templates/tag/index.html:3 ckan/templates/tag/index.html:6
@@ -297,107 +297,112 @@ msgstr "กลุ่ม"
 msgid "Tags"
 msgstr "แท็ค"
 
-#: ckan/controllers/group.py:288 ckan/controllers/home.py:73
-#: ckan/controllers/package.py:244 ckan/lib/helpers.py:684
+#: ckan/controllers/group.py:294 ckan/controllers/home.py:73
+#: ckan/controllers/package.py:244 ckan/lib/helpers.py:700
 msgid "Formats"
 msgstr "รูปแบบ"
 
-#: ckan/controllers/group.py:289 ckan/controllers/home.py:74
-#: ckan/controllers/package.py:245 ckan/lib/helpers.py:685
+#: ckan/controllers/group.py:295 ckan/controllers/home.py:74
+#: ckan/controllers/package.py:245 ckan/lib/helpers.py:701
 msgid "Licenses"
 msgstr "สัญญาอนุญาต"
 
-#: ckan/controllers/group.py:429
+#: ckan/controllers/group.py:433
 msgid "Not authorized to perform bulk update"
 msgstr "ไม่ได้รับอนุญาตให้ปรับปรุงเป็นกลุ่ม"
 
-#: ckan/controllers/group.py:446
+#: ckan/controllers/group.py:453
 msgid "Unauthorized to create a group"
 msgstr "ไม่ได้รับอนุญาตให้สร้างกลุ่ม"
 
-#: ckan/controllers/group.py:495 ckan/controllers/package.py:338
-#: ckan/controllers/package.py:803 ckan/controllers/package.py:1436
-#: ckan/controllers/package.py:1472
+#: ckan/controllers/group.py:507 ckan/controllers/package.py:338
+#: ckan/controllers/package.py:807 ckan/controllers/package.py:1440
+#: ckan/controllers/package.py:1476
 #, python-format
 msgid "User %r not authorized to edit %s"
 msgstr "ผู้ใช้ %r ไม่ได้รับอนุญาตให้แก้ไข %s"
 
-#: ckan/controllers/group.py:531 ckan/controllers/group.py:563
-#: ckan/controllers/package.py:967 ckan/controllers/package.py:1014
+#: ckan/controllers/group.py:545 ckan/controllers/group.py:577
+#: ckan/controllers/package.py:971 ckan/controllers/package.py:1018
 #: ckan/controllers/related.py:190 ckan/controllers/user.py:236
-#: ckan/controllers/user.py:339 ckan/controllers/user.py:505
+#: ckan/controllers/user.py:348 ckan/controllers/user.py:517
 msgid "Integrity Error"
 msgstr "ข้อมูลไม่สมบูรณ์"
 
-#: ckan/controllers/group.py:586
+#: ckan/controllers/group.py:603
 #, python-format
 msgid "User %r not authorized to edit %s authorizations"
 msgstr "ผู้ใช้ %r ไม่มีสิทธิ์ในการแก้ไข \"การอนุญาต\" %s"
 
-#: ckan/controllers/group.py:603 ckan/controllers/group.py:615
-#: ckan/controllers/group.py:630 ckan/controllers/group.py:706
+#: ckan/controllers/group.py:623 ckan/controllers/group.py:638
+#: ckan/controllers/group.py:657 ckan/controllers/group.py:738
 #, python-format
 msgid "Unauthorized to delete group %s"
 msgstr "ไม่ได้รับการอนุญาตให้ลบกลุ่ม %s"
 
-#: ckan/controllers/group.py:609
+#: ckan/controllers/group.py:629
 msgid "Organization has been deleted."
 msgstr "องค์กรถูกลบออกแล้ว"
 
-#: ckan/controllers/group.py:611
+#: ckan/controllers/group.py:631
 msgid "Group has been deleted."
 msgstr "กลุ่มถูกลบออกแล้ว"
 
-#: ckan/controllers/group.py:677
+#: ckan/controllers/group.py:633
+#, python-format
+msgid "%s has been deleted."
+msgstr ""
+
+#: ckan/controllers/group.py:707
 #, python-format
 msgid "Unauthorized to add member to group %s"
 msgstr "ไม่ได้รับการอนุญาตให้เพิ่มสมาชิกลงในกลุ่ม %s"
 
-#: ckan/controllers/group.py:694
+#: ckan/controllers/group.py:726
 #, python-format
 msgid "Unauthorized to delete group %s members"
 msgstr "ไม่ได้รับการอนุญาตให้ลบสมาชิกในกลุ่ม %s"
 
-#: ckan/controllers/group.py:700
+#: ckan/controllers/group.py:732
 msgid "Group member has been deleted."
 msgstr "สมาชิกในกลุ่มได้ถูกลบออกแล้ว"
 
-#: ckan/controllers/group.py:722 ckan/controllers/package.py:446
+#: ckan/controllers/group.py:755 ckan/controllers/package.py:446
 msgid "Select two revisions before doing the comparison."
 msgstr "ต้องเลือกสองรุ่นเพื่อทำการเปรียบเทียบ"
 
-#: ckan/controllers/group.py:741
+#: ckan/controllers/group.py:774
 #, python-format
 msgid "User %r not authorized to edit %r"
 msgstr "ผู้ใช้ %r ไม่ได้รับอนุญาตให้แก้ไข %r"
 
-#: ckan/controllers/group.py:748
+#: ckan/controllers/group.py:781
 msgid "CKAN Group Revision History"
 msgstr "ประวัติการแก้ไขกลุ่มในระบบ CKAN"
 
-#: ckan/controllers/group.py:751
+#: ckan/controllers/group.py:785
 msgid "Recent changes to CKAN Group: "
 msgstr "การเปลี่ยนแปลงกลุ่มล่าสุดในระบบ CKAN :"
 
-#: ckan/controllers/group.py:772 ckan/controllers/package.py:496
+#: ckan/controllers/group.py:806 ckan/controllers/package.py:496
 msgid "Log message: "
 msgstr "ข้อความบันทึก:"
 
-#: ckan/controllers/group.py:798
+#: ckan/controllers/group.py:834
 msgid "Unauthorized to read group {group_id}"
 msgstr "ไม่ได้รับอนุญาตให้อ่านกลุ่ม {group_id}"
 
-#: ckan/controllers/group.py:817 ckan/controllers/package.py:1213
-#: ckan/controllers/user.py:671
+#: ckan/controllers/group.py:855 ckan/controllers/package.py:1217
+#: ckan/controllers/user.py:683
 msgid "You are now following {0}"
 msgstr "คุณกำลังติดตาม {0}"
 
-#: ckan/controllers/group.py:836 ckan/controllers/package.py:1232
-#: ckan/controllers/user.py:691
+#: ckan/controllers/group.py:875 ckan/controllers/package.py:1236
+#: ckan/controllers/user.py:703
 msgid "You are no longer following {0}"
 msgstr "คุณไม่ได้ติดตาม {0}"
 
-#: ckan/controllers/group.py:854 ckan/controllers/user.py:536
+#: ckan/controllers/group.py:894 ckan/controllers/user.py:548
 #, python-format
 msgid "Unauthorized to view followers %s"
 msgstr "ไม่ได้รับการอนุญาตให้ดูข้อมูลของผู้ติดตาม %s"
@@ -437,22 +442,22 @@ msgstr "พารามิเตอร์  \"{parameter_name}\" ไม่ใช�
 
 #: ckan/controllers/package.py:336 ckan/controllers/package.py:344
 #: ckan/controllers/package.py:397 ckan/controllers/package.py:465
-#: ckan/controllers/package.py:789 ckan/controllers/package.py:848
-#: ckan/controllers/package.py:866 ckan/controllers/package.py:965
-#: ckan/controllers/package.py:1012 ckan/controllers/package.py:1068
-#: ckan/controllers/package.py:1106 ckan/controllers/package.py:1258
-#: ckan/controllers/package.py:1274 ckan/controllers/package.py:1343
-#: ckan/controllers/package.py:1442 ckan/controllers/package.py:1479
-#: ckan/controllers/package.py:1592 ckan/controllers/related.py:111
+#: ckan/controllers/package.py:793 ckan/controllers/package.py:852
+#: ckan/controllers/package.py:870 ckan/controllers/package.py:969
+#: ckan/controllers/package.py:1016 ckan/controllers/package.py:1072
+#: ckan/controllers/package.py:1110 ckan/controllers/package.py:1262
+#: ckan/controllers/package.py:1278 ckan/controllers/package.py:1347
+#: ckan/controllers/package.py:1446 ckan/controllers/package.py:1483
+#: ckan/controllers/package.py:1596 ckan/controllers/related.py:111
 #: ckan/controllers/related.py:122
 msgid "Dataset not found"
 msgstr "ไม่พบชุดข้อมูล"
 
 #: ckan/controllers/package.py:346 ckan/controllers/package.py:399
-#: ckan/controllers/package.py:463 ckan/controllers/package.py:787
-#: ckan/controllers/package.py:846 ckan/controllers/package.py:864
-#: ckan/controllers/package.py:963 ckan/controllers/package.py:1010
-#: ckan/controllers/package.py:1260 ckan/controllers/related.py:124
+#: ckan/controllers/package.py:463 ckan/controllers/package.py:791
+#: ckan/controllers/package.py:850 ckan/controllers/package.py:868
+#: ckan/controllers/package.py:967 ckan/controllers/package.py:1014
+#: ckan/controllers/package.py:1264 ckan/controllers/related.py:124
 #, python-format
 msgid "Unauthorized to read package %s"
 msgstr "ไม่ได้รับการอนุญาตให้อ่านแพคเกจ %s"
@@ -483,15 +488,15 @@ msgstr "การเปลี่ยนแปลงชุดข้อมูลล
 msgid "Unauthorized to create a package"
 msgstr "ไม่ได้รับการอนุญาตให้สร้างแพคเกจ"
 
-#: ckan/controllers/package.py:609 ckanext/datapusher/plugin.py:58
+#: ckan/controllers/package.py:609 ckanext/datapusher/plugin.py:59
 msgid "Unauthorized to edit this resource"
 msgstr "ไม่ได้รับการอนุญาตให้แก้ไขทรัพยากร"
 
-#: ckan/controllers/package.py:629 ckan/controllers/package.py:1095
-#: ckan/controllers/package.py:1115 ckan/controllers/package.py:1182
-#: ckan/controllers/package.py:1373 ckan/controllers/package.py:1453
-#: ckan/controllers/package.py:1486 ckan/controllers/package.py:1600
-#: ckan/controllers/package.py:1656 ckanext/datapusher/plugin.py:56
+#: ckan/controllers/package.py:629 ckan/controllers/package.py:1099
+#: ckan/controllers/package.py:1119 ckan/controllers/package.py:1186
+#: ckan/controllers/package.py:1377 ckan/controllers/package.py:1457
+#: ckan/controllers/package.py:1490 ckan/controllers/package.py:1604
+#: ckan/controllers/package.py:1660 ckanext/datapusher/plugin.py:57
 #: ckanext/resourceproxy/controller.py:32
 msgid "Resource not found"
 msgstr "ไม่พบทรัพยากร"
@@ -500,8 +505,8 @@ msgstr "ไม่พบทรัพยากร"
 msgid "Unauthorized to update dataset"
 msgstr "ไม่ได้รับการอนุญาตให้ปรับปรุงชุดข้อมูล"
 
-#: ckan/controllers/package.py:685 ckan/controllers/package.py:717
-#: ckan/controllers/package.py:745
+#: ckan/controllers/package.py:685 ckan/controllers/package.py:721
+#: ckan/controllers/package.py:749
 msgid "The dataset {id} could not be found."
 msgstr "ไม่พบชุดข้อมูล {id} "
 
@@ -513,98 +518,98 @@ msgstr "คุณต้องเพิ่มอย่างน้อยหนึ
 msgid "Error"
 msgstr "ผิดพลาด"
 
-#: ckan/controllers/package.py:714
+#: ckan/controllers/package.py:718
 msgid "Unauthorized to create a resource"
 msgstr "ไม่ได้รับการอนุญาตให้สร้างทรัพยากร"
 
-#: ckan/controllers/package.py:750
+#: ckan/controllers/package.py:754
 msgid "Unauthorized to create a resource for this package"
 msgstr ""
 
-#: ckan/controllers/package.py:973
+#: ckan/controllers/package.py:977
 msgid "Unable to add package to search index."
 msgstr "ไม่สามารถเพิ่มแพคเกจลงในดัชนีค้นหา"
 
-#: ckan/controllers/package.py:1020
+#: ckan/controllers/package.py:1024
 msgid "Unable to update search index."
 msgstr "ไม่สามารถปรับปรุงดัชนีค้นหา"
 
-#: ckan/controllers/package.py:1056 ckan/controllers/package.py:1066
-#: ckan/controllers/package.py:1083
+#: ckan/controllers/package.py:1060 ckan/controllers/package.py:1070
+#: ckan/controllers/package.py:1087
 #, python-format
 msgid "Unauthorized to delete package %s"
 msgstr "ไม่ได้รับอนุญาตให้ลบแพคเกจ %s"
 
-#: ckan/controllers/package.py:1061
+#: ckan/controllers/package.py:1065
 msgid "Dataset has been deleted."
 msgstr "ชุดข้อมูลได้ถูกลบออก"
 
-#: ckan/controllers/package.py:1088
+#: ckan/controllers/package.py:1092
 msgid "Resource has been deleted."
 msgstr "ทรัพยากรได้ถูกลบออก"
 
-#: ckan/controllers/package.py:1093
+#: ckan/controllers/package.py:1097
 #, python-format
 msgid "Unauthorized to delete resource %s"
 msgstr "ไม่ได้รับการอนุญาตให้ลบทรัพยากร %s"
 
-#: ckan/controllers/package.py:1108 ckan/controllers/package.py:1276
-#: ckan/controllers/package.py:1345 ckan/controllers/package.py:1444
-#: ckan/controllers/package.py:1481 ckan/controllers/package.py:1594
+#: ckan/controllers/package.py:1112 ckan/controllers/package.py:1280
+#: ckan/controllers/package.py:1349 ckan/controllers/package.py:1448
+#: ckan/controllers/package.py:1485 ckan/controllers/package.py:1598
 #, python-format
 msgid "Unauthorized to read dataset %s"
 msgstr "ไม่ได้รับการอนุญาติให้อ่านชุดช้อมูล %s"
 
-#: ckan/controllers/package.py:1153 ckan/controllers/package.py:1615
+#: ckan/controllers/package.py:1157 ckan/controllers/package.py:1619
 msgid "Resource view not found"
 msgstr ""
 
-#: ckan/controllers/package.py:1184 ckan/controllers/package.py:1375
-#: ckan/controllers/package.py:1455 ckan/controllers/package.py:1488
-#: ckan/controllers/package.py:1602 ckan/controllers/package.py:1658
+#: ckan/controllers/package.py:1188 ckan/controllers/package.py:1379
+#: ckan/controllers/package.py:1459 ckan/controllers/package.py:1492
+#: ckan/controllers/package.py:1606 ckan/controllers/package.py:1662
 #, python-format
 msgid "Unauthorized to read resource %s"
 msgstr "ไม่ได้รับการอนุญาตให้อ่านทรัพยากร %s"
 
-#: ckan/controllers/package.py:1193
+#: ckan/controllers/package.py:1197
 msgid "Resource data not found"
 msgstr "ไม่พบข้อมูลทรัพยากร"
 
-#: ckan/controllers/package.py:1201
+#: ckan/controllers/package.py:1205
 msgid "No download is available"
 msgstr "ไม่มีดาวน์โหลด"
 
-#: ckan/controllers/package.py:1523
+#: ckan/controllers/package.py:1527
 msgid "Unauthorized to edit resource"
 msgstr ""
 
-#: ckan/controllers/package.py:1541
+#: ckan/controllers/package.py:1545
 msgid "View not found"
 msgstr ""
 
-#: ckan/controllers/package.py:1543
+#: ckan/controllers/package.py:1547
 #, python-format
 msgid "Unauthorized to view View %s"
 msgstr ""
 
-#: ckan/controllers/package.py:1549
+#: ckan/controllers/package.py:1553
 msgid "View Type Not found"
 msgstr ""
 
-#: ckan/controllers/package.py:1609
+#: ckan/controllers/package.py:1613
 msgid "Bad resource view data"
 msgstr ""
 
-#: ckan/controllers/package.py:1618
+#: ckan/controllers/package.py:1622
 #, python-format
 msgid "Unauthorized to read resource view %s"
 msgstr ""
 
-#: ckan/controllers/package.py:1621
+#: ckan/controllers/package.py:1625
 msgid "Resource view not supplied"
 msgstr ""
 
-#: ckan/controllers/package.py:1650
+#: ckan/controllers/package.py:1654
 msgid "No preview has been defined."
 msgstr "ไม่ได้กำหนดตัวอย่างไว้"
 
@@ -637,7 +642,7 @@ msgid "Related item not found"
 msgstr "ไม่พบรายการที่เกี่ยวข้อง"
 
 #: ckan/controllers/related.py:158 ckan/logic/auth/get.py:10
-#: ckan/logic/auth/get.py:267
+#: ckan/logic/auth/get.py:270
 msgid "Not authorized"
 msgstr "ไม่ได้รับการอนุญาต"
 
@@ -715,10 +720,10 @@ msgstr "อื่นๆ"
 msgid "Tag not found"
 msgstr "ไม่พบแท็ค"
 
-#: ckan/controllers/user.py:70 ckan/controllers/user.py:219
-#: ckan/controllers/user.py:234 ckan/controllers/user.py:296
-#: ckan/controllers/user.py:337 ckan/controllers/user.py:482
-#: ckan/controllers/user.py:503 ckan/logic/auth/update.py:198
+#: ckan/controllers/user.py:71 ckan/controllers/user.py:219
+#: ckan/controllers/user.py:234 ckan/controllers/user.py:297
+#: ckan/controllers/user.py:346 ckan/controllers/user.py:493
+#: ckan/controllers/user.py:515 ckan/logic/auth/update.py:198
 msgid "User not found"
 msgstr "ไม่พบผู้ใช้"
 
@@ -738,13 +743,13 @@ msgstr "ไม่อนุญาตให้ลบผู้ใช้ด้วย
 msgid "No user specified"
 msgstr "ไม่ได้ระบุผู้ใช้"
 
-#: ckan/controllers/user.py:217 ckan/controllers/user.py:294
-#: ckan/controllers/user.py:335 ckan/controllers/user.py:501
+#: ckan/controllers/user.py:217 ckan/controllers/user.py:295
+#: ckan/controllers/user.py:344 ckan/controllers/user.py:513
 #, python-format
 msgid "Unauthorized to edit user %s"
 msgstr "ไม่อนุญาตให้แก้ไขผู้ใช้ %s"
 
-#: ckan/controllers/user.py:221 ckan/controllers/user.py:332
+#: ckan/controllers/user.py:221 ckan/controllers/user.py:341
 msgid "Profile updated"
 msgstr "ประวัติผู้ใช้ปรับปรุงแล้ว"
 
@@ -768,75 +773,87 @@ msgstr " ผู้ใช้ \"%s\" ลงทะเบียนแล้วแต
 msgid "Unauthorized to edit a user."
 msgstr "ไม่อนุญาตให้แก้ไขผู้ใช้"
 
-#: ckan/controllers/user.py:302
+#: ckan/controllers/user.py:303
 #, python-format
 msgid "User %s not authorized to edit %s"
 msgstr "ผู้ใช้ %s ไม่ได้รับอนุญาตให้แก้ไข %s"
 
-#: ckan/controllers/user.py:383
+#: ckan/controllers/user.py:354
+msgid "Password entered was incorrect"
+msgstr ""
+
+#: ckan/controllers/user.py:355 ckan/templates/user/edit_user_form.html:27
+msgid "Old Password"
+msgstr ""
+
+#: ckan/controllers/user.py:355
+msgid "incorrect password"
+msgstr ""
+
+#: ckan/controllers/user.py:396
 msgid "Login failed. Bad username or password."
 msgstr "เข้าระบบล้มเหลว ชื่อผู้ใช้หรือรหัสผ่านผิด"
 
-#: ckan/controllers/user.py:417
+#: ckan/controllers/user.py:430
 msgid "Unauthorized to request reset password."
 msgstr "ไม่ได้รับอนุญาตเพื่อขอตั้งรหัสผ่านใหม่"
 
-#: ckan/controllers/user.py:446
+#: ckan/controllers/user.py:459
 #, python-format
 msgid "\"%s\" matched several users"
 msgstr "\"%s\" ตรงกับผู้ใช้หลายคน"
 
-#: ckan/controllers/user.py:448 ckan/controllers/user.py:450
+#: ckan/controllers/user.py:461 ckan/controllers/user.py:463
 #, python-format
 msgid "No such user: %s"
 msgstr "ไม่มีผู้ใช้: %s"
 
-#: ckan/controllers/user.py:455
+#: ckan/controllers/user.py:468
 msgid "Please check your inbox for a reset code."
 msgstr "กรุณาตรวจสอบกล่องจดหมายสำหรับโค้ดรีเซ็ต"
 
-#: ckan/controllers/user.py:459
+#: ckan/controllers/user.py:472
 #, python-format
 msgid "Could not send reset link: %s"
 msgstr "ไม่สามารถส่งลิงก์รีเซ็ต: %s"
 
-#: ckan/controllers/user.py:474
+#: ckan/controllers/user.py:485
 msgid "Unauthorized to reset password."
 msgstr "ไม่อนุญาตให้ตั้งรหัสผ่านใหม่"
 
-#: ckan/controllers/user.py:486
+#: ckan/controllers/user.py:497
 msgid "Invalid reset key. Please try again."
 msgstr "ตั้งค่ารหัสใหม่ไม่ถูกต้อง กรุณาลองอีกครั้ง"
 
-#: ckan/controllers/user.py:498
+#: ckan/controllers/user.py:510
 msgid "Your password has been reset."
 msgstr "รหัสผ่านของคุณได้รับการตั้งค่าใหม่"
 
-#: ckan/controllers/user.py:519
+#: ckan/controllers/user.py:531
 msgid "Your password must be 4 characters or longer."
 msgstr "รหัสผ่านของคุณต้องมีความยาว 4 ตัวอักษรหรือมากกว่า"
 
-#: ckan/controllers/user.py:522
+#: ckan/controllers/user.py:534
 msgid "The passwords you entered do not match."
 msgstr "รหัสผ่านที่คุณกรอกไม่ตรงกัน"
 
-#: ckan/controllers/user.py:525
+#: ckan/controllers/user.py:537
 msgid "You must provide a password"
 msgstr "คุณต้องระบุรหัสผ่าน"
 
-#: ckan/controllers/user.py:589
+#: ckan/controllers/user.py:601
 msgid "Follow item not found"
 msgstr "ไม่พบรายการที่ติดตาม"
 
-#: ckan/controllers/user.py:593
+#: ckan/controllers/user.py:605
 msgid "{0} not found"
 msgstr "ไม่พบ {0} "
 
-#: ckan/controllers/user.py:595
+#: ckan/controllers/user.py:607
 msgid "Unauthorized to read {0} {1}"
 msgstr "ไม่อนุญาตให้อ่าน {0} {1}"
 
-#: ckan/controllers/user.py:610
+#: ckan/controllers/user.py:622
 msgid "Everything"
 msgstr "ทุกอย่าง"
 
@@ -956,7 +973,7 @@ msgstr "{actor} เพิ่ม {related_type} {related_item} ไปยังช
 msgid "{actor} added the {related_type} {related_item}"
 msgstr "{actor} เพิ่ม {related_type} {related_item}"
 
-#: ckan/lib/datapreview.py:268 ckan/templates/group/edit_base.html:16
+#: ckan/lib/datapreview.py:265 ckan/templates/group/edit_base.html:16
 #: ckan/templates/organization/edit_base.html:17
 #: ckan/templates/package/resource_read.html:37
 #: ckan/templates/package/resource_views.html:4
@@ -1109,36 +1126,36 @@ msgstr "{z}Z"
 msgid "{y}Y"
 msgstr "{y}Y"
 
-#: ckan/lib/helpers.py:858
+#: ckan/lib/helpers.py:881
 msgid "Update your avatar at gravatar.com"
 msgstr "ปรับปรุงภาพประจำตัวคุณที่ gravatar.com"
 
-#: ckan/lib/helpers.py:1061 ckan/lib/helpers.py:1073
+#: ckan/lib/helpers.py:1085 ckan/lib/helpers.py:1097
 msgid "Unknown"
 msgstr "ไม่ทราบ"
 
-#: ckan/lib/helpers.py:1117
+#: ckan/lib/helpers.py:1142
 msgid "Unnamed resource"
 msgstr "ไม่ได้ตั้งชื่อทรัพยากร"
 
-#: ckan/lib/helpers.py:1164
+#: ckan/lib/helpers.py:1189
 msgid "Created new dataset."
 msgstr "สร้างชุดข้อมูลใหม่แล้ว"
 
-#: ckan/lib/helpers.py:1166
+#: ckan/lib/helpers.py:1191
 msgid "Edited resources."
 msgstr "แก้ไขทรัพยากรแล้ว"
 
-#: ckan/lib/helpers.py:1168
+#: ckan/lib/helpers.py:1193
 msgid "Edited settings."
 msgstr "แก้ไขการตั้งค่าแล้ว"
 
-#: ckan/lib/helpers.py:1431
+#: ckan/lib/helpers.py:1456
 msgid "{number} view"
 msgid_plural "{number} views"
 msgstr[0] "จำนวนผู้ชม: {number} "
 
-#: ckan/lib/helpers.py:1433
+#: ckan/lib/helpers.py:1458
 msgid "{number} recent view"
 msgid_plural "{number} recent views"
 msgstr[0] "จำนวนผู้ชมล่าสุด: {number} "
@@ -1168,8 +1185,8 @@ msgstr ""
 
 #: ckan/lib/mailer.py:119
 msgid ""
-"You have been invited to {site_title}. A user has already been createdto "
-"you with the username {user_name}. You can change it later.\n"
+"You have been invited to {site_title}. A user has already been created to"
+" you with the username {user_name}. You can change it later.\n"
 "\n"
 "To accept this invite, please reset your password at:\n"
 "\n"
@@ -1194,7 +1211,7 @@ msgstr "คำเชิญสำหรับ {site_title}"
 #: ckan/lib/navl/dictization_functions.py:23
 #: ckan/lib/navl/dictization_functions.py:25 ckan/lib/navl/validators.py:23
 #: ckan/lib/navl/validators.py:30 ckan/lib/navl/validators.py:50
-#: ckan/logic/validators.py:620 ckan/logic/action/get.py:1847
+#: ckan/logic/validators.py:625 ckan/logic/action/get.py:1941
 msgid "Missing value"
 msgstr "ค่าที่ขาดหาย"
 
@@ -1207,7 +1224,7 @@ msgstr "ค่า %(name)s ไม่ถูกต้อง"
 msgid "Please enter an integer value"
 msgstr "กรุณาใส่ค่าตัวเลข (จำนวนเต็ม)"
 
-#: ckan/logic/__init__.py:97 ckan/logic/action/__init__.py:58
+#: ckan/logic/__init__.py:102 ckan/logic/action/__init__.py:58
 #: ckan/templates/package/edit_base.html:21
 #: ckan/templates/package/resources.html:5
 #: ckan/templates/package/snippets/package_context.html:12
@@ -1217,11 +1234,11 @@ msgstr "กรุณาใส่ค่าตัวเลข (จำนวนเ�
 msgid "Resources"
 msgstr "ทรัพยากร"
 
-#: ckan/logic/__init__.py:97 ckan/logic/action/__init__.py:58
+#: ckan/logic/__init__.py:102 ckan/logic/action/__init__.py:58
 msgid "Package resource(s) invalid"
 msgstr "แพคเกจของทรัพยากรไม่ถูกต้อง"
 
-#: ckan/logic/__init__.py:104 ckan/logic/__init__.py:106
+#: ckan/logic/__init__.py:109 ckan/logic/__init__.py:111
 #: ckan/logic/action/__init__.py:60 ckan/logic/action/__init__.py:62
 msgid "Extras"
 msgstr "เพิ่มเติม"
@@ -1231,23 +1248,23 @@ msgstr "เพิ่มเติม"
 msgid "Tag vocabulary \"%s\" does not exist"
 msgstr "ไม่มีแท็คสำหรับคำศัพท์ \"%s\" "
 
-#: ckan/logic/converters.py:119 ckan/logic/validators.py:206
-#: ckan/logic/validators.py:223 ckan/logic/validators.py:719
+#: ckan/logic/converters.py:119 ckan/logic/validators.py:211
+#: ckan/logic/validators.py:228 ckan/logic/validators.py:724
 #: ckan/templates/group/members.html:17
 #: ckan/templates/organization/members.html:17
 #: ckanext/stats/templates/ckanext/stats/index.html:156
 msgid "User"
 msgstr "ผู้ใช้"
 
-#: ckan/logic/converters.py:144 ckan/logic/validators.py:141
-#: ckan/logic/validators.py:183 ckan/templates/package/read_base.html:24
+#: ckan/logic/converters.py:144 ckan/logic/validators.py:146
+#: ckan/logic/validators.py:188 ckan/templates/package/read_base.html:24
 #: ckanext/stats/templates/ckanext/stats/index.html:89
 #: ckanext/stats/templates_legacy/ckanext/stats/index.html:65
 #: ckanext/stats/templates_legacy/ckanext/stats/index.html:74
 msgid "Dataset"
 msgstr "ชุดข้อมูล"
 
-#: ckan/logic/converters.py:169 ckan/logic/validators.py:236
+#: ckan/logic/converters.py:169 ckan/logic/validators.py:241
 #: ckanext/stats/templates/ckanext/stats/index.html:113
 #: ckanext/stats/templates_legacy/ckanext/stats/index.html:82
 msgid "Group"
@@ -1261,380 +1278,376 @@ msgstr "ไม่สามารถอ่านข้อมูล JSON"
 msgid "A organization must be supplied"
 msgstr "ต้องระบุองค์กร"
 
-#: ckan/logic/validators.py:43
-msgid "You cannot remove a dataset from an existing organization"
-msgstr "คุณไม่สามารถลบชุดข้อมูลจากองค์กรที่มีอยู่ก่อนแล้ว"
-
-#: ckan/logic/validators.py:48
+#: ckan/logic/validators.py:44
 msgid "Organization does not exist"
 msgstr "ไม่มีองค์กรนี้"
 
-#: ckan/logic/validators.py:53
+#: ckan/logic/validators.py:49
 msgid "You cannot add a dataset to this organization"
 msgstr "คุณไม่สามารถเพิ่มชุดข้อมูลลงในองค์กรนี้"
 
-#: ckan/logic/validators.py:93
+#: ckan/logic/validators.py:89
 msgid "Invalid integer"
 msgstr "ตัวเลขนี้ไม่ถูกต้อง"
 
-#: ckan/logic/validators.py:98
+#: ckan/logic/validators.py:94
 msgid "Must be a natural number"
 msgstr "จะต้องเป็นจำนวนธรรมชาติ"
 
-#: ckan/logic/validators.py:104
+#: ckan/logic/validators.py:100
 msgid "Must be a postive integer"
 msgstr "จะต้องเป็นเลขจำนวนเต็มบวก"
 
-#: ckan/logic/validators.py:122
+#: ckan/logic/validators.py:127
 msgid "Date format incorrect"
 msgstr "รูปแบบข้อมูลวันที่ไม่ถูกต้อง"
 
-#: ckan/logic/validators.py:131
+#: ckan/logic/validators.py:136
 msgid "No links are allowed in the log_message."
 msgstr "ไม่อนุญาตให้มีลิงก์ใน log_message"
 
-#: ckan/logic/validators.py:151
+#: ckan/logic/validators.py:156
 msgid "Dataset id already exists"
 msgstr ""
 
-#: ckan/logic/validators.py:192 ckan/logic/validators.py:283
+#: ckan/logic/validators.py:197 ckan/logic/validators.py:288
 msgid "Resource"
 msgstr "ทรัพยากร"
 
-#: ckan/logic/validators.py:250 ckan/templates/package/read_base.html:27
+#: ckan/logic/validators.py:255 ckan/templates/package/read_base.html:27
 #: ckan/templates/package/related_list.html:4
 #: ckan/templates/snippets/related.html:2
 msgid "Related"
 msgstr "ที่เกี่ยวข้องกัน"
 
-#: ckan/logic/validators.py:260
+#: ckan/logic/validators.py:265
 msgid "That group name or ID does not exist."
 msgstr "ไม่มีชื่อกลุ่มหรือ ID "
 
-#: ckan/logic/validators.py:274
+#: ckan/logic/validators.py:279
 msgid "Activity type"
 msgstr "ประเภทกิจกรรม"
 
-#: ckan/logic/validators.py:349
+#: ckan/logic/validators.py:354
 msgid "Names must be strings"
 msgstr "ชื่อต้องเป็นตัวอักษรภาษาอังกฤษ"
 
-#: ckan/logic/validators.py:353
+#: ckan/logic/validators.py:358
 msgid "That name cannot be used"
 msgstr "ไม่สามารถใช้ชื่อนี้ได้"
 
-#: ckan/logic/validators.py:356
+#: ckan/logic/validators.py:361
 #, python-format
 msgid "Must be at least %s characters long"
 msgstr ""
 
-#: ckan/logic/validators.py:358 ckan/logic/validators.py:636
+#: ckan/logic/validators.py:363 ckan/logic/validators.py:641
 #, python-format
 msgid "Name must be a maximum of %i characters long"
 msgstr "ชื่อต้องมีความยาวไม่เกิน %i ตัวอักษร"
 
-#: ckan/logic/validators.py:361
+#: ckan/logic/validators.py:366
 msgid ""
 "Must be purely lowercase alphanumeric (ascii) characters and these "
 "symbols: -_"
 msgstr ""
 
-#: ckan/logic/validators.py:379
+#: ckan/logic/validators.py:384
 msgid "That URL is already in use."
 msgstr "URL นี้ถูกใช้แล้ว"
 
-#: ckan/logic/validators.py:384
+#: ckan/logic/validators.py:389
 #, python-format
 msgid "Name \"%s\" length is less than minimum %s"
 msgstr "ความยาวของชื่อ \"%s\" น้อยกว่าค่าขั้นต่ำ %s"
 
-#: ckan/logic/validators.py:388
+#: ckan/logic/validators.py:393
 #, python-format
 msgid "Name \"%s\" length is more than maximum %s"
 msgstr "ความยาวของชื่อ \"%s\" มากกว่าค่าสูงสุดสุด %s"
 
-#: ckan/logic/validators.py:394
+#: ckan/logic/validators.py:399
 #, python-format
 msgid "Version must be a maximum of %i characters long"
 msgstr "ชื่อเวอร์ชั่นยาวได้ไม่เกิน %i ตัวอักษร"
 
-#: ckan/logic/validators.py:412
+#: ckan/logic/validators.py:417
 #, python-format
 msgid "Duplicate key \"%s\""
 msgstr "กุญแจ \"%s\" ซ้ำ"
 
-#: ckan/logic/validators.py:428
+#: ckan/logic/validators.py:433
 msgid "Group name already exists in database"
 msgstr "ชื่อกลุ่มมีอยู่แล้วในฐานข้อมูล"
 
-#: ckan/logic/validators.py:434
+#: ckan/logic/validators.py:439
 #, python-format
 msgid "Tag \"%s\" length is less than minimum %s"
 msgstr "แท็ค \"%s\" มีความยาวน้อยกว่าขั้นต่ำ %s"
 
-#: ckan/logic/validators.py:438
+#: ckan/logic/validators.py:443
 #, python-format
 msgid "Tag \"%s\" length is more than maximum %i"
 msgstr "ความยาวของแท็ค \"%s\" เกินกว่าค่าสูงสุด %i"
 
-#: ckan/logic/validators.py:446
+#: ckan/logic/validators.py:451
 #, python-format
 msgid "Tag \"%s\" must be alphanumeric characters or symbols: -_."
 msgstr "ค่าของ tag \"%s\" ต้องเป็นตัวอักษร ตัวเลขหรือตัว _-. เท่านั้น"
 
-#: ckan/logic/validators.py:454
+#: ckan/logic/validators.py:459
 #, python-format
 msgid "Tag \"%s\" must not be uppercase"
 msgstr "ค่าแท็ค \"%s\"  ต้องเป็นอักษรภาษาอังกฤษตัวเล็กเท่านั้น"
 
-#: ckan/logic/validators.py:563
+#: ckan/logic/validators.py:568
 msgid "User names must be strings"
 msgstr "ชื่อผู้ใช้ต้องเป็นตัวอักษร"
 
-#: ckan/logic/validators.py:579
+#: ckan/logic/validators.py:584
 msgid "That login name is not available."
 msgstr "ชื่อล๊อกอินนี้ไม่ว่าง"
 
-#: ckan/logic/validators.py:588
+#: ckan/logic/validators.py:593
 msgid "Please enter both passwords"
 msgstr "กรุณาป้อนรหัสผ่านสองครั้ง"
 
-#: ckan/logic/validators.py:596
+#: ckan/logic/validators.py:601
 msgid "Passwords must be strings"
 msgstr "รหัสผ่านต้องเป็นตัวอักษร"
 
-#: ckan/logic/validators.py:600
+#: ckan/logic/validators.py:605
 msgid "Your password must be 4 characters or longer"
 msgstr "รหัสผ่านของคุณต้องยาวกว่า 4 ตัว"
 
-#: ckan/logic/validators.py:608
+#: ckan/logic/validators.py:613
 msgid "The passwords you entered do not match"
 msgstr "รหัสผ่านที่คุณป้อนไม่ตรงกัน"
 
-#: ckan/logic/validators.py:624
+#: ckan/logic/validators.py:629
 msgid ""
 "Edit not allowed as it looks like spam. Please avoid links in your "
 "description."
 msgstr "ไม่สามารถแก้ไขได้ กรุณาอย่าใส่ลิงก์ในคำอธิบายของคุณ"
 
-#: ckan/logic/validators.py:633
+#: ckan/logic/validators.py:638
 #, python-format
 msgid "Name must be at least %s characters long"
 msgstr "ชื่อต้องมีความยาวไม่น้อยกว่า %s ตัวอักษร"
 
-#: ckan/logic/validators.py:641
+#: ckan/logic/validators.py:646
 msgid "That vocabulary name is already in use."
 msgstr "ชื่อคำศัพท์นี้ถูกใช้ไปแล้ว"
 
-#: ckan/logic/validators.py:647
+#: ckan/logic/validators.py:652
 #, python-format
 msgid "Cannot change value of key from %s to %s. This key is read-only"
 msgstr ""
 "ไม่สามารถเปลี่ยนค่าของกุญแจจาก %s ไปเป็น %s "
 "ได้เนื่องจากกุญแจนี้สามารถอ่านได้เท่านั้น"
 
-#: ckan/logic/validators.py:656
+#: ckan/logic/validators.py:661
 msgid "Tag vocabulary was not found."
 msgstr "ไม่พบแท็คคำศัพท์นี้"
 
-#: ckan/logic/validators.py:669
+#: ckan/logic/validators.py:674
 #, python-format
 msgid "Tag %s does not belong to vocabulary %s"
 msgstr "แท็ค %s ไม่ได้เป็นของคำศัพท์ %s"
 
-#: ckan/logic/validators.py:675
+#: ckan/logic/validators.py:680
 msgid "No tag name"
 msgstr "ไม่มีชื่อแท็ค"
 
-#: ckan/logic/validators.py:688
+#: ckan/logic/validators.py:693
 #, python-format
 msgid "Tag %s already belongs to vocabulary %s"
 msgstr "แท็ค %s เป็นของคำศัพท์ %s"
 
-#: ckan/logic/validators.py:711
+#: ckan/logic/validators.py:716
 msgid "Please provide a valid URL"
 msgstr "กรุณากรอก URL ที่ถูกต้อง"
 
-#: ckan/logic/validators.py:725
+#: ckan/logic/validators.py:730
 msgid "role does not exist."
 msgstr "ไม่มีหน้าที่นี้"
 
-#: ckan/logic/validators.py:754
+#: ckan/logic/validators.py:759
 msgid "Datasets with no organization can't be private."
 msgstr "ชุดข้อมูลที่ไม่มีชื่อองค์กรไม่สามารถเป็นส่วนบุคคลได้"
 
-#: ckan/logic/validators.py:760
+#: ckan/logic/validators.py:765
 msgid "Not a list"
 msgstr "ไม่ใช่รายการ"
 
-#: ckan/logic/validators.py:763
+#: ckan/logic/validators.py:768
 msgid "Not a string"
 msgstr "ไม่ใช่ string"
 
-#: ckan/logic/validators.py:795
+#: ckan/logic/validators.py:800
 msgid "This parent would create a loop in the hierarchy"
 msgstr "หลักนี้จะสร้างวนในลำดับชั้น"
 
-#: ckan/logic/validators.py:805
+#: ckan/logic/validators.py:810
 msgid "\"filter_fields\" and \"filter_values\" should have the same length"
 msgstr ""
 
-#: ckan/logic/validators.py:816
+#: ckan/logic/validators.py:821
 msgid "\"filter_fields\" is required when \"filter_values\" is filled"
 msgstr ""
 
-#: ckan/logic/validators.py:819
+#: ckan/logic/validators.py:824
 msgid "\"filter_values\" is required when \"filter_fields\" is filled"
 msgstr ""
 
-#: ckan/logic/validators.py:833
+#: ckan/logic/validators.py:838
 msgid "There is a schema field with the same name"
 msgstr ""
 
-#: ckan/logic/action/create.py:178 ckan/logic/action/create.py:638
+#: ckan/logic/action/create.py:178 ckan/logic/action/create.py:722
 #, python-format
 msgid "REST API: Create object %s"
 msgstr "REST API: สร้างวัตถุ %s"
 
-#: ckan/logic/action/create.py:517
+#: ckan/logic/action/create.py:601
 #, python-format
 msgid "REST API: Create package relationship: %s %s %s"
 msgstr "REST API: สร้างความสัมพันธ์ของแพคเกจ: %s %s %s"
 
-#: ckan/logic/action/create.py:558
+#: ckan/logic/action/create.py:642
 #, python-format
 msgid "REST API: Create member object %s"
 msgstr "REST API: สร้างวัตถุสัมพันธ์ %s"
 
-#: ckan/logic/action/create.py:772
+#: ckan/logic/action/create.py:865
 msgid "Trying to create an organization as a group"
 msgstr "พยายามที่จะสร้างองค์กรเป็นกลุ่ม"
 
-#: ckan/logic/action/create.py:859
+#: ckan/logic/action/create.py:954
 msgid "You must supply a package id or name (parameter \"package\")."
 msgstr "คุณต้องใส่รหัสแพคเกจหรือชื่อ (พารามิเตอร์ \"package\")"
 
-#: ckan/logic/action/create.py:862
+#: ckan/logic/action/create.py:957
 msgid "You must supply a rating (parameter \"rating\")."
 msgstr "คุณต้องทำการจัดอันดับ (พารามิเตอร์ \"rating\")"
 
-#: ckan/logic/action/create.py:867
+#: ckan/logic/action/create.py:962
 msgid "Rating must be an integer value."
 msgstr "การให้คะแนนต้องเป็นค่าตัวเลข"
 
-#: ckan/logic/action/create.py:871
+#: ckan/logic/action/create.py:966
 #, python-format
 msgid "Rating must be between %i and %i."
 msgstr "การให้คะแนนต้องมีค่าระหว่าง %i ถึง %i"
 
-#: ckan/logic/action/create.py:1216 ckan/logic/action/create.py:1223
+#: ckan/logic/action/create.py:1311 ckan/logic/action/create.py:1318
 msgid "You must be logged in to follow users"
 msgstr "คุณต้องเข้าระบบเพื่อติดตามผู้ใช้"
 
-#: ckan/logic/action/create.py:1236
+#: ckan/logic/action/create.py:1331
 msgid "You cannot follow yourself"
 msgstr "คุณไม่สามารถทำการติดตามตัวเองได้"
 
-#: ckan/logic/action/create.py:1244 ckan/logic/action/create.py:1301
-#: ckan/logic/action/create.py:1434
+#: ckan/logic/action/create.py:1339 ckan/logic/action/create.py:1396
+#: ckan/logic/action/create.py:1529
 msgid "You are already following {0}"
 msgstr "คุณติดตามแล้ว {0} คน"
 
-#: ckan/logic/action/create.py:1275 ckan/logic/action/create.py:1283
+#: ckan/logic/action/create.py:1370 ckan/logic/action/create.py:1378
 msgid "You must be logged in to follow a dataset."
 msgstr "คุณต้องเข้าระบบเพื่อติดตามชุดข้อมูล"
 
-#: ckan/logic/action/create.py:1335
+#: ckan/logic/action/create.py:1430
 msgid "User {username} does not exist."
 msgstr "ยังไม่มีผู้ใช้ชื่อ {username}"
 
-#: ckan/logic/action/create.py:1410 ckan/logic/action/create.py:1418
+#: ckan/logic/action/create.py:1505 ckan/logic/action/create.py:1513
 msgid "You must be logged in to follow a group."
 msgstr "คุณต้องเข้าระบบเพื่อติดตามกลุ่ม"
 
-#: ckan/logic/action/delete.py:68
+#: ckan/logic/action/delete.py:66
 #, python-format
 msgid "REST API: Delete Package: %s"
 msgstr "REST API: ลบแพกเกจ: %s"
 
-#: ckan/logic/action/delete.py:181 ckan/logic/action/delete.py:308
+#: ckan/logic/action/delete.py:195 ckan/logic/action/delete.py:324
 #, python-format
 msgid "REST API: Delete %s"
 msgstr "REST API: ลบ %s"
 
-#: ckan/logic/action/delete.py:270
+#: ckan/logic/action/delete.py:284
 #, python-format
 msgid "REST API: Delete Member: %s"
 msgstr "REST API: ลบผู้ใช้: %s"
 
-#: ckan/logic/action/delete.py:467 ckan/logic/action/delete.py:493
-#: ckan/logic/action/get.py:2300 ckan/logic/action/update.py:981
+#: ckan/logic/action/delete.py:483 ckan/logic/action/delete.py:509
+#: ckan/logic/action/get.py:2394 ckan/logic/action/update.py:984
 msgid "id not in data"
 msgstr "รหัสผู้ใช้ไม่มีในข้อมูล"
 
-#: ckan/logic/action/delete.py:471 ckan/logic/action/get.py:2303
-#: ckan/logic/action/update.py:985
+#: ckan/logic/action/delete.py:487 ckan/logic/action/get.py:2397
+#: ckan/logic/action/update.py:988
 #, python-format
 msgid "Could not find vocabulary \"%s\""
 msgstr "ไม่สามารถหาคำศัพท์ \"%s\""
 
-#: ckan/logic/action/delete.py:501
+#: ckan/logic/action/delete.py:517
 #, python-format
 msgid "Could not find tag \"%s\""
 msgstr "ไม่เจอแท็ค \"%s\""
 
-#: ckan/logic/action/delete.py:527 ckan/logic/action/delete.py:531
+#: ckan/logic/action/delete.py:543 ckan/logic/action/delete.py:547
 msgid "You must be logged in to unfollow something."
 msgstr "คุณต้องเข้าระบบเพื่อเลิกติดตาม"
 
-#: ckan/logic/action/delete.py:542
+#: ckan/logic/action/delete.py:558
 msgid "You are not following {0}."
 msgstr "คุณยังไม่ได้ติดตาม {0}"
 
-#: ckan/logic/action/get.py:1029 ckan/logic/action/update.py:130
-#: ckan/logic/action/update.py:143
+#: ckan/logic/action/get.py:1040 ckan/logic/action/update.py:133
+#: ckan/logic/action/update.py:146
 msgid "Resource was not found."
 msgstr "ไม่พบทรัพยากร"
 
-#: ckan/logic/action/get.py:1851
+#: ckan/logic/action/get.py:1945
 msgid "Do not specify if using \"query\" parameter"
 msgstr "อย่าระบุถ้าใช้พารามิเตอร์ \"query\""
 
-#: ckan/logic/action/get.py:1860
+#: ckan/logic/action/get.py:1954
 msgid "Must be <field>:<value> pair(s)"
 msgstr "ต้องเป็นคู่ <field>:<value> "
 
-#: ckan/logic/action/get.py:1892
+#: ckan/logic/action/get.py:1986
 msgid "Field \"{field}\" not recognised in resource_search."
 msgstr "resource_search ไม่รับรู้ฟิลด์ \"{field}\" ในการสืบค้นข้อมูลทรัพยากร"
 
-#: ckan/logic/action/get.py:2238
+#: ckan/logic/action/get.py:2332
 msgid "unknown user:"
 msgstr "ไม่รู้จักผู้ใช้:"
 
-#: ckan/logic/action/update.py:65
+#: ckan/logic/action/update.py:68
 msgid "Item was not found."
 msgstr "ไม่พบรายการ"
 
-#: ckan/logic/action/update.py:293 ckan/logic/action/update.py:1176
+#: ckan/logic/action/update.py:296 ckan/logic/action/update.py:1179
 msgid "Package was not found."
 msgstr "ไม่พบแพคเกจ"
 
-#: ckan/logic/action/update.py:336 ckan/logic/action/update.py:554
+#: ckan/logic/action/update.py:339 ckan/logic/action/update.py:557
 #, python-format
 msgid "REST API: Update object %s"
 msgstr "REST API: ปรับปรุงวัตถุ %s"
 
-#: ckan/logic/action/update.py:437
+#: ckan/logic/action/update.py:440
 #, python-format
 msgid "REST API: Update package relationship: %s %s %s"
 msgstr "REST API: ปรับปรุงความสัมพันธ์ของแพคเกจ: %s %s %s"
 
-#: ckan/logic/action/update.py:789
+#: ckan/logic/action/update.py:792
 msgid "TaskStatus was not found."
 msgstr "TaskStatus ไม่พบความคืบหน้าของงาน"
 
-#: ckan/logic/action/update.py:1180
+#: ckan/logic/action/update.py:1183
 msgid "Organization was not found."
 msgstr "ไม่พบองค์กร"
 
@@ -1675,47 +1688,47 @@ msgstr "ไม่พบแพคเกจสำหรับทรัพยาก
 msgid "User %s not authorized to create resources on dataset %s"
 msgstr ""
 
-#: ckan/logic/auth/create.py:115
+#: ckan/logic/auth/create.py:124
 #, python-format
 msgid "User %s not authorized to edit these packages"
 msgstr "ผู้ใช้ %s ไม่ได้รับอนุญาตให้แก้ไขแพคเกจเหล่านี้"
 
-#: ckan/logic/auth/create.py:126
+#: ckan/logic/auth/create.py:135
 #, python-format
 msgid "User %s not authorized to create groups"
 msgstr "ผู้ใช้ %s ไม่ได้รับอนุญาตให้สร้างกลุ่ม"
 
-#: ckan/logic/auth/create.py:136
+#: ckan/logic/auth/create.py:145
 #, python-format
 msgid "User %s not authorized to create organizations"
 msgstr "ผู้ใช้ %s ไม่ได้รับอนุญาตให้สร้างองค์กร"
 
-#: ckan/logic/auth/create.py:152
+#: ckan/logic/auth/create.py:161
 msgid "User {user} not authorized to create users via the API"
 msgstr "ผู้ใช้ {user} ไม่ได้รับอนุญาตให้สร้างผู้ใช้ผ่านทาง API"
 
-#: ckan/logic/auth/create.py:155
+#: ckan/logic/auth/create.py:164
 msgid "Not authorized to create users"
 msgstr "ไม่ได้รับอนุญาตให้สร้างผู้ใช้"
 
-#: ckan/logic/auth/create.py:198
+#: ckan/logic/auth/create.py:207
 msgid "Group was not found."
 msgstr "ไม่พบกลุ่ม"
 
-#: ckan/logic/auth/create.py:218
+#: ckan/logic/auth/create.py:227
 msgid "Valid API key needed to create a package"
 msgstr "ต้องมี API คีย์ที่ถูกต้องสำหรับการสร้างแพคเกจ"
 
-#: ckan/logic/auth/create.py:226
+#: ckan/logic/auth/create.py:235
 msgid "Valid API key needed to create a group"
 msgstr "ต้องมี API คีย์ที่ถูกต้องสำหรับการสร้างกลุ่ม"
 
-#: ckan/logic/auth/create.py:246
+#: ckan/logic/auth/create.py:255
 #, python-format
 msgid "User %s not authorized to add members"
 msgstr "ผู้ใช้ %s ไม่ได้รับอนุญาตให้เพิ่มสมาชิก"
 
-#: ckan/logic/auth/create.py:270 ckan/logic/auth/update.py:113
+#: ckan/logic/auth/create.py:279 ckan/logic/auth/update.py:113
 #, python-format
 msgid "User %s not authorized to edit group %s"
 msgstr "ผู้ใช้ %s ไม่ได้รับอนุญาตให้แก้ไขกลุ่ม %s"
@@ -1729,36 +1742,36 @@ msgstr "ผู้ใช้ %s ไม่ได้รับอนุญาตใ�
 msgid "Resource view not found, cannot check auth."
 msgstr ""
 
-#: ckan/logic/auth/delete.py:60 ckan/logic/auth/delete.py:74
+#: ckan/logic/auth/delete.py:65 ckan/logic/auth/delete.py:79
 msgid "Only the owner can delete a related item"
 msgstr "เฉพาะเจ้าของเท่านั้นที่สามารถลบรายการที่เกี่ยวข้องได้"
 
-#: ckan/logic/auth/delete.py:86
+#: ckan/logic/auth/delete.py:91
 #, python-format
 msgid "User %s not authorized to delete relationship %s"
 msgstr "ผู้ใช้ %s ไม่ได้รับอนุญาตให้ลบความสัมพันธ์ %s"
 
-#: ckan/logic/auth/delete.py:95
+#: ckan/logic/auth/delete.py:100
 #, python-format
 msgid "User %s not authorized to delete groups"
 msgstr "ผู้ใช้ %s ไม่ได้รับอนุญาตให้ลบกลุ่ม"
 
-#: ckan/logic/auth/delete.py:99
+#: ckan/logic/auth/delete.py:104
 #, python-format
 msgid "User %s not authorized to delete group %s"
 msgstr "ผู้ใช้ %s ไม่ได้รับอนุญาตให้ลบกลุ่ม %s"
 
-#: ckan/logic/auth/delete.py:116
+#: ckan/logic/auth/delete.py:121
 #, python-format
 msgid "User %s not authorized to delete organizations"
 msgstr "ผู้ใช้ %s ไม่ได้รับอนุญาตให้ลบองค์กร"
 
-#: ckan/logic/auth/delete.py:120
+#: ckan/logic/auth/delete.py:125
 #, python-format
 msgid "User %s not authorized to delete organization %s"
 msgstr "ผู้ใช้ %s ไม่ได้รับอนุญาตให้ลบองค์กร %s"
 
-#: ckan/logic/auth/delete.py:133
+#: ckan/logic/auth/delete.py:138
 #, python-format
 msgid "User %s not authorized to delete task_status"
 msgstr "ผู้ใช้ %s ไม่ได้รับอนุญาติให้ลบสถานะของงาน task_status"
@@ -1783,7 +1796,7 @@ msgstr "ผู้ใช้ %s ไม่ได้รับอนุญาตใ�
 msgid "User %s not authorized to read group %s"
 msgstr ""
 
-#: ckan/logic/auth/get.py:234
+#: ckan/logic/auth/get.py:237
 msgid "You must be logged in to access your dashboard."
 msgstr "คุณจะต้องเข้าระบบเพื่อใช้หน้าปัดของคุณ"
 
@@ -1861,63 +1874,63 @@ msgstr "ต้องการกุญแจของ API ที่ถูกต�
 msgid "Valid API key needed to edit a group"
 msgstr "ต้องการกุญแจของ API ที่ถูกต้องในการแก้ไขกลุ่ม"
 
-#: ckan/model/license.py:177
+#: ckan/model/license.py:220
 msgid "License not specified"
 msgstr ""
 
-#: ckan/model/license.py:187
+#: ckan/model/license.py:230
 msgid "Open Data Commons Public Domain Dedication and License (PDDL)"
 msgstr "Open Data Commons Public Domain Dedication and License (PDDL)"
 
-#: ckan/model/license.py:197
+#: ckan/model/license.py:240
 msgid "Open Data Commons Open Database License (ODbL)"
 msgstr "Open Data Commons Open Database License (ODbL)"
 
-#: ckan/model/license.py:207
+#: ckan/model/license.py:250
 msgid "Open Data Commons Attribution License"
 msgstr "Open Data Commons Attribution License"
 
-#: ckan/model/license.py:218
+#: ckan/model/license.py:261
 msgid "Creative Commons CCZero"
 msgstr "Creative Commons CCZero"
 
-#: ckan/model/license.py:227
+#: ckan/model/license.py:270
 msgid "Creative Commons Attribution"
 msgstr "Creative Commons Attribution"
 
-#: ckan/model/license.py:237
+#: ckan/model/license.py:280
 msgid "Creative Commons Attribution Share-Alike"
 msgstr "Creative Commons Attribution Share-Alike"
 
-#: ckan/model/license.py:246
+#: ckan/model/license.py:289
 msgid "GNU Free Documentation License"
 msgstr "GNU Free Documentation License"
 
-#: ckan/model/license.py:256
+#: ckan/model/license.py:299
 msgid "Other (Open)"
 msgstr "อื่นๆ (เปิด)"
 
-#: ckan/model/license.py:266
+#: ckan/model/license.py:309
 msgid "Other (Public Domain)"
 msgstr "อื่นๆ (สาธารณสมบัติ)"
 
-#: ckan/model/license.py:276
+#: ckan/model/license.py:319
 msgid "Other (Attribution)"
 msgstr "อื่นๆ (แสดงที่มา)"
 
-#: ckan/model/license.py:288
+#: ckan/model/license.py:331
 msgid "UK Open Government Licence (OGL)"
 msgstr "UK Open Government Licence (OGL)"
 
-#: ckan/model/license.py:296
+#: ckan/model/license.py:339
 msgid "Creative Commons Non-Commercial (Any)"
 msgstr "ครีเอทีฟคอมมอนส์ ไม่ใช้เพื่อการค้า (ไม่ระบุรุ่น)"
 
-#: ckan/model/license.py:304
+#: ckan/model/license.py:347
 msgid "Other (Non-Commercial)"
 msgstr "อื่นๆ (ไม่ใช่เพื่อการค้า)"
 
-#: ckan/model/license.py:312
+#: ckan/model/license.py:355
 msgid "Other (Not Open)"
 msgstr "อื่นๆ (แบบไม่เปิด)"
 
@@ -2050,12 +2063,13 @@ msgstr "ลิงก์"
 #: ckan/public/base/javascript/modules/image-upload.js:17
 #: ckan/templates/group/snippets/group_item.html:43
 #: ckan/templates/macros/form.html:235
-#: ckan/templates/snippets/search_form.html:65
+#: ckan/templates/snippets/search_form.html:66
 msgid "Remove"
 msgstr "ถอดถอน"
 
 #: ckan/public/base/javascript/modules/image-upload.js:18
-#: ckan/templates/macros/form.html:412 ckanext/imageview/plugin.py:26
+#: ckan/templates/macros/form.html:412 ckanext/imageview/plugin.py:21
+#: ckanext/imageview/plugin.py:26
 msgid "Image"
 msgstr "รูปภาพ"
 
@@ -2185,33 +2199,41 @@ msgstr ""
 msgid "Sysadmin settings"
 msgstr "การตั้งค่าของผู้ดูแลระบบ"
 
-#: ckan/templates/header.html:18
+#: ckan/templates/header.html:19
 msgid "View profile"
 msgstr "ดูโปรไฟล์"
 
-#: ckan/templates/header.html:25
+#: ckan/templates/header.html:26
 #, python-format
 msgid "Dashboard (%(num)d new item)"
 msgid_plural "Dashboard (%(num)d new items)"
 msgstr[0] "หน้าปัด  (%(num)d new items)"
 
-#: ckan/templates/header.html:33 ckan/templates/user/dashboard.html:16
+#: ckan/templates/header.html:29 ckan/templates/user/dashboard.html:6
+msgid "Dashboard"
+msgstr "หน้าปัดข้อมูล"
+
+#: ckan/templates/header.html:35 ckan/templates/user/dashboard.html:16
 msgid "Edit settings"
 msgstr "แก้ไขการตั้งค่า"
 
-#: ckan/templates/header.html:40
+#: ckan/templates/header.html:37
+msgid "Settings"
+msgstr ""
+
+#: ckan/templates/header.html:43 ckan/templates/header.html:45
 msgid "Log out"
 msgstr "ออกจากระบบ"
 
-#: ckan/templates/header.html:52 ckan/templates/user/logout_first.html:15
+#: ckan/templates/header.html:56 ckan/templates/user/logout_first.html:15
 msgid "Log in"
 msgstr "เข้าสู่ระบบ"
 
-#: ckan/templates/header.html:54 ckan/templates/user/new.html:3
+#: ckan/templates/header.html:58 ckan/templates/user/new.html:3
 msgid "Register"
 msgstr "ลงทะเบียน"
 
-#: ckan/templates/header.html:99 ckan/templates/group/read_base.html:17
+#: ckan/templates/header.html:103 ckan/templates/group/read_base.html:17
 #: ckan/templates/group/snippets/info.html:36
 #: ckan/templates/organization/bulk_process.html:20
 #: ckan/templates/organization/edit_base.html:23
@@ -2229,15 +2251,13 @@ msgstr "ลงทะเบียน"
 msgid "Datasets"
 msgstr "ชุดข้อมูล"
 
-#: ckan/templates/header.html:112
+#: ckan/templates/header.html:116
 msgid "Search Datasets"
 msgstr "ค้นหาชุดข้อมูล"
 
-#: ckan/templates/header.html:113 ckan/templates/home/snippets/search.html:11
+#: ckan/templates/header.html:117 ckan/templates/home/snippets/search.html:11
 #: ckan/templates/snippets/simple_search.html:5
-#: ckan/templates/tag/index.html:35
 #: ckan/templates/user/snippets/user_search.html:6
-#: ckan/templates/user/snippets/user_search.html:7
 msgid "Search"
 msgstr "ค้นหา"
 
@@ -2273,24 +2293,24 @@ msgstr "การปรับแต่ง"
 msgid "Trash"
 msgstr "ถังขยะ"
 
-#: ckan/templates/admin/config.html:11
+#: ckan/templates/admin/config.html:16
 #: ckan/templates/admin/confirm_reset.html:7
 msgid "Are you sure you want to reset the config?"
 msgstr "คุณแน่ใจหรือไม่ที่จะรีเซ็ทการปรับแต่ง?"
 
-#: ckan/templates/admin/config.html:12
+#: ckan/templates/admin/config.html:17
 msgid "Reset"
 msgstr "ตั้งค่าใหม่"
 
-#: ckan/templates/admin/config.html:13
+#: ckan/templates/admin/config.html:18
 msgid "Update Config"
 msgstr "ปรับปรุงการปรับแต่ง"
 
-#: ckan/templates/admin/config.html:22
+#: ckan/templates/admin/config.html:27
 msgid "CKAN config options"
 msgstr "ตัวเลือกการปรับแต่ง CKAN"
 
-#: ckan/templates/admin/config.html:29
+#: ckan/templates/admin/config.html:34
 #, python-format
 msgid ""
 " <p><strong>Site Title:</strong> This is the title of this CKAN instance "
@@ -3005,35 +3025,35 @@ msgstr ""
 msgid "{0} statistics"
 msgstr "{0} สถิติ"
 
-#: ckan/templates/home/snippets/stats.html:10
+#: ckan/templates/home/snippets/stats.html:11
 msgid "dataset"
 msgstr "ชุดข้อมูล"
 
-#: ckan/templates/home/snippets/stats.html:10
+#: ckan/templates/home/snippets/stats.html:11
 msgid "datasets"
 msgstr "ชุดข้อมูล"
 
-#: ckan/templates/home/snippets/stats.html:16
+#: ckan/templates/home/snippets/stats.html:17
 msgid "organization"
 msgstr "องค์กร"
 
-#: ckan/templates/home/snippets/stats.html:16
+#: ckan/templates/home/snippets/stats.html:17
 msgid "organizations"
 msgstr "องค์กร"
 
-#: ckan/templates/home/snippets/stats.html:22
+#: ckan/templates/home/snippets/stats.html:23
 msgid "group"
 msgstr "กลุ่ม"
 
-#: ckan/templates/home/snippets/stats.html:22
+#: ckan/templates/home/snippets/stats.html:23
 msgid "groups"
 msgstr "กลุ่ม"
 
-#: ckan/templates/home/snippets/stats.html:28
+#: ckan/templates/home/snippets/stats.html:29
 msgid "related item"
 msgstr "รายการที่เกี่ยวข้อง"
 
-#: ckan/templates/home/snippets/stats.html:28
+#: ckan/templates/home/snippets/stats.html:29
 msgid "related items"
 msgstr "รายการที่เกี่ยวข้อง"
 
@@ -3145,6 +3165,20 @@ msgstr "ค้นหาองค์กร..."
 #: ckan/templates/organization/index.html:29
 msgid "There are currently no organizations for this site"
 msgstr "ไม่มีองค์กรสำหรับไซต์นี้"
+
+#: ckan/templates/organization/member_new.html:32
+#: ckan/templates/user/edit_user_form.html:8
+#: ckan/templates/user/logout_first.html:11
+#: ckan/templates/user/new_user_form.html:5
+#: ckan/templates/user/read_base.html:76
+#: ckan/templates/user/request_reset.html:16
+#: ckan/templates/user/snippets/login_form.html:20
+msgid "Username"
+msgstr "ชื่อผู้ใช้"
+
+#: ckan/templates/organization/member_new.html:50
+msgid "Email address"
+msgstr ""
 
 #: ckan/templates/organization/member_new.html:62
 msgid "Update Member"
@@ -3793,7 +3827,7 @@ msgstr "สำรวจ"
 msgid "More information"
 msgstr "ข้อมูลเพิ่มเติม"
 
-#: ckan/templates/package/snippets/resource_view.html:10
+#: ckan/templates/package/snippets/resource_view.html:11
 msgid "Embed"
 msgstr "ฝังตัว"
 
@@ -3937,7 +3971,7 @@ msgid ""
 msgstr "นี้คือแอพพลิเคชั่นที่สร้างกับชุดข้อมูลนี้รวมถึงแนวคิดของสิ่งที่ทำขึ้นจากชุดข้อมูลนี้"
 
 #: ckan/templates/related/dashboard.html:58
-#: ckan/templates/snippets/search_form.html:70
+#: ckan/templates/snippets/search_form.html:71
 msgid "Filter Results"
 msgstr "กรองผลลัพธ์"
 
@@ -4113,7 +4147,7 @@ msgid "Language"
 msgstr "ภาษา"
 
 #: ckan/templates/snippets/language_selector.html:12
-#: ckan/templates/snippets/search_form.html:40
+#: ckan/templates/snippets/search_form.html:41
 #: ckan/templates/snippets/simple_search.html:15
 #: ckan/templates/snippets/sort_by.html:22
 msgid "Go"
@@ -4145,21 +4179,21 @@ msgstr "ไม่พบแอพพลิเคชั่น ความคิ�
 msgid "Add Item"
 msgstr "เพิ่มรายการ"
 
-#: ckan/templates/snippets/search_form.html:16
+#: ckan/templates/snippets/search_form.html:17
 msgid "Submit"
 msgstr "ส่ง"
 
-#: ckan/templates/snippets/search_form.html:31
+#: ckan/templates/snippets/search_form.html:32
 #: ckan/templates/snippets/simple_search.html:8
 #: ckan/templates/snippets/sort_by.html:12
 msgid "Order by"
 msgstr "เรียงโดย"
 
-#: ckan/templates/snippets/search_form.html:77
+#: ckan/templates/snippets/search_form.html:78
 msgid " <p class=\"extra\">Please try another search.</p> "
 msgstr "<p class=\"extra\">กรุณาลองค้นหาใหม่</p>"
 
-#: ckan/templates/snippets/search_form.html:83
+#: ckan/templates/snippets/search_form.html:84
 msgid ""
 " <p><strong>There was an error while searching.</strong> Please try "
 "again.</p> "
@@ -4228,7 +4262,7 @@ msgid "Subscribe"
 msgstr "สมัคร"
 
 #: ckan/templates/snippets/subscribe.html:4
-#: ckan/templates/user/edit_user_form.html:13
+#: ckan/templates/user/edit_user_form.html:12
 #: ckan/templates/user/new_user_form.html:7
 #: ckan/templates/user/read_base.html:82
 msgid "Email"
@@ -4246,10 +4280,6 @@ msgstr "การแก้ไข"
 #: ckan/templates/tag/index.html:33 ckan/templates/tag/index.html:34
 msgid "Search Tags"
 msgstr "ค้นหาแท็ค"
-
-#: ckan/templates/user/dashboard.html:6
-msgid "Dashboard"
-msgstr "หน้าปัดข้อมูล"
 
 #: ckan/templates/user/dashboard.html:19 ckan/templates/user/dashboard.html:37
 msgid "News feed"
@@ -4315,36 +4345,27 @@ msgstr "ข้อมูลแนะนำตัวของคุณจะทำ
 msgid "Change details"
 msgstr "แก้ไขรายละเอียด"
 
-#: ckan/templates/user/edit_user_form.html:9
-#: ckan/templates/user/logout_first.html:11
-#: ckan/templates/user/new_user_form.html:5
-#: ckan/templates/user/read_base.html:76
-#: ckan/templates/user/request_reset.html:16
-#: ckan/templates/user/snippets/login_form.html:20
-msgid "Username"
-msgstr "ชื่อผู้ใช้"
-
-#: ckan/templates/user/edit_user_form.html:11
+#: ckan/templates/user/edit_user_form.html:10
 msgid "Full name"
 msgstr "ชื่อเต็ม"
 
-#: ckan/templates/user/edit_user_form.html:11
+#: ckan/templates/user/edit_user_form.html:10
 msgid "eg. Joe Bloggs"
 msgstr "ตัวอย่าง: สมชาย ใจกว้าง"
 
-#: ckan/templates/user/edit_user_form.html:13
+#: ckan/templates/user/edit_user_form.html:12
 msgid "eg. joe@example.com"
 msgstr "ตัวอย่าง somchai@example.com"
 
-#: ckan/templates/user/edit_user_form.html:15
+#: ckan/templates/user/edit_user_form.html:14
 msgid "A little information about yourself"
 msgstr "ข้อมูลเล็กน้อยเกี่ยวกับตัวคุณ"
 
-#: ckan/templates/user/edit_user_form.html:18
+#: ckan/templates/user/edit_user_form.html:17
 msgid "Subscribe to notification emails"
 msgstr "สมัครการแจ้งเตือนทางอีเมล"
 
-#: ckan/templates/user/edit_user_form.html:27
+#: ckan/templates/user/edit_user_form.html:26
 msgid "Change password"
 msgstr "เปลี่ยนรหัสผ่าน"
 
@@ -4577,21 +4598,29 @@ msgstr "ยังไม่ได้อัพโหลด"
 msgid "DataStore resource not found"
 msgstr "ไม่พบคลังข้อมูลทรัพยากร"
 
-#: ckanext/datastore/db.py:652
+#: ckanext/datastore/db.py:656
 msgid ""
 "The data was invalid (for example: a numeric value is out of range or was"
 " inserted into a text field)."
 msgstr ""
 
-#: ckanext/datastore/logic/action.py:209 ckanext/datastore/logic/action.py:259
-#: ckanext/datastore/logic/action.py:343 ckanext/datastore/logic/action.py:425
-#: ckanext/datastore/logic/action.py:451
+#: ckanext/datastore/logic/action.py:210 ckanext/datastore/logic/action.py:250
+#: ckanext/datastore/logic/action.py:327 ckanext/datastore/logic/action.py:411
+#: ckanext/datastore/logic/action.py:493 ckanext/datastore/logic/action.py:519
 msgid "Resource \"{0}\" was not found."
 msgstr "ไม่พบทรัพยากร \"{0}\" "
 
 #: ckanext/datastore/logic/auth.py:16
 msgid "User {0} not authorized to update resource {1}"
 msgstr "ผู้ใช้ {0} ไม่ได้รับอนุญาคให้ปรับปรุงทรัพยากร {1}"
+
+#: ckanext/example_iconfigurer/templates/admin/config.html:11
+msgid "Datasets per page"
+msgstr ""
+
+#: ckanext/example_iconfigurer/templates/admin/config.html:13
+msgid "Test conf"
+msgstr ""
 
 #: ckanext/example_idatasetform/templates/package/search.html:16
 msgid "Custom Field Ascending"
@@ -4636,110 +4665,21 @@ msgstr ""
 msgid "eg. http://example.com/image.jpg (if blank uses resource url)"
 msgstr ""
 
-#: ckanext/reclineview/plugin.py:82
+#: ckanext/reclineview/plugin.py:84
 msgid "Data Explorer"
 msgstr ""
 
-#: ckanext/reclineview/plugin.py:106
+#: ckanext/reclineview/plugin.py:111
 msgid "Table"
 msgstr ""
 
-#: ckanext/reclineview/plugin.py:149
+#: ckanext/reclineview/plugin.py:154
 msgid "Graph"
 msgstr ""
 
-#: ckanext/reclineview/plugin.py:207
+#: ckanext/reclineview/plugin.py:212
 msgid "Map"
 msgstr ""
-
-#: ckanext/reclineview/theme/public/vendor/slickgrid/2.0.1/MIT-LICENSE.txt:1
-msgid ""
-"Copyright (c) 2010 Michael Leibman, http://github.com/mleibman/slickgrid\n"
-"\n"
-"Permission is hereby granted, free of charge, to any person obtaining\n"
-"a copy of this software and associated documentation files (the\n"
-"\"Software\"), to deal in the Software without restriction, including\n"
-"without limitation the rights to use, copy, modify, merge, publish,\n"
-"distribute, sublicense, and/or sell copies of the Software, and to\n"
-"permit persons to whom the Software is furnished to do so, subject to\n"
-"the following conditions:\n"
-"\n"
-"The above copyright notice and this permission notice shall be\n"
-"included in all copies or substantial portions of the Software.\n"
-"\n"
-"THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\n"
-"EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\n"
-"MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\n"
-"NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE\n"
-"LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\n"
-"OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION\n"
-"WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
-msgstr ""
-"ลิขสิทธิ์ (c) 2010 ไมเคิล ลิบแมน, http://github.com/mleibman/slickgrid\n"
-"\n"
-"ซึ่งอนุญาตไม่มีเสียค่าใช้จ่ายให้กับบุคคลที่ได้รับใด ๆ "
-"สำเนาของซอฟต์แวร์นี้และไฟล์เอกสารที่เกี่ยวข้อง (\"ซอฟต์แวร์\"), "
-"การจัดการซอฟต์แวร์โดยไม่มีข้อ จำกัด "
-"รวมทั้งไม่จำกัดสิทธิ์ในการใช้คัดลอกดัดแปลงแก้ไขรวมเผยแพร่แจกจ่ายใบอนุญาตและ"
-" / "
-"หรือขายสำเนาของซอฟแวร์และอนุญาตให้บุคคลซึ่งซอฟแวร์ได้รับการตกแต่งให้ทำเช่นนั้นอาจมีการเงื่อนไขต่อไปนี้:"
-"\n"
-"\n"
-"ประกาศลิขสิทธิ์ข้างต้นและประกาศการอนุญาตนี้จะเป็นรวมอยู่ในสำเนาทั้งหมดหรือบางส่วนที่สำคัญของซอฟแวร์"
-"\n"
-"\n"
-"ซอฟต์แวร์นี้มีให้ \"ตามสภาพ\" โดยไม่มีการรับประกันใด ๆ "
-"โดยชัดแจ้งหรือโดยนัย รวมถึงแต่ไม่จำกัด "
-"เฉพาะการรับประกันของสินค้าความเหมาะสมสำหรับวัตถุประสงค์และโดยเฉพาะอย่างยิ่งการไม่ละเมิด"
-" ไม่มีเหตุการณ์ใดที่ผู้เขียนหรือเจ้าของลิขสิทธิ์ พ.ศ. "
-"รับผิดชอบต่อการเรียกร้องใด ๆ ที่จะเกิดความเสียหายหรือความรับผิดอื่น ๆ "
-"ไม่ว่าในการดำเนินการของสัญญาการละเมิดหรืออื่น ๆ ที่เกิดจากการ, "
-"หมดอายุการใช้งาน หรือเกี่ยวข้องกับซอฟต์แวร์หรือการใช้หรือการติดต่ออื่น ๆ "
-"ในซอฟต์แวร์"
-
-#: ckanext/reclineview/theme/public/vendor/slickgrid/2.0.1/README.txt:1
-msgid ""
-"This compiled version of SlickGrid has been obtained with the Google "
-"Closure\n"
-"Compiler, using the following command:\n"
-"\n"
-"java -jar compiler.jar --js=slick.core.js --js=slick.grid.js "
-"--js=slick.editors.js --js_output_file=slick.grid.min.js\n"
-"\n"
-"There are two other files required for the SlickGrid view to work "
-"properly:\n"
-"\n"
-" * jquery-ui-1.8.16.custom.min.js \n"
-" * jquery.event.drag-2.0.min.js\n"
-"\n"
-"These are included in the Recline source, but have not been included in "
-"the\n"
-"built file to make easier to handle compatibility problems.\n"
-"\n"
-"Please check SlickGrid license in the included MIT-LICENSE.txt file.\n"
-"\n"
-"[1] https://developers.google.com/closure/compiler/"
-msgstr ""
-"This compiled version of SlickGrid has been obtained with the Google "
-"Closure\n"
-"Compiler, using the following command:\n"
-"\n"
-"java -jar compiler.jar --js=slick.core.js --js=slick.grid.js "
-"--js=slick.editors.js --js_output_file=slick.grid.min.js\n"
-"\n"
-"There are two other files required for the SlickGrid view to work "
-"properly:\n"
-"\n"
-" * jquery-ui-1.8.16.custom.min.js \n"
-" * jquery.event.drag-2.0.min.js\n"
-"\n"
-"These are included in the Recline source, but have not been included in "
-"the\n"
-"built file to make easier to handle compatibility problems.\n"
-"\n"
-"Please check SlickGrid license in the included MIT-LICENSE.txt file.\n"
-"\n"
-"[1] https://developers.google.com/closure/compiler/"
 
 #: ckanext/reclineview/theme/templates/recline_graph_form.html:3
 #: ckanext/reclineview/theme/templates/recline_map_form.html:3
@@ -4940,7 +4880,11 @@ msgstr ""
 msgid "Choose area"
 msgstr "เลือกพื้นที่"
 
-#: ckanext/webpageview/plugin.py:24
+#: ckanext/textview/plugin.py:65 ckanext/textview/plugin.py:67
+msgid "Text"
+msgstr ""
+
+#: ckanext/webpageview/plugin.py:19 ckanext/webpageview/plugin.py:24
 msgid "Website"
 msgstr ""
 
@@ -4952,1499 +4896,119 @@ msgstr ""
 msgid "eg. http://example.com (if blank uses resource url)"
 msgstr ""
 
-#~ msgid "\"page\" parameter must be a positive integer"
-#~ msgstr "ข้อมูล \"หน้า\" ต้องเป็นเลขจำนวนเต็มบวก"
-
-#~ msgid "%s is now logged in"
-#~ msgstr "%s ได้เข้าสู่ระบบแล้ว"
-
-#~ msgid " (Or if using OpenID, it hasn't been associated with a user account.)"
-#~ msgstr "(หรือถ้าใช้ OpenID มันไม่เชื่อมโยงกับบัญชีผู้ใช้)"
-
-#~ msgid "The resource url is not specified."
-#~ msgstr "ไม่ได้ระบุ URL ของทรัพยากร"
-
-#~ msgid "No preview handler for resource of type {0}"
-#~ msgstr "ไม่มีตัวประมวลตัวอย่างสำหรับทรัพยากรชนิด {0}"
-
-#~ msgid "The resource format is not specified."
-#~ msgstr "ไม่ได้ระบุรูปแบบของทรัพยากร"
-
 #~ msgid ""
-#~ "You have requested your password on %(site_title)s to be reset.\n"
+#~ "You have been invited to {site_title}."
+#~ " A user has already been createdto"
+#~ " you with the username {user_name}. "
+#~ "You can change it later.\n"
 #~ "\n"
-#~ "    Please click the following link to confirm this request:\n"
+#~ "To accept this invite, please reset your password at:\n"
 #~ "\n"
-#~ "       %(reset_link)s\n"
-#~ "    "
+#~ "   {reset_link}\n"
 #~ msgstr ""
-#~ "คุณได้ขอตั้งค่ารหัสผ่านใหม่บน %(site_title)s.\n"
+
+#~ msgid "You cannot remove a dataset from an existing organization"
+#~ msgstr "คุณไม่สามารถลบชุดข้อมูลจากองค์กรที่มีอยู่ก่อนแล้ว"
+
+#~ msgid ""
+#~ "Copyright (c) 2010 Michael Leibman, "
+#~ "http://github.com/mleibman/slickgrid\n"
 #~ "\n"
-#~ "กรุณาคลิกที่ลิงค์ต่อไปนี้เพื่อยืนยันคำขอนี้:\n"
+#~ "Permission is hereby granted, free of charge, to any person obtaining\n"
+#~ "a copy of this software and associated documentation files (the\n"
+#~ "\"Software\"), to deal in the Software without restriction, including\n"
+#~ "without limitation the rights to use, copy, modify, merge, publish,\n"
+#~ "distribute, sublicense, and/or sell copies of the Software, and to\n"
+#~ "permit persons to whom the Software is furnished to do so, subject to\n"
+#~ "the following conditions:\n"
 #~ "\n"
-#~ "%(reset_link)s\n"
-#~ "    "
-
-#~ msgid ""
-#~ "You have been invited to %(site_title)s."
-#~ " A user has already been created "
-#~ "to\n"
-#~ "    you with the username %(user_name)s. You can change it later.\n"
+#~ "The above copyright notice and this permission notice shall be\n"
+#~ "included in all copies or substantial portions of the Software.\n"
 #~ "\n"
-#~ "    To accept this invite, please reset your password at:\n"
+#~ "THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\n"
+#~ "EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\n"
+#~ "MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\n"
+#~ "NONINFRINGEMENT. IN NO EVENT SHALL THE"
+#~ " AUTHORS OR COPYRIGHT HOLDERS BE\n"
+#~ "LIABLE FOR ANY CLAIM, DAMAGES OR "
+#~ "OTHER LIABILITY, WHETHER IN AN ACTION"
 #~ "\n"
-#~ "       %(reset_link)s\n"
-#~ "    "
+#~ "OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION\n"
+#~ "WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
 #~ msgstr ""
-#~ "คุณได้รับเชิญให้ %(site_title)s "
-#~ "ซึ่งมีผู้ใช้ที่ได้ถูกสร้างขึ้นให้คุณแล้ว\n"
+#~ "ลิขสิทธิ์ (c) 2010 ไมเคิล ลิบแมน, "
+#~ "http://github.com/mleibman/slickgrid\n"
 #~ "\n"
-#~ "ด้วยชื่อ %(user_name)s ซึ่งคุณสามารถเปลี่ยนได้ในภายหลัง\n"
+#~ "ซึ่งอนุญาตไม่มีเสียค่าใช้จ่ายให้กับบุคคลที่ได้รับใด ๆ "
+#~ "สำเนาของซอฟต์แวร์นี้และไฟล์เอกสารที่เกี่ยวข้อง (\"ซอฟต์แวร์\"),"
+#~ " การจัดการซอฟต์แวร์โดยไม่มีข้อ จำกัด "
+#~ "รวมทั้งไม่จำกัดสิทธิ์ในการใช้คัดลอกดัดแปลงแก้ไขรวมเผยแพร่แจกจ่ายใบอนุญาตและ"
+#~ " / "
+#~ "หรือขายสำเนาของซอฟแวร์และอนุญาตให้บุคคลซึ่งซอฟแวร์ได้รับการตกแต่งให้ทำเช่นนั้นอาจมีการเงื่อนไขต่อไปนี้:"
 #~ "\n"
-#~ "ยอมรับการเชิญนี้ด้วยการตั้งค่ารหัสผ่านของคุณที่:\n"
 #~ "\n"
-#~ "       %(reset_link)s\n"
-#~ "    "
-
-#~ msgid "No web page given"
-#~ msgstr "ไม่ได้ระบุหน้าเว็บ"
-
-#~ msgid "Author not given"
-#~ msgstr "ไมได้ระบุผู้แต่ง"
-
-#~ msgid "Maintainer not given"
-#~ msgstr "ไม่ได้ระบุผู้ดูแล"
-
-#~ msgid ""
-#~ "Url must be purely lowercase "
-#~ "alphanumeric (ascii) characters and these "
-#~ "symbols: -_"
-#~ msgstr ""
-#~ "Url จะต้องประกอบด้วยตัวเลขและตัวพิมพ์เล็ก (ASCII) "
-#~ "และตัวอักษรและสัญลักษณ์เหล่านี้เท่านั้น: -_"
-
-#~ msgid "User %s not authorized to delete package %s"
-#~ msgstr "ผู้ใช้ %s ไม่ได้รับอนุญาตให้ลบเพคเกจ %s"
-
-#~ msgid "User %s not authorized to delete organization %s members"
-#~ msgstr "ผู้ใช้ %s ไม่ได้รับอนุญาตให้ลบสมาชิกขององค์กร %s"
-
-#~ msgid "License Not Specified"
-#~ msgstr "ไม่ได้ระบุสัญญาอนุญาต"
-
-#~ msgid "Reset this"
-#~ msgstr "ตั้งค่าใหม่"
-
-#~ msgid "What are sysadmins?"
-#~ msgstr "ใครคือผู้ดูแลระบบ"
-
-#~ msgid ""
-#~ " <p>A sysadmin is someone that has"
-#~ " full control over a CKAN instance."
-#~ " You can only add CKAN sysadmins "
-#~ "via the <code>sysadmin</code> paster "
-#~ "command.</p> "
-#~ msgstr ""
-#~ "<p>ผู้ดูแลระบบคือผู้ที่มีสิทธิเต็มในการควบคุมระบบ CKAN "
-#~ "ซึ่งคุณสามารถเพิ่มผู้ดูแลระบบได้ผ่านคำสั่ง "
-#~ "<code>sysadmin</code></p>"
-
-#~ msgid "Read the documentation"
-#~ msgstr "อ่านเอกสารประกอบ"
-
-#~ msgid ""
-#~ " Further information in the <a       "
-#~ "href=\"http://docs.ckan.org/en/latest/datastore.html\" "
-#~ "target=\"_blank\">main CKAN Data API and "
-#~ "DataStore documentation</a>.</p> "
-#~ msgstr ""
-#~ "ข้อมูลเพิ่มเติมที่ <a "
-#~ "href=\"http://docs.ckan.org/en/latest/datastore.html\" "
-#~ "target=\"_blank\">หน้าหลักของเอกสารประกอบ CKAN Data "
-#~ "API และ DataStore</a></p>"
-
-#~ msgid "There is no description for this group"
-#~ msgstr "ไม่มีรายละเอียดสำหรับกลุ่มนี้"
-
-#~ msgid "eg. Gold Prices"
-#~ msgstr "ตัวอย่างเช่น ราคาทอง"
-
-#~ msgid "Search Your Data"
-#~ msgstr "ค้นหาข้อมูลของคุณ"
-
-#~ msgid "Popular Tags"
-#~ msgstr "แท็คยอดนิยม"
-
-#~ msgid ""
-#~ "You can use <a "
-#~ "href=\"http://daringfireball.net/projects/markdown/syntax\" "
-#~ "target=\"_blank\">Markdown formatting</a> here"
-#~ msgstr ""
-#~ "คุณสามารถใช้ <a "
-#~ "href=\"http://daringfireball.net/projects/markdown/syntax\" "
-#~ "target=\"_blank\">รูปแบบของ markdown</a>ที่นี่"
-
-#~ msgid ""
-#~ " <p>Organizations act like publishing "
-#~ "departments for datasets (for example, "
-#~ "the Department of Health). This means"
-#~ " that datasets can be published by"
-#~ " and belong to a department instead"
-#~ " of an individual user.</p> <p>Within "
-#~ "organizations, admins can assign roles "
-#~ "and authorisation its members, giving "
-#~ "individual users the right to publish"
-#~ " datasets from that particular organisation"
-#~ " (e.g. Office of National Statistics).</p>"
-#~ " "
-#~ msgstr ""
-#~ "<p>องค์กรคือหน่วยงานที่เผยแพร่ชุดช้อมูล (ตัวอย่างเช่น, "
-#~ "กรมอนามัย) ซึ่งแปลว่าชุดข้อมูลต่างๆ "
-#~ "จะถูกเผยแพร่และเป็นขององค์กรแทนที่จะเป็นของบุคคล</p> "
-#~ "<p>ภายในองค์กร "
-#~ "ผู้ดูแลระบบสามารถกำหนดสิทธิ์และหน้าที่ของสมาชิกรวมทั้งการเผยแพร่ชุดข้อมูลขององค์กรได้ด้วย.</p>?"
-
-#~ msgid "This organization has no description"
-#~ msgstr "ไม่มีคำอธิบายสำหรับองค์กรนี้"
-
-#~ msgid "Add metadata to the dataset"
-#~ msgstr "เพิ่มข้อมูลเมตาไปที่ชุดข้อมูลนี้"
-
-#~ msgid ""
-#~ "This is the current revision of "
-#~ "this dataset, as edited at "
-#~ "%(timestamp)s."
-#~ msgstr "นี่คือรุ่นปัจจุบันของชุดข้อมูลนี้ที่ถูกแก้ไขเมื่อ %(timestamp)s."
-
-#~ msgid "There is no description for this resource"
-#~ msgstr "ไม่มีรายละเอียดสำหรับทรัพยากรนี้"
-
-#~ msgid "There is no description for this dataset"
-#~ msgstr "ไม่มีรายละเอียดสำหรับชุดข้อมูลนี้"
-
-#~ msgid ""
-#~ "Important: By submitting content, you "
-#~ "agree to release your contributions "
-#~ "under the Open Database License."
-#~ msgstr ""
-#~ "สำคัญ: โดยการส่งข้อมูลนี้ "
-#~ "คุณตกลงที่จะเผยแพร่สิ่งที่คุณเพิ่มเติมภายใต้สัญญาอนุญาต Open "
-#~ "Database License"
-
-#~ msgid "Next: Additional Info"
-#~ msgstr "ต่อไป: ข้อมูลเพิ่มเติม"
-
-#~ msgid "No description for this resource"
-#~ msgstr "ไม่มีรายละเอียดสำหรับทรัพยากรนี้"
-
-#~ msgid ""
-#~ " <p class=\"empty\">This dataset has no"
-#~ " data, <a href=\"%(url)s\">why not add "
-#~ "some?</a> "
-#~ msgstr ""
-#~ "<p class=\"empty\">ชุดข้อมูลนี้ไม่มีข้อมูล<a "
-#~ "href=\"%(url)s\">ลองเพิ่มดูไหม?</a>"
-
-#~ msgid "Additional info"
-#~ msgstr "ข้อมูลเพิ่มเติม"
-
-#~ msgid "This item has no description"
-#~ msgstr "รายการนี้ไม่มีคำอธิบาย"
-
-#~ msgid "Request Reset"
-#~ msgstr "ขอตั้งค่าใหม่"
-
-#~ msgid "You can use"
-#~ msgstr "คุณสามารถใช้"
-
-#~ msgid "Markdown formatting"
-#~ msgstr "รูปแบบของ markdown"
-
-#~ msgid "here."
-#~ msgstr "ที่นี่"
-
-#~ msgid "View dataset resources"
-#~ msgstr "ดูทรัพยากรของชุดข้อมูล"
-
-#~ msgid "DOWNLOAD"
-#~ msgstr "ดาวน์โหลด"
-
-#~ msgid "No downloadable resources."
-#~ msgstr "ไม่มีทรัพยากรที่สามารถดาวน์โหลดได้"
-
-#~ msgid "No description for this item"
-#~ msgstr "ไม่มีคำอธิบายสำหรับรายการนี้"
-
-#~ msgid "View this"
-#~ msgstr "ดูสิ่งนี้"
-
-#~ msgid "no ratings yet"
-#~ msgstr "ยังไม่มีการให้คะแนน"
-
-#~ msgid ""
-#~ "–\n"
-#~ "    rate it now"
-#~ msgstr ""
-#~ "–\n"
-#~ "    ให้คะแนนตอนนี้"
-
-#~ msgid "Checking..."
-#~ msgstr "กำลังตรวจสอบ..."
-
-#~ msgid "Type at least two characters..."
-#~ msgstr "พิมพ์อย่างน้อยสองตัวอักษร..."
-
-#~ msgid "This is the current URL."
-#~ msgstr "นี่คือ URL ปัจจุบัน"
-
-#~ msgid "This URL is available!"
-#~ msgstr "URL นี้สามารถใช้ได้ "
-
-#~ msgid "This URL is already used, please use a different one."
-#~ msgstr "URL นี้ถูกใช้แล้ว กรุณาเลือกใหม่"
-
-#~ msgid "Failed to save, possibly due to invalid data "
-#~ msgstr "ไม่สามารถบันทึกข้อมูลได้ อาจเนื่องจากข้อมูลไม่ถูกต้อง"
-
-#~ msgid ""
-#~ "You have unsaved changes. Make sure "
-#~ "to click 'Save Changes' below before "
-#~ "leaving this page."
-#~ msgstr ""
-#~ "คุณมีการปรับปรุงที่ยังไม่ถูกบันทึก กรุณาคลิ๊ก "
-#~ "'บันทึกการปรับปรุง' ด้านล่างก่อนออกจากหน้านี้"
-
-#~ msgid "(no name)"
-#~ msgstr "(ไม่มีชื่อ)"
-
-#~ msgid "Delete the resource '%name%'?"
-#~ msgstr "ลบทรัพยากร '%name%'?"
-
-#~ msgid "Preview not available for data type: "
-#~ msgstr "ไม่มีการแสดงตัวอย่างของข้อมูลประเภทนี้:"
-
-#~ msgid "Failed to get credentials for storage upload. Upload cannot proceed"
-#~ msgstr "ไม่สามารถเรียกการรับรองสำหรับการอัพโหลด จึงไม่สามารถอัพโหลดต่อได้"
-
-#~ msgid "Checking upload permissions ..."
-#~ msgstr "กำลังตรวจสอบการอนุญาตให้อัพโหลด"
-
-#~ msgid "Uploading file ..."
-#~ msgstr "กำลังอัพโหลดไฟล์ ..."
-
-#~ msgid "Data File"
-#~ msgstr "ไฟล์ข้อมูล"
-
-#~ msgid "Metadata"
-#~ msgstr "ข้อมูลเมตา"
-
-#~ msgid "Documentation"
-#~ msgstr "เอกสารประกอบ"
-
-#~ msgid "Example"
-#~ msgstr "ตัวอย่าง"
-
-#~ msgid "Url"
-#~ msgstr "Url"
-
-#~ msgid "Resource Type"
-#~ msgstr "ประเภทของทรัพยากร"
-
-#~ msgid "DataStore enabled"
-#~ msgstr "DataStore ถูกเปิดใช้"
-
-#~ msgid "Size (Bytes)"
-#~ msgstr "ขนาด (ไบต์)"
-
-#~ msgid "Mimetype"
-#~ msgstr "Mimetype"
-
-#~ msgid "Mimetype (Inner)"
-#~ msgstr "Mimetype (ด้านใน)"
-
-#~ msgid "Hash"
-#~ msgstr "แฮช"
-
-#~ msgid "ID"
-#~ msgstr "ไอดี"
-
-#~ msgid "Done"
-#~ msgstr "เสร็จสิ้น"
-
-#~ msgid "This resource has unsaved changes."
-#~ msgstr "ทรัพยากรนี้มีการปรับปรุงที่ยังไม่ถูกบันทึก"
-
-#~ msgid "e.g. csv, html, xls, rdf, ..."
-#~ msgstr "เช่น csv, html, xls, rdf"
-
-#~ msgid "Extra Fields"
-#~ msgstr "ฟิลด์เพิ่มเติม"
-
-#~ msgid "Add Extra Field"
-#~ msgstr "เพิ่มฟิลด์"
-
-#~ msgid "Key"
-#~ msgstr "กุญแจข้อมูล"
-
-#~ msgid "Delete Resource"
-#~ msgstr "ลบทรัพยากร"
-
-#~ msgid "You can use %aMarkdown formatting%b here."
-#~ msgstr "คุณสามารถใช้ %aรูปแบบ Markdown%b ในนี้"
-
-#~ msgid ""
-#~ "Dates are in %aISO Format%b — eg."
-#~ " %c2012-12-25%d or %c2010-05-31T14:30%d."
-#~ msgstr ""
-#~ "วันที่อยู่ใน %aรูปแบบ ISO%b — เช่น "
-#~ "%c2012-12-25%d หรือ %c2010-05-31T14:30%d."
-
-#~ msgid "Data File (Uploaded)"
-#~ msgstr "ไฟล์ข้อมูล (อัพโหลดแล้ว)"
-
-#~ msgid "Could not load preview"
-#~ msgstr "ไม่สามารถดูตัวอย่างได้"
-
-#~ msgid "DataProxy returned an error"
-#~ msgstr "DataProxy ส่งข้อผิดพลาดกลับมา"
-
-#~ msgid "DataStore returned an error"
-#~ msgstr "DataStore ส่งข้อผิดพลาดกลับมา"
-
-#~ msgid "Find datasets"
-#~ msgstr "ค้นหาชุดข้อมูล"
-
-#~ msgid "Add a dataset"
-#~ msgstr "เพิ่มชุดข้อมูล"
-
-#~ msgid "Page Logo"
-#~ msgstr "โลโก้หน้า"
-
-#~ msgid "Master content template placeholder … please replace me."
-#~ msgstr "พื้นที่หลักสำหรับวางเนื้อหา ... กรุณาเปลี่ยนเนื้อหาฉันด้วย"
-
-#~ msgid "Twitter @ckanproject"
-#~ msgstr "ทวิตเตอร์ @ckanproject"
-
-#~ msgid "Contact Us"
-#~ msgstr "ติดต่อเรา"
-
-#~ msgid "Privacy Policy"
-#~ msgstr "นโยบายความเป็นส่วนตัว"
-
-#~ msgid "Sections"
-#~ msgstr "ส่วน"
-
-#~ msgid "Site Admin"
-#~ msgstr "ผู้ดูแลเว็บไซต์"
-
-#~ msgid "Languages"
-#~ msgstr "ภาษา"
-
-#~ msgid "Meta"
-#~ msgstr "เมตา"
-
-#~ msgid "Licensed under the"
-#~ msgstr "ใช้งานภายใต้ลิขสิทธิ์"
-
-#~ msgid "Open Database License"
-#~ msgstr "สัญญาอนุญาตฐานข้อมูลแบบเปิด"
-
-#~ msgid "This Content and Data is Open"
-#~ msgstr "เนื้อหาและข้อมูลเป็นลักษณะเปิด"
-
-#~ msgid "Powered by"
-#~ msgstr "ขับเคลื่อนด้วย"
-
-#~ msgid "CKAN"
-#~ msgstr "CKAN"
-
-#~ msgid "v"
-#~ msgstr "v"
-
-#~ msgid "Administration - Authorization"
-#~ msgstr "การดูแลระบบ - การอนุมัติ"
-
-#~ msgid "Update Existing Roles"
-#~ msgstr "ปรับปรุงหน้าที่"
-
-#~ msgid "Save Changes"
-#~ msgstr "บันทึกการเปลี่ยนแปลง"
-
-#~ msgid "Add Roles for Any User"
-#~ msgstr "เพิ่มหน้าที่ให้ผู้ใช้"
-
-#~ msgid "Add Role"
-#~ msgstr "เพิ่มหน้าที่"
-
-#~ msgid "Administration Dashboard"
-#~ msgstr "หน้าปัดของผู้ดูแลระบบ"
-
-#~ msgid "Current Sysadmins"
-#~ msgstr "ผู้ดูแลระบบคนปัจจุบัน"
-
-#~ msgid "Administration - Trash"
-#~ msgstr "ผู้ดูและระบบ - ถังขยะ"
-
-#~ msgid "Deleted Revisions"
-#~ msgstr "การแก้ไขที่ลบไปแล้ว"
-
-#~ msgid "Purge them all (forever and irreversibly)"
-#~ msgstr "ลบทุกสิ่งในนี้ (ตลอดไปและไม่สามารถย้อนกลับได้)"
-
-#~ msgid "Deleted Datasets"
-#~ msgstr "ชุดข้อมูลที่ถูกลบไปแล้ว"
-
-#~ msgid "(None)"
-#~ msgstr "(ไม่มี)"
-
-#~ msgid "Authorization:"
-#~ msgstr "การอนุญาต:"
-
-#~ msgid "Edit:"
-#~ msgstr "แก้ไข"
-
-#~ msgid "There are no datasets currently in this group."
-#~ msgstr "ไม่มีชุดข้อมูลในกรุ๊ปนี้"
-
-#~ msgid "History:"
-#~ msgstr "ประวัติ"
-
-#~ msgid "Compare »"
-#~ msgstr "เปรียบเทียบ »"
-
-#~ msgid "Group History"
-#~ msgstr "ประวัติของกลุ่ม"
-
-#~ msgid "Groups of Datasets"
-#~ msgstr "กลุ่มของชุดข้อมูล"
-
-#~ msgid "What Are Groups?"
-#~ msgstr "อะไรคือกลุ่ม?"
-
-#~ msgid ""
-#~ "Whilst tags are great at collecting "
-#~ "datasets together, there are occasions "
-#~ "when you want to restrict users "
-#~ "from editing a collection. A [1:group]"
-#~ " can be set-up to specify which"
-#~ " users have permission to add or "
-#~ "remove datasets from it."
-#~ msgstr ""
-#~ "ขณะที่ tag ทำหน้าที่ได้ดีในการรวบรวมชุดข้อมูลได้ด้วยกัน"
-#~ " แต่อาจจะมีกรณีที่คุณต้องการจำกัดสิทธิ์ของผู้ใช้ในการแก้ไขชุดข้อมูล"
-#~ " [1:group] "
-#~ "สามารถถูกตั้งค่าว่าผู้ใช้สามารถลบหรือเพิ่มข้อมูลในกลุ่มได้"
-
-#~ msgid "New Dataset..."
-#~ msgstr "ชุดข้อมูลใหม่..."
-
-#~ msgid "Existing Dataset..."
-#~ msgstr "ชุดข้อมูลที่มีอยู่ก่อนแล้ว..."
-
-#~ msgid "List Groups"
-#~ msgstr "รายการของกลุ่ม"
-
-#~ msgid "Login to Add a Group"
-#~ msgstr "เข้าระบบเพื่อเพิ่มกลุ่ม"
-
-#~ msgid "Add A Group"
-#~ msgstr "เพิ่มกลุ่ม"
-
-#~ msgid "Errors in form"
-#~ msgstr "ความผิดพลาดในฟอร์ม"
-
-#~ msgid "Warning: URL is very long. Consider changing it to something shorter."
-#~ msgstr "คำเตือน: URL นี้ยาวเกินไป กรุณาทำให้สั้นลง"
-
-#~ msgid "2+ characters, lowercase, using only 'a-z0-9' and '-_'"
-#~ msgstr "ใช้ตัวอักษรอย่างน้อยสองตัว เป็นตัว 'a-z0-9' หรือ '-_' เท่านั้น"
-
-#~ msgid "Start with a summary sentence ..."
-#~ msgstr "เริ่มด้วยประโยคสรุป"
-
-#~ msgid "Image URL:"
-#~ msgstr "URL ของรูปภาพ"
-
-#~ msgid "The URL for the image that is associated with this group."
-#~ msgstr "URL สำหรับรูปภาพที่เกี่ยวข้องกับกลุ่มนี้"
-
-#~ msgid "active"
-#~ msgstr "ใช้งานได้"
-
-#~ msgid "deleted"
-#~ msgstr "ถูกลบไปแล้ว"
-
-#~ msgid "Add..."
-#~ msgstr "เพิ่ม..."
-
-#~ msgid "Key ="
-#~ msgstr "กุญแจ = "
-
-#~ msgid "Value ="
-#~ msgstr "ค่า ="
-
-#~ msgid "Add datasets"
-#~ msgstr "เพิ่มชุดข้อมูล"
-
-#~ msgid "Resource Formats"
-#~ msgstr "รูปแบบของทรัพยากร"
-
-#~ msgid "State:"
-#~ msgstr "สถานะ"
-
-#~ msgid ""
-#~ "[1:You searched for \"%(query)s\". "
-#~ "]%(number_of_results)s datasets found."
-#~ msgstr "[1:การค้นหา \"%(query)s\". ]%(number_of_results)s ชุดข้อมูล ."
-
-#~ msgid ""
-#~ "What was the [1:average price] of "
-#~ "a house in the UK in 1935? "
-#~ "When will India's projected population "
-#~ "[2:overtake] that of China? Where can"
-#~ " you see [3:publicly-funded art] in"
-#~ " Seattle? Data to answer many, many"
-#~ " questions like these is out there"
-#~ " on the Internet somewhere - but "
-#~ "it is not always easy to find."
-#~ msgstr ""
-#~ "What was the [1:average price] of "
-#~ "a house in the UK in 1935? "
-#~ "When will India's projected population "
-#~ "[2:overtake] that of China? Where can"
-#~ " you see [3:publicly-funded art] in"
-#~ " Seattle? Data to answer many, many"
-#~ " questions like these is out there"
-#~ " on the Internet somewhere - but "
-#~ "it is not always easy to find."
-
-#~ msgid ""
-#~ "%(site_title)s is a community-run "
-#~ "catalogue of useful sets of data "
-#~ "on the Internet. You can collect "
-#~ "links here to data from around the"
-#~ " web for yourself and others to "
-#~ "use, or search for data that "
-#~ "others have collected. Depending on the"
-#~ " type of data (and its conditions "
-#~ "of use), %(site_title)s may also be "
-#~ "able to store a copy of the "
-#~ "data or host it in a database, "
-#~ "and provide some basic visualisation "
-#~ "tools."
-#~ msgstr ""
-#~ "%(site_title)s "
-#~ "คือการรวบรวมของชุดข้อมูลที่เป็นประโยชน์จากอินเตอร์เน็ต "
-#~ "ขึ้นอยู่ประเภทของข้อมูลหรือเงื่อนไขในการใช้ %(site_title)s "
-#~ "สามารถใช้เก็บสำเนาของข้อมูลหรือเก็บไว้ในฐานข้อมูลและสามารถใช้เครื่องมือในการมโนภาพได้"
-#~ " (visualization)"
-
-#~ msgid "How it works"
-#~ msgstr "ทำงานอย่างไร"
-
-#~ msgid ""
-#~ "This site is running a powerful "
-#~ "piece of open-source data cataloguing"
-#~ " software called [1:CKAN], written and "
-#~ "maintained by the [2:Open Knowledge "
-#~ "Foundation]. Each 'dataset' record on "
-#~ "CKAN contains a description of the "
-#~ "data and other useful information, such"
-#~ " as what formats it is available "
-#~ "in, who owns it and whether it "
-#~ "is freely available, and what subject"
-#~ " areas the data is about. Other "
-#~ "users can improve or add to this"
-#~ " information (CKAN keeps a fully "
-#~ "versioned history)."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "CKAN powers a number of data "
-#~ "catalogues on the Internet. [1:The Data"
-#~ " Hub] is an openly editable open "
-#~ "data catalogue, in the style of "
-#~ "Wikipedia. The UK Government uses CKAN"
-#~ " to run [2:data.gov.uk], which currently"
-#~ " lists 8,000 government datasets. Official"
-#~ " public data from most European "
-#~ "countries is listed in a CKAN "
-#~ "catalogue at [3:publicdata.eu]. There is "
-#~ "a comprehensive list of catalogues like"
-#~ " these around the world at "
-#~ "[4:datacatalogs.org], which is itself powered"
-#~ " by CKAN."
-#~ msgstr ""
-
-#~ msgid "Open data and the Open Knowledge Foundation"
-#~ msgstr "ข้อมูลแบบเปิดกับ Open Knowledge Foundation"
-
-#~ msgid ""
-#~ "Most of the data indexed at "
-#~ "%(site_title)s is openly licensed, meaning "
-#~ "anyone is free to use or re-"
-#~ "use it however they like. Perhaps "
-#~ "someone will take that nice dataset "
-#~ "of a city's public art that you"
-#~ " found, and add it to a tourist"
-#~ " map - or even make a neat "
-#~ "app for your phone that'll help "
-#~ "you find artworks when you visit "
-#~ "the city. Open data means more "
-#~ "enterprise, collaborative science and "
-#~ "transparent government. You can read "
-#~ "more about open data in the "
-#~ "[1:Open Data Handbook]."
-#~ msgstr ""
-#~ "ข้อมูลส่วนใหญ่ที่ %(site_title)s "
-#~ "ถูกเผยแพร่ภายใต้ลิขสิทธิ์ที่เปิด "
-#~ "หมายความว่าใครก็สามารถนำข้อมูลไปใช้หรือเผยแพร่ได้ตามใจชอบ "
-#~ "อาจมีใครบางคนเอาชุดข้อมูลเกี่ยวกับงานศิลปะสาธารนะที่คุณเอามาลงไปใส่ในแผนที่สำหรับนักท่องเที่ยว"
-#~ " หรือสร้างแอพมือถือที่จะให้ช่วยหางานศิลปะในเมือง "
-#~ "ข้อมูลแบบเปิดนำไปสู่นวตกรรมที่เพิ่มขึ้น "
-#~ "การร่วมมือทางด้านวิทยาศาสตร์ และรัฐบาลที่โปร่งใส "
-#~ "คุณสามารถอ่านรายละเอียดเพิ่มเติมเกี่ยวกับข้อมูลแบบเปิดได้ที่ "
-#~ "[1:Open Data Handbook]."
-
-#~ msgid ""
-#~ "The [1:Open Knowledge Foundation] is a"
-#~ " non-profit organisation [2:promoting] open"
-#~ " knowledge: writing and improving CKAN "
-#~ "is one of the ways we do "
-#~ "that. If you want to get involved"
-#~ " with its design or code, join "
-#~ "the discussion or development [3:mailing "
-#~ "lists], or take a look at the "
-#~ "[4:OKFN] site to find out about "
-#~ "our other projects."
-#~ msgstr ""
-#~ "[1:Open Knowledge Foundation] "
-#~ "เป็นองค์กรไม่แสวงกำไรที่ [2:promoting] open "
-#~ "knowledge: การสร้างและพัฒนา CKAN "
-#~ "เป็นหนึ่งในวิธีที่เราบรรลุวัตถุประสงค์นี้ "
-#~ "ถ้าคุณต้องการที่จะมีส่วนร่วมในการเขียนโปรแกรม "
-#~ "ให้เข้าร่วมการสนทนากลุ่ม หรือdevelopment [3:mailing "
-#~ "lists] หรือเข้าไปดูที่ [4:OKFN] "
-#~ "เพื่อที่จะหาข้อมูลเกี่ยวกับโปรเจ็กต์อื่นๆ"
-
-#~ msgid "Welcome to"
-#~ msgstr "ยินดีต้อนรับสู่"
-
-#~ msgid "Find data"
-#~ msgstr "ค้นหาข้อมูล"
-
-#~ msgid "contains"
-#~ msgstr "ประกอบด้วย"
-
-#~ msgid ""
-#~ "that you can \n"
-#~ "            browse, learn about and download."
-#~ msgstr ""
-#~ "ที่คุณสามารถ\n"
-#~ "เรียกดู เรียนรู้ และดาวน์โหลด"
-
-#~ msgid "Share data"
-#~ msgstr "แบ่งปันข้อมูล"
-
-#~ msgid ""
-#~ "Add your own datasets to share them with others and\n"
-#~ "          to find other people interested in your data."
-#~ msgstr ""
-#~ "เพิ่มชุดข้อมูลเข้าไปเพื่อที่จะแบ่งปันกับคนอื่นและ\n"
-#~ "หาคนอื่นที่สนใจในข้อมูลของคุณ"
-
-#~ msgid "Create a dataset »"
-#~ msgstr "สร้างชุดข้อมูล »"
-
-#~ msgid "Sign up »"
-#~ msgstr "สมัครสมาชิก »"
-
-#~ msgid "Collaborate"
-#~ msgstr "ร่วมมือ"
-
-#~ msgid ""
-#~ "Find out more about working with open data by exploring \n"
-#~ "          these resources:"
-#~ msgstr ""
-#~ "เรียนรู้เพิ่มเติมเกี่ยวกับการทำงานกับข้อมูลแบบเปิดโดยการเข้าไปดู\n"
-#~ "ทรัพยากรดังต่อไปนี้:"
-
-#~ msgid "GetTheData.org"
-#~ msgstr "GetTheData.org"
-
-#~ msgid "DataPatterns.org"
-#~ msgstr "DataPatterns.org"
-
-#~ msgid "Open Data Handbook"
-#~ msgstr "Open Data Handbook"
-
-#~ msgid "Who else is here?"
-#~ msgstr "มีใครอยู่ที่นี่บ้าง"
-
-#~ msgid "has"
-#~ msgstr "มี"
-
-#~ msgid "datasets."
-#~ msgstr "ชุดข้อมูล"
-
-#~ msgid "Importer"
-#~ msgstr "ผู้นำเข้า"
-
-#~ msgid "Import Datasets"
-#~ msgstr "นำเข้าชุดข้อมูล"
-
-#~ msgid ""
-#~ "Here you can supply an Excel file"
-#~ " with details of multiple datasets "
-#~ "and import these into"
-#~ msgstr "ที่นี่คุณสามารถระบุไฟล์ Excel ที่มีข้อมูลของหลายๆชุดข้อมูลและนำเข้าไปใน"
-
-#~ msgid "Log in to use this tool"
-#~ msgstr "เข้าสู่ระบบเพื่อที่จะใช้เครื่องมือ"
-
-#~ msgid "Preview - Importer"
-#~ msgstr "ดูตัวอย่าง - ผู้นำเข้า"
-
-#~ msgid "Import Preview"
-#~ msgstr "ตัวอย่างการนำเข้า"
-
-#~ msgid "read from"
-#~ msgstr "อ่านจาก"
-
-#~ msgid "Further dataset previews not shown."
-#~ msgstr "ตัวอย่างชุดข้อมูลอื่นๆไม่ได้ถูกแสดง"
-
-#~ msgid "Edit summary (briefly describe the changes you have made)"
-#~ msgstr "สรุปการแก้ไข (บรรยายการเปลี่ยนแปลงของคุณโดยคร่าวๆ)"
-
-#~ msgid "Author:"
-#~ msgstr "ผู้แต่ง:"
-
-#~ msgid "Import"
-#~ msgstr "นำเข้า"
-
-#~ msgid "Results - Importer"
-#~ msgstr "ผลลัพธ์ - ผู้นำเข้า "
-
-#~ msgid "Import Results"
-#~ msgstr "ผลการนำเข้า"
-
-#~ msgid "- Datasets - History"
-#~ msgstr "- ชุดข้อมูล - ประวัติ"
-
-#~ msgid "- Edit - Datasets"
-#~ msgstr "- แก้ไข - ชุดข้อมูล"
-
-#~ msgid "Basic Information"
-#~ msgstr "ข้อมูลพื้นฐาน"
-
-#~ msgid "Further Information"
-#~ msgstr "ข้อมูลเพิ่มเติม"
-
-#~ msgid "Since you have not signed in this will just be your IP address."
-#~ msgstr "เนื่องจากว่าคุณไม่ได้ทำการเข้าระบบ ไอพีของคุณจะถูกใช้แทน"
-
-#~ msgid "Click here to sign in"
-#~ msgstr "คลิ๊กที่นี้เพื่อที่จะเข้าระบบ"
-
-#~ msgid "before saving (opens in new window)."
-#~ msgstr "ก่อนที่จะบันทึกข้อมูล (เปิดในหน้าต่างใหม่)"
-
-#~ msgid ""
-#~ "[1:Important:] By submitting content, you "
-#~ "agree to release your contributions "
-#~ "under the [2:Open Database License]. "
-#~ "Please [3:refrain] from editing this "
-#~ "page if you are [4:not] happy to"
-#~ " do this."
-#~ msgstr ""
-#~ "[1:Important:] By submitting content, you "
-#~ "agree to release your contributions "
-#~ "under the [2:Open Database License]. "
-#~ "Please [3:refrain] from editing this "
-#~ "page if you are [4:not] happy to"
-#~ " do this."
-
-#~ msgid "- Edit Resources - Datasets"
-#~ msgstr "- แก้ไขทรัพยากร - ชุดข้อมูล"
-
-#~ msgid "Edit Resources:"
-#~ msgstr "แก้ไขทรัพยากร:"
-
-#~ msgid "- Datasets - Followers"
-#~ msgstr "- ชุดข้อมูล - ผู้ติดตาม"
-
-#~ msgid "Followers:"
-#~ msgstr "ผู้ติดตาม:"
-
-#~ msgid "no-sidebar"
-#~ msgstr "no-sidebar"
-
-#~ msgid "New key"
-#~ msgstr "กุญแจใหม่"
-
-#~ msgid "with value"
-#~ msgstr "พร้อมกับค่า"
-
-#~ msgid "Dataset History"
-#~ msgstr "ประวัติชุดข้อมูล"
-
-#~ msgid "Resources (0)"
-#~ msgstr "ทรัพยากร (0)"
-
-#~ msgid "Add / Edit resources"
-#~ msgstr "เพิ่ม / แก้ไข ทรัพยากร"
-
-#~ msgid "Apps, Ideas etc"
-#~ msgstr "แอพพลิเคชั่น แนวคิด และอื่นๆ"
-
-#~ msgid "Followers ({num_followers})"
-#~ msgstr "ผู้ติดตาม ({num_followers})"
-
-#~ msgid "Settings"
-#~ msgstr "การตั้งค่า"
-
-#~ msgid "Add - Datasets"
-#~ msgstr "เพิ่ม-ชุดข้อมูล"
-
-#~ msgid "Add a Dataset"
-#~ msgstr "เพิ่มชุดข้อมูล"
-
-#~ msgid "A short descriptive title for the dataset"
-#~ msgstr "คำอธิบายสั้นๆสำหรับชุดข้อมูล"
-
-#~ msgid "Home Page"
-#~ msgstr "หน้าแรก"
-
-#~ msgid "The URL for the web page describing the data (not the data itself)."
-#~ msgstr "URL สำหรับเว็บไซต์ที่ให้รายละเอียดของข้อมูล (ไม่ใช่ตัวข้อมูล)"
-
-#~ msgid "e.g. http://www.example.com/growth-figures.html"
-#~ msgstr "ตัวอย่าง http://www.example.com/growth-figures.html"
-
-#~ msgid ""
-#~ "(Don't worry if you don't know "
-#~ "which license the data has been "
-#~ "released under)."
-#~ msgstr "(ไม่เป็นไรหากคุณไม่รู้ว่าข้อมูลนี้ใช้สัญญาอนุญาตแบบไหน)"
-
-#~ msgid "Member of:"
-#~ msgstr "สมาชิกของ:"
-
-#~ msgid "Add to:"
-#~ msgstr "เพิ่มไปที่:"
-
-#~ msgid "Cannot add any groups."
-#~ msgstr "ไม่สามารถเพิ่มกลุ่มใดๆ"
-
-#~ msgid ""
-#~ "Comma-separated terms that may link "
-#~ "this dataset to similar ones. For "
-#~ "more information on conventions, see "
-#~ "[1:this wiki page]."
-#~ msgstr ""
-#~ "การใช้เครื่องหมายจุคภาค อาจใช้เพื่อเชื่อมโยงชุดข้อมูลที่คล้ายกัน"
-#~ " ข้อมูลเพิ่มเติมเกี่ยวกับเรื่องนี้ไปที่ [1:this wiki"
-#~ " page]"
-
-#~ msgid "e.g. pollution, rivers, water quality"
-#~ msgstr "ตัวอย่าง มลภาวะ แม่น้ำ คุณภาพน้ำ"
-
-#~ msgid "Add Resources"
-#~ msgstr "เพิ่มทรัพยากร"
-
-#~ msgid ""
-#~ "Upload or link data files, APIs "
-#~ "and other materials related to your "
-#~ "dataset."
-#~ msgstr ""
-#~ "อัปโหลดหรือเพิ่มลิ้งค์ไฟล์ข้อมูล API "
-#~ "และวัตถุดิบอื่นที่เกี่ยวข้องกับชุดข้อมูลของคุณ"
-
-#~ msgid "New resource..."
-#~ msgstr "ทรัพยากรใหม่"
-
-#~ msgid "x"
-#~ msgstr "x"
-
-#~ msgid "Link to a file"
-#~ msgstr "เชื่อมโยงไปไฟล์"
-
-#~ msgid "Link to an API"
-#~ msgstr "เชื่อมโยงไป API"
-
-#~ msgid "File URL"
-#~ msgstr "ไฟล์ URL"
-
-#~ msgid "API URL"
-#~ msgstr "API URL"
-
-#~ msgid ""
-#~ "The name of the main contact, for"
-#~ " enquiries about this particular dataset,"
-#~ " using the e-mail address in the "
-#~ "following field."
-#~ msgstr ""
-#~ "ผู้ติดต่อหลักเพื่อติดต่อสอบถามเรื่องข้อมูลที่เกี่ยวกับชุดข้อมูล "
-#~ "ใช้อีเมลในฟิลด์ต่อไปนี้"
-
-#~ msgid "Author email"
-#~ msgstr "อีเมลผู้แต่ง"
-
-#~ msgid ""
-#~ "If there is another important contact"
-#~ " person (in addition to the person"
-#~ " in the Author field) then provide"
-#~ " details here."
-#~ msgstr ""
-#~ "ถ้ามีผู้ติดต่อที่สำคัญอีกคน (บุคคลที่ถูกเพิ่มขึ้นในฟิลด์ผู้แต่ง)"
-#~ " กรุณาให้รายละเอียดที่นี่"
-
-#~ msgid "Maintainer email"
-#~ msgstr "อีเมลผู้ดูแล"
-
-#~ msgid "A number representing the version (if applicable)"
-#~ msgstr "เลขที่รุ่น (ถ้ามี)"
-
-#~ msgid "e.g. 1.2.0"
-#~ msgstr "ตัวอย่าง 1.2.0"
-
-#~ msgid ""
-#~ "Adding custom fields to the dataset "
-#~ "such as \"location:uk\" can help users"
-#~ " find it in the search engine. "
-#~ "This data will also appear under"
-#~ msgstr ""
-#~ "เพิ่มฟิลด์กำหนดเองในชุดข้อมูลเช่น \"พื้นที่:กทม.\" (หรือ"
-#~ " location:bangkok) ที่ช่วยให้ผู้ใช้ค้นหาข้อมูลในเสิร์ชเอ็นจิน"
-#~ " (เช่น Google) ข้อมูลนี้จะแสดงภายใต้"
-
-#~ msgid "when viewing the dataset."
-#~ msgstr "เมื่อแสดงชุดข้อมูล"
-
-#~ msgid "Do you really want to change the state of this dataset?"
-#~ msgstr "คุณต้องการจะเปลี่ยนคำอธิบายของชุดข้อมูลนี้"
-
-#~ msgid "Yes!"
-#~ msgstr "ใช่"
-
-#~ msgid "This dataset is"
-#~ msgstr "ชุดข้อมูลนี้คือ"
-
-#~ msgid "Summary"
-#~ msgstr "สรุป"
-
-#~ msgid "Briefly describe the changes you have made..."
-#~ msgstr "คำอธิบายสังเขปที่คุณเป็นผู้เปลี่ยน"
-
-#~ msgid ""
-#~ "Since you have not signed in this will just be your IP address.\n"
-#~ "    [1:Click here to sign in] before saving (opens in new window)."
-#~ msgstr ""
-#~ "เมื่อคุณไม่ได้ลงชื่อเข้าสู่ระบบจึงแสดงเฉพาะเลขที่ไอพีของคุณ\n"
-#~ "[1:คลิกเพื่อเข้าสู่ระบบ] ก่อนบันทึก (เปิดหน้าต่างใหม่)"
-
-#~ msgid "Important:"
-#~ msgstr "สำคัญ:"
-
-#~ msgid ""
-#~ "By submitting content, you agree to "
-#~ "release your contributions under the"
-#~ msgstr "การส่งข้อมูลนี้ คุณตกลงที่จะเผยแพร่สิ่งที่คุณเพิ่มเติมภายใต้"
-
-#~ msgid ". Please"
-#~ msgstr ". กรุณา"
-
-#~ msgid "refrain"
-#~ msgstr "ละเว้น"
-
-#~ msgid "from editing this page if you are"
-#~ msgstr "จากการแก้ไขหน้านี้ ถ้าหากคุณเป็นผู้แก้ไข"
-
-#~ msgid "not"
-#~ msgstr "ไม่"
-
-#~ msgid "happy to do this."
-#~ msgstr "ความสุขที่จะทำเช่นนี้"
-
-#~ msgid "- Datasets"
-#~ msgstr "- ชุดข้อมูล"
-
-#~ msgid "License:"
-#~ msgstr "สัญญาอนุญาต:"
-
-#~ msgid "[Open Data]"
-#~ msgstr "[Open Data]"
-
-#~ msgid "Related Datasets"
-#~ msgstr "ชุดข้อมูลที่เกี่ยวข้อง"
-
-#~ msgid "This is an old revision of this dataset, as edited"
-#~ msgstr "นี่คือชุดข้อมูลรุ่นเก่าที่ถูกแก้ไข"
-
-#~ msgid "at"
-#~ msgstr "ที่"
-
-#~ msgid ". It may differ significantly from the"
-#~ msgstr ". มันอาจจะแตกต่างกันอย่างมีนัยสำคัญจาก"
-
-#~ msgid "current revision"
-#~ msgstr "การแก้ไขปัจจุบัน"
-
-#~ msgid "This is the current revision of this dataset, as edited"
-#~ msgstr "นี่เป็นเวอร์ชั่นปัจจุบันของชุดข้อมูลนี้"
-
-#~ msgid "RDF/XML"
-#~ msgstr "RDF/XML"
-
-#~ msgid "(edit)"
-#~ msgstr "(แก้ไข)"
-
-#~ msgid "(none)"
-#~ msgstr "(ไม่มี)"
-
-#~ msgid "(settings)"
-#~ msgstr "(ตั้งค่า)"
-
-#~ msgid "Country"
-#~ msgstr "ประเทศ"
-
-#~ msgid "Harvest Source"
-#~ msgstr "Harvest Source"
-
-#~ msgid ""
-#~ "[1:Dataset page] on \n"
-#~ "            [2:%(harvest_catalogue_name)s]"
-#~ msgstr "[1:Dataset page] บน [2:%(harvest_catalogue_name)s]"
-
-#~ msgid "- Dataset - Resource"
-#~ msgstr "- ชุดข้อมูล - ทรัพยากร"
-
-#~ msgid "Data API is unavailable for this resource as DataStore is disabled"
-#~ msgstr ""
-#~ "ไม่มี Data API สำหรับทรัพยากรนี้ เนื่องจาก "
-#~ "DataStore ถูกปิดการใช้งานอยู่"
-
-#~ msgid "License unknown"
-#~ msgstr "ไม่มีใบอนุญาต"
-
-#~ msgid "From the [1:Dataset]:"
-#~ msgstr "จาก [1:Dataset]:"
-
-#~ msgid "Cannot embed as resource is private."
-#~ msgstr "ไม่สามารถฝังทรัพยากรนี้เป็นส่วนบุคคล"
-
-#~ msgid "Search -"
-#~ msgstr "ค้นหา -"
-
-#~ msgid "Do you know of a dataset that should be added to"
-#~ msgstr "คุณทราบเกี่ยวกับชุดข้อมูลที่ควรจะถูกเพิ่มเติมใหม่"
-
-#~ msgid "Register it now"
-#~ msgstr "ลงทะเบียนเลย"
-
-#~ msgid "Other access"
-#~ msgstr "การเข้าถึงอื่นๆ"
-
-#~ msgid "You can also access this registry using the"
-#~ msgstr "คุณสามารถเข้าถึงคลังโดยใช้"
-
-#~ msgid "(see"
-#~ msgstr "(เห็น"
-
-#~ msgid "or download a"
-#~ msgstr "หรือดาวน์โหลด"
-
-#~ msgid "full"
-#~ msgstr "เต็ม"
-
-#~ msgid "dump"
-#~ msgstr "ข้อมูลชุดใหญ่"
-
-#~ msgid ""
-#~ "[1:There was an error while searching.] \n"
-#~ "            Please try again."
-#~ msgstr ""
-#~ "[1:เกิดข้อผิดพลาดขณะค้นหา] \n"
-#~ "            กรุณาลองใหม่."
-
-#~ msgid "[1:%(item_count)s] datasets found"
-#~ msgstr "พบชุดข้อมูล [1:%(item_count)s] "
-
-#~ msgid "Would you like to [1:create a new dataset?]"
-#~ msgstr "คุณต้องการ [1:สร้างชุดข้อมูลใหม่?]"
-
-#~ msgid "Search..."
-#~ msgstr "ค้นหา..."
-
-#~ msgid "Add item"
-#~ msgstr "เพิ่มรายการ"
-
-#~ msgid "(required)"
-#~ msgstr "(ต้องการ)"
-
-#~ msgid "Please add the title for the item"
-#~ msgstr "กรุณาเพิ่มชื่อสำหรับรายการ"
-
-#~ msgid "Type of item"
-#~ msgstr "ชนิดของรายการ"
-
-#~ msgid "Please describe the item"
-#~ msgstr "กรุณาอธิบายรายการ"
-
-#~ msgid "Please add a url"
-#~ msgstr "กรุณาเพิ่ม URL"
-
-#~ msgid "Please add a link to the image"
-#~ msgstr "กรุณาเพิ่มลิงค์ไปยังภาพ"
-
-#~ msgid "Showing items"
-#~ msgstr "แสดงรายการ"
-
-#~ msgid "of"
-#~ msgstr "ของ"
-
-#~ msgid "related items found"
-#~ msgstr "พบรายการที่เกี่ยวข้อง"
-
-#~ msgid "Least viewed"
-#~ msgstr "ดูน้อย"
-
-#~ msgid "Featured items only?"
-#~ msgstr "รายการแนะนำเท่านั้น?"
-
-#~ msgid "- Apps, Ideas etc"
-#~ msgstr "- แอพ ไอเดีย ฯลฯ"
-
-#~ msgid "There are no items here yet"
-#~ msgstr "ไม่มีรายการที่นี่เลย"
-
-#~ msgid ", why not"
-#~ msgstr ", ทำไมไม่"
-
-#~ msgid "add one"
-#~ msgstr "เพิ่มอีกหนึ่ง"
-
-#~ msgid "Differences - Revisions"
-#~ msgstr "ความแตกต่าง - การแก้ไข"
-
-#~ msgid "Revision Differences -"
-#~ msgstr "ความแตกต่างระหว่างแต่ละการแก้ไข -"
-
-#~ msgid "From:"
-#~ msgstr "จาก:"
-
-#~ msgid "To:"
-#~ msgstr "ถึง:"
-
-#~ msgid "No differences"
-#~ msgstr "ไม่พบความแตกต่าง"
-
-#~ msgid "List"
-#~ msgstr "รายการ"
-
-#~ msgid ""
-#~ "Track the most recent changes to the system, with most recent\n"
-#~ "    changes first."
-#~ msgstr "ติดตามการเปลี่ยนแปลงล่าสุดของระบบ, โดยการเปลี่ยนแปลงล่าสุดจะขึ้นมาก่อน"
-
-#~ msgid "Revision:"
-#~ msgstr "การแก้ไข:"
-
-#~ msgid "Revision Actions"
-#~ msgstr "การดำเนินการแก้ไข"
-
-#~ msgid "Timestamp:"
-#~ msgstr "ตราประทับเวลา:"
-
-#~ msgid "Log Message:"
-#~ msgstr "การบันทึกข้อมูล"
-
-#~ msgid "Dataset -"
-#~ msgstr "ชุดข้อมูล -"
-
-#~ msgid ""
-#~ ",\n"
-#~ "      Tag -"
-#~ msgstr ""
-#~ ",\n"
-#~ "      ป้ายกำกับ -"
-
-#~ msgid "Embed this view"
-#~ msgstr "ฝังมุมมองนี้"
-
-#~ msgid "by copying this into your webpage:"
-#~ msgstr "โดยการคัดลอกไปที่เว็บไชต์ของคุณ:"
-
-#~ msgid "Not Openly Licensed"
-#~ msgstr "ไม่ได้รับอนุญาตอย่างเปิดเผย"
-
-#~ msgid ""
-#~ "This upload form is valid for a"
-#~ " limited time (usually 1h or so). "
-#~ "If the\n"
-#~ "    form expires please reload the page."
-#~ msgstr ""
-#~ "ฟอร์มนี้สามารถใช้ได้ภายในระยะเวลาที่จำกัด (ประมาณ 1 "
-#~ "ชั่วโมง) หากฟอร์มหมดอายุแล้ว กรุณาโหลดใหม่อีกครั้ง"
-
-#~ msgid "File:"
-#~ msgstr "ไฟล์:"
-
-#~ msgid "Upload - Successful"
-#~ msgstr "อัพโหลดสำเร็จแล้ว"
-
-#~ msgid "Filed uploaded to:"
-#~ msgstr "ไฟล์ถูกอัพโหลดไปที่:"
-
-#~ msgid "Upload another »"
-#~ msgstr "อัพโหลดอีกไฟล์ »"
-
-#~ msgid "There are"
-#~ msgstr "มี"
-
-#~ msgid "results for ‘"
-#~ msgstr "ผลลัพธ์สำหรับ"
-
-#~ msgid "results for tags."
-#~ msgstr "ผลลัพธ์สำหรับ tag"
-
-#~ msgid "Clear search"
-#~ msgstr "เคลียร์การค้นหา"
-
-#~ msgid "and see all tags."
-#~ msgstr "และดู tag ทั้งหมด"
-
-#~ msgid "- Tags"
-#~ msgstr "- Tag"
-
-#~ msgid "Tag:"
-#~ msgstr "Tag:"
-
-#~ msgid "There are %(count)s datasets tagged with [1:%(tagname)s]:"
-#~ msgstr "นี่คือ %(count)s ชุดข้อมูลที่ใช้ป้ายกำกับ [1:%(tagname)s]:"
-
-#~ msgid "- Dashboard - User"
-#~ msgstr "- แผงควบคุม -  ผู้ใช้"
-
-#~ msgid "What's going on?"
-#~ msgstr "เกิดอะไรขึ้น?"
-
-#~ msgid "Nothing new on CKAN?"
-#~ msgstr "ไม่มีอะไรใหม่ใน CKAN?"
-
-#~ msgid "So, why don't you ..."
-#~ msgstr "ดังนั้นทำไมคุณไม่ ..."
-
-#~ msgid "Add a new dataset"
-#~ msgstr "เพิ่มชุดข้อมูลใหม่"
-
-#~ msgid "Follow another user"
-#~ msgstr "ติดตามผู้ใช้อื่น"
-
-#~ msgid "Create a group or a tag"
-#~ msgstr "สร้างกลุ่มหรือป้ายกำกับ"
-
-#~ msgid "Or simply browse the repository"
-#~ msgstr "หรือเพียงแค่เรียกดูคลังเก็บข้อมูล"
-
-#~ msgid "- Edit - User"
-#~ msgstr "- แก้ไข -ผู้ใช้"
-
-#~ msgid "Edit User:"
-#~ msgstr "แก้ไขผู้ใช้:"
-
-#~ msgid "E-mail"
-#~ msgstr "อีเมล์"
-
-#~ msgid "OpenId"
-#~ msgstr "OpenId"
-
-#~ msgid "A little about you..."
-#~ msgstr "เล็ก ๆ น้อย ๆ เกี่ยวกับคุณ ..."
-
-#~ msgid "Change your password"
-#~ msgstr "เปลี่ยนรหัสผ่านของคุณ"
-
-#~ msgid "Password (repeat)"
-#~ msgstr "รหัสผ่าน (กรอกอีกครั้ง)"
-
-#~ msgid "Change your username"
-#~ msgstr "เปลี่ยนชื่อผู้ใช้ของคุณ"
-
-#~ msgid ""
-#~ "Changing your username will log you "
-#~ "out, and require you to log back"
-#~ " in with the new username"
-#~ msgstr ""
-#~ "การเปลี่ยนบัญชีการใช้จะนำคุณออกจากระบบ "
-#~ "กรุณาเข้าระบบอีกครั้งด้วยบัญชีใหม่"
-
-#~ msgid "- Followers - User"
-#~ msgstr "- ผู้ติดตาม - ผู้ใช้"
-
-#~ msgid "'s Followers"
-#~ msgstr "ผู้ติดตามของ"
-
-#~ msgid "My Profile"
-#~ msgstr "ประวัติของฉัน"
-
-#~ msgid "Edit Profile"
-#~ msgstr "แก้ไขประวัติ"
-
-#~ msgid "My Followers ({num_followers})"
-#~ msgstr "ผู้ติดตามของฉัน ({num_followers})"
-
-#~ msgid "View Profile"
-#~ msgstr "ดูประวัติ"
-
-#~ msgid "Register Account"
-#~ msgstr "ลงทะเบียนบัญชี"
-
-#~ msgid "[1:%(item_count)s] users found."
-#~ msgstr "พบผู้ใช้ [1:%(item_count)s] ราย"
-
-#~ msgid "Sort by name"
-#~ msgstr "เรียงตามชื่อ"
-
-#~ msgid "Sort by edits"
-#~ msgstr "เรียงตามที่แก้ไข"
-
-#~ msgid "Member for"
-#~ msgstr "สมาชิกสำหรับ"
-
-#~ msgid "Login - User"
-#~ msgstr "เข้าสู่ระบบ - ผู้ใช้"
-
-#~ msgid "Login to"
-#~ msgstr "เข้าสู่ระบบ"
-
-#~ msgid "Login:"
-#~ msgstr "เข้าสู่ระบบ:"
-
-#~ msgid "Password:"
-#~ msgstr "รหัสผ่าน:"
-
-#~ msgid "Remember me:"
-#~ msgstr "จำฉันไว้:"
-
-#~ msgid "Sign In"
-#~ msgstr "เข้าสู่ระบบ"
-
-#~ msgid "Login using Open ID"
-#~ msgstr "เข้าสู่ระบบโดยใช้ OpenID"
-
-#~ msgid ""
-#~ "NB: To set-up your OpenID for "
-#~ "this site, you first need to "
-#~ "[1:Register] and then edit your Profile"
-#~ " to provide your OpenID."
-#~ msgstr ""
-#~ "หมายเหตุ: การตั้งค่าโอเพนไอดีของคุณสำหรับเว็บไซต์นี้ "
-#~ "คุณต้องไปที่ [1: ลงทะเบียน] "
-#~ "แล้วแก้ไขข้อมูลส่วนตัวของคุณ"
-
-#~ msgid "Please click your account provider:"
-#~ msgstr "กรุณาคลิกที่ผู้ให้บริการบัญชีของคุณ"
-
-#~ msgid "OpenID Identifier:"
-#~ msgstr "รหัสโอเพนไอดี:"
-
-#~ msgid "Don't have an OpenID?"
-#~ msgstr "ไม่มีรหัสโอเพนไอดีใช่หรือไม่"
-
-#~ msgid ""
-#~ "OpenID is service that allows you "
-#~ "to log-on to many different "
-#~ "websites\n"
-#~ "          using a single identity. Find out [1:more\n"
-#~ "          about OpenID] and [2:how to get an\n"
-#~ "          OpenID enabled account]. Probably"
-#~ " the simplest way is sign up "
-#~ "with a\n"
-#~ "          free OpenID provider such as [3:https://www.myopenid.com/]."
-#~ msgstr ""
-#~ "โอเพนไอดีเป็นบริการที่ช่วยให้คุณสามารถเข้าสู่ระบบเพื่อท่องเวบไซต์ที่แตกต่างกันมาก"
+#~ "ประกาศลิขสิทธิ์ข้างต้นและประกาศการอนุญาตนี้จะเป็นรวมอยู่ในสำเนาทั้งหมดหรือบางส่วนที่สำคัญของซอฟแวร์"
 #~ "\n"
-#~ "ใช้ตัวเดียว \n"
-#~ "ค้นหา [1:เพิ่มเติมเกี่ยวกับ โอเพนไอดี] และ "
-#~ "[2:การเข้าถึงการเปิดใช้งานบัญชี\n"
-#~ "โอเพนไอดี] อาจมีวิธีง่ายที่สุดคือสร้างบัญชีผู้ใช้ "
-#~ "บริการฟรีของโอเพนไอดี เช่น [3:https://www.myopenid.com/]"
+#~ "\n"
+#~ "ซอฟต์แวร์นี้มีให้ \"ตามสภาพ\" โดยไม่มีการรับประกันใด "
+#~ "ๆ โดยชัดแจ้งหรือโดยนัย รวมถึงแต่ไม่จำกัด "
+#~ "เฉพาะการรับประกันของสินค้าความเหมาะสมสำหรับวัตถุประสงค์และโดยเฉพาะอย่างยิ่งการไม่ละเมิด"
+#~ " ไม่มีเหตุการณ์ใดที่ผู้เขียนหรือเจ้าของลิขสิทธิ์ พ.ศ. "
+#~ "รับผิดชอบต่อการเรียกร้องใด ๆ "
+#~ "ที่จะเกิดความเสียหายหรือความรับผิดอื่น ๆ "
+#~ "ไม่ว่าในการดำเนินการของสัญญาการละเมิดหรืออื่น ๆ "
+#~ "ที่เกิดจากการ, หมดอายุการใช้งาน "
+#~ "หรือเกี่ยวข้องกับซอฟต์แวร์หรือการใช้หรือการติดต่ออื่น ๆ "
+#~ "ในซอฟต์แวร์"
 
-#~ msgid "Sign in with OpenID"
-#~ msgstr "เข้าสู่ระบบด้วยโอเพนไอดี"
-
-#~ msgid "Logout - User"
-#~ msgstr "ออกจากระบบ - ผู้ใช้"
-
-#~ msgid "Logout from"
-#~ msgstr "ออกจากระบบ"
-
-#~ msgid "You have logged out successfully."
-#~ msgstr "คุณออกจากระบบเรียบร้อยแล้ว"
-
-#~ msgid "Logged in - User"
-#~ msgstr "เข้าสู่ระบบ - ผู้ใช้"
-
-#~ msgid "Logged into"
-#~ msgstr "เข้าสู่ระบบ"
-
-#~ msgid "is currently logged in"
-#~ msgstr "เข้าสู่ระบบในขณะนี้"
-
-#~ msgid "To register or log in as another user, you need to"
-#~ msgstr "ลงทะเบียนหรือเข้าสู่ระบบโดยผู้ใช้อื่นคุณต้อง"
-
-#~ msgid "logout"
-#~ msgstr "ออกจากระบบ"
-
-#~ msgid "first."
-#~ msgstr "ลำดับแรก"
-
-#~ msgid "Register - User"
-#~ msgstr "ลงทะเบียน - ผู้ใช้"
-
-#~ msgid "Register for a new Account"
-#~ msgstr "ลงทะเบียนสำหรับบัญชีใหม่"
-
-#~ msgid "3+ chars, using only 'a-z0-9' and '-_'"
-#~ msgstr "มากกว่า 3 ตัวอักษร ใช้ได้เฉพาะตัว 'a-z0-9' และ '-_'"
-
-#~ msgid "Full name (optional)"
-#~ msgstr "ชื่อเต็ม (ถ้ามี)"
-
-#~ msgid "E-Mail"
-#~ msgstr "อีเมล"
-
-#~ msgid "Register now"
-#~ msgstr "ลงทะเบียนตอนนี้"
-
-#~ msgid "Password (repeat):"
-#~ msgstr "รหัสผ่าน (กรอกอีกครั้ง):"
-
-#~ msgid "- User"
-#~ msgstr "- ผู้ใช้"
-
-#~ msgid "Member since"
-#~ msgstr "เป็นสมาชิกตั้งแต่"
-
-#~ msgid "No email"
-#~ msgstr "ไม่มีอีเมล"
-
-#~ msgid "– Note: your API key is visible only to you!"
-#~ msgstr "– หมายเหตุ: API key ของคุณจะมองเห็นได้เฉพาะคุณเท่านั้น!"
-
-#~ msgid "Public Activity"
-#~ msgstr "กิจกรรมสาธารณะ"
-
-#~ msgid "Reset password"
-#~ msgstr "เปลี่ยนรหัสผ่าน"
-
-#~ msgid "Request a password reset"
-#~ msgstr "ขอเปลี่ยนรหัสผ่าน"
-
-#~ msgid "User name:"
-#~ msgstr "ชื่อผู้ใช้"
+#~ msgid ""
+#~ "This compiled version of SlickGrid has"
+#~ " been obtained with the Google "
+#~ "Closure\n"
+#~ "Compiler, using the following command:\n"
+#~ "\n"
+#~ "java -jar compiler.jar --js=slick.core.js "
+#~ "--js=slick.grid.js --js=slick.editors.js "
+#~ "--js_output_file=slick.grid.min.js\n"
+#~ "\n"
+#~ "There are two other files required "
+#~ "for the SlickGrid view to work "
+#~ "properly:\n"
+#~ "\n"
+#~ " * jquery-ui-1.8.16.custom.min.js \n"
+#~ " * jquery.event.drag-2.0.min.js\n"
+#~ "\n"
+#~ "These are included in the Recline "
+#~ "source, but have not been included "
+#~ "in the\n"
+#~ "built file to make easier to handle compatibility problems.\n"
+#~ "\n"
+#~ "Please check SlickGrid license in the included MIT-LICENSE.txt file.\n"
+#~ "\n"
+#~ "[1] https://developers.google.com/closure/compiler/"
+#~ msgstr ""
+#~ "This compiled version of SlickGrid has"
+#~ " been obtained with the Google "
+#~ "Closure\n"
+#~ "Compiler, using the following command:\n"
+#~ "\n"
+#~ "java -jar compiler.jar --js=slick.core.js "
+#~ "--js=slick.grid.js --js=slick.editors.js "
+#~ "--js_output_file=slick.grid.min.js\n"
+#~ "\n"
+#~ "There are two other files required "
+#~ "for the SlickGrid view to work "
+#~ "properly:\n"
+#~ "\n"
+#~ " * jquery-ui-1.8.16.custom.min.js \n"
+#~ " * jquery.event.drag-2.0.min.js\n"
+#~ "\n"
+#~ "These are included in the Recline "
+#~ "source, but have not been included "
+#~ "in the\n"
+#~ "built file to make easier to handle compatibility problems.\n"
+#~ "\n"
+#~ "Please check SlickGrid license in the included MIT-LICENSE.txt file.\n"
+#~ "\n"
+#~ "[1] https://developers.google.com/closure/compiler/"
 
