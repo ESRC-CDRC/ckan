@@ -467,7 +467,6 @@ def group_dictize(group, context,
         image_url = munge.munge_filename_legacy(image_url)
         result_dict['image_display_url'] = h.url_for_static(
             'uploads/group/%s' % result_dict.get('image_url'),
-            qualified=True
         )
     return result_dict
 
