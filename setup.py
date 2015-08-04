@@ -179,7 +179,7 @@ setup(
         "passlib==1.6.2",
         "psycopg2==2.4.5",
         "python-dateutil>=1.5.0,<2.0.0",
-        "pyutilib.component.core==4.5.3",
+        "pyutilib.component.core==5.1",
         "repoze.who-friendlyform==1.0.8",
         "repoze.who==2.0",
         "requests==2.5.0",
