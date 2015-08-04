@@ -185,7 +185,7 @@ setup(
         "requests==2.5.0",
         "Routes==1.13",
         "solrpy==0.9.5",
-        "sqlalchemy-migrate==0.9.1",
+        "sqlalchemy-migrate==0.9.7",
         "SQLAlchemy==0.9.8",
         "vdm==0.13",
         "sqlparse==0.1.11",
