@@ -243,6 +243,7 @@ def default_show_package_schema():
         'description': [ignore_missing],
         'display_name': [ignore_missing],
         'image_display_url': [ignore_missing],
+        'type': [ignore_missing],
         })
 
     # Remove validators for several keys from the schema so validation doesn't
