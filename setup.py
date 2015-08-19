@@ -192,7 +192,8 @@ setup(
         "WebHelpers==1.3",
         "WebOb==1.0.8",
         "zope.interface==4.1.1",
-        "unicodecsv>=0.9"
+        "unicodecsv>=0.9",
+        "markdown2==2.3.0"
     ],
     packages=find_packages(exclude=['ez_setup']),
     namespace_packages=['ckanext', 'ckanext.stats'],

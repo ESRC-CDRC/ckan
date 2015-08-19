@@ -21,7 +21,7 @@ from paste.deploy.converters import asbool
 from webhelpers.html import escape, HTML, literal, url_escape
 from webhelpers.html.tools import mail_to
 from webhelpers.html.tags import *
-from webhelpers.markdown import markdown
+import markdown2
 from webhelpers import paginate
 from webhelpers.text import truncate
 import webhelpers.date as date
@@ -811,7 +811,7 @@ def markdown_extract(text, extract_length=190):
     will not be truncated.'''
     if (text is None) or (text.strip() == ''):
         return ''
-    plain = RE_MD_HTML_TAGS.sub('', markdown(text))
+    plain = RE_MD_HTML_TAGS.sub('', markdown2.markdown(text))
     if not extract_length or len(plain) < extract_length:
         return literal(plain)
     return literal(unicode(truncate(plain, length=extract_length, indicator='...', whole_word=True)))
@@ -1659,10 +1659,10 @@ def render_markdown(data, auto_link=True, allow_html=False):
     if not data:
         return ''
     if allow_html:
-        data = markdown(data.strip(), safe_mode=False)
+        data = markdown2.markdown(data.strip())
     else:
         data = RE_MD_HTML_TAGS.sub('', data.strip())
-        data = markdown(data, safe_mode=True)
+        data = markdown2.markdown(data)
     # tags can be added by tag:... or tag:"...." and a link will be made
     # from it
     if auto_link:
