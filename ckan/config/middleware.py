@@ -339,7 +339,8 @@ class TrackingMiddleware(object):
         if path == '/_tracking' and method == 'POST':
             # do the tracking
             # get the post data
-            payload = environ['wsgi.input'].read()
+            length = int(environ.get('CONTENT_LENGTH', '0'))
+            payload = environ['wsgi.input'].read(length)
             parts = payload.split('&')
             data = {}
             for part in parts:
