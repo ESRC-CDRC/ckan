@@ -106,11 +106,13 @@ class PackageSearchIndex(SearchIndex):
         if pkg_dict is None:
             return
 
+        # tracking
+        tracking_summary = pkg_dict.get('tracking_summary', None)
+        if not tracking_summary:
+            tracking_summary = model.TrackingSummary.get_for_package(
+                pkg_dict['id'])
+            pkg_dict['tracking_summary'] = tracking_summary
         # tracking summary values will be stale, never store them
-        tracking_summary = pkg_dict.pop('tracking_summary', None)
-        for r in pkg_dict.get('resources', []):
-            r.pop('tracking_summary', None)
-
         data_dict_json = json.dumps(pkg_dict)
 
         if config.get('ckan.cache_validated_datasets', True):
@@ -125,6 +127,14 @@ class PackageSearchIndex(SearchIndex):
                 cls=ckan.lib.navl.dictization_functions.MissingNullEncoder)
 
         pkg_dict['data_dict'] = data_dict_json
+
+
+        pkg_dict.pop('tracking_summary', None)
+        for r in pkg_dict.get('resources', []):
+            r.pop('tracking_summary', None)
+
+        pkg_dict['views_total'] = tracking_summary['total']
+        pkg_dict['views_recent'] = tracking_summary['recent']
 
         # add to string field for sorting
         title = pkg_dict.get('title')
@@ -187,12 +197,6 @@ class PackageSearchIndex(SearchIndex):
         else:
            pkg_dict['organization'] = None
 
-        # tracking
-        if not tracking_summary:
-            tracking_summary = model.TrackingSummary.get_for_package(
-                pkg_dict['id'])
-        pkg_dict['views_total'] = tracking_summary['total']
-        pkg_dict['views_recent'] = tracking_summary['recent']
 
         resource_fields = [('name', 'res_name'),
                            ('description', 'res_description'),
