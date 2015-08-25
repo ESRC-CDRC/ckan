@@ -1239,8 +1239,7 @@ class Tracking(CkanCommand):
                  FROM tracking_tmp
                  GROUP BY url, tracking_date, tracking_type;
 
-                 DROP TABLE tracking_tmp;
-                 COMMIT;''' % summary_date
+                 DROP TABLE tracking_tmp;''' % summary_date
         engine.execute(sql)
 
         # get ids for dataset urls
@@ -1269,6 +1268,16 @@ class Tracking(CkanCommand):
                  )
                  WHERE t1.running_total = 0 AND tracking_type = 'resource';'''
         engine.execute(sql)
+
+        # get ids for resource urls
+        sql = '''UPDATE tracking_summary t
+                 SET package_id = COALESCE(
+                        (SELECT id FROM package p
+                        WHERE p.id = SUBSTRING(t.url from '/dataset/#"[0-9a-f-]{36}#"/%%' for '#'))
+                     ,'~~not~found~~')
+                 WHERE t.package_id IS NULL
+                 AND tracking_type = 'resource';'''
+        engine.execute(sql, PACKAGE_URL)
 
         # update summary totals for pages
         sql = '''UPDATE tracking_summary t1
