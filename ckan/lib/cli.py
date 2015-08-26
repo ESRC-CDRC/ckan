@@ -1240,7 +1240,7 @@ class Tracking(CkanCommand):
                  GROUP BY url, tracking_date, tracking_type;
 
                  DROP TABLE tracking_tmp;''' % summary_date
-        engine.execute(sql)
+        engine.execute(sa.text(sql).execution_options(autocommit=True))
 
         # get ids for dataset urls
         sql = '''UPDATE tracking_summary t
