@@ -9,6 +9,7 @@ from genshi.template import MarkupTemplate
 from genshi.template.text import NewTextTemplate
 from paste.deploy.converters import asbool
 import paste.fileapp
+import hashlib
 
 import ckan.logic as logic
 import ckan.lib.base as base
@@ -1200,7 +1201,28 @@ class PackageController(base.BaseController):
             if content_type:
                 response.headers['Content-Type'] = content_type
             response.status = status
-            return app_iter
+            environ = request.environ
+            key = ''.join([
+                environ['HTTP_USER_AGENT'],
+                environ['REMOTE_ADDR'],
+                environ.get('HTTP_ACCEPT_LANGUAGE', ''),
+                environ.get('HTTP_ACCEPT_ENCODING', ''),
+            ])
+            key = hashlib.md5(key).hexdigest()
+            url = rsc.get('url').replace(config['ckan.site_url'], '')
+
+            # Tracking user downloads
+            def tracked_iter(key, url):
+                for block in app_iter:
+                    yield block
+                app_iter.close()
+                sql = '''INSERT INTO tracking_raw
+                        (user_key, url, tracking_type)
+                        VALUES ('%s', '%s', '%s');
+                        COMMIT;''' % (key, url, 'download')
+                model.Session.execute(sql)
+
+            return tracked_iter(key, url)
         elif not 'url' in rsc:
             abort(404, _('No download is available'))
         redirect(rsc['url'])

@@ -28,7 +28,7 @@ class TrackingSummary(domain_object.DomainObject):
     @classmethod
     def get_for_package(cls, package_id):
         obj = meta.Session.query(cls).autoflush(False)
-        obj = obj.filter_by(package_id=package_id)
+        obj = obj.filter_by(package_id=package_id, tracking_type='download')
         data = obj.order_by('tracking_date desc').first()
         if data:
             return {'total' : data.running_total,

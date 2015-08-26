@@ -1266,7 +1266,7 @@ class Tracking(CkanCommand):
                     WHERE t1.url = t2.url
                     AND t2.tracking_date <= t1.tracking_date AND t2.tracking_date >= t1.tracking_date - 14
                  )
-                 WHERE t1.running_total = 0 AND tracking_type = 'resource';'''
+                 WHERE t1.running_total = 0 AND (tracking_type = 'resource' OR tracking_type = 'download');'''
         engine.execute(sql)
 
         # get ids for resource urls
@@ -1276,7 +1276,7 @@ class Tracking(CkanCommand):
                         WHERE p.id = SUBSTRING(t.url from '/dataset/#"[0-9a-f-]{36}#"/%%' for '#'))
                      ,'~~not~found~~')
                  WHERE t.package_id IS NULL
-                 AND tracking_type = 'resource';'''
+                 AND (tracking_type = 'resource' OR tracking_type = 'download');'''
         engine.execute(sql, PACKAGE_URL)
 
         # update summary totals for pages
