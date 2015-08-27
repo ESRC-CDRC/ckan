@@ -1215,7 +1215,8 @@ class PackageController(base.BaseController):
             def tracked_iter(key, url):
                 for block in app_iter:
                     yield block
-                app_iter.close()
+                if hasattr(app_iter, 'close'):
+                    app_iter.close()
                 sql = '''INSERT INTO tracking_raw
                         (user_key, url, tracking_type)
                         VALUES ('%s', '%s', '%s');
