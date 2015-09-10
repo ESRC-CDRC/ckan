@@ -2,7 +2,7 @@ $(function (){
   // Tracking
   var url = location.pathname;
   // remove any site root from url
-  if(url.startsWith('http'))
+  if(url.match(/^http/))
     url = url.substring($('body').data('locale-root').length, url.length);
   // trim any trailing /
   url = url.replace(/\/*$/, '');
@@ -12,7 +12,7 @@ $(function (){
           timeout : 3000 });
   $('a.resource-url-analytics').click(function (e){
     var url = $(e.target).closest('a').attr('href');
-    if(url.startsWith('http'))
+    if(url.match(/^http/))
       url = url.replace(/https?:\/\/.*?\//, '/');
     $.ajax({url : '/_tracking',
             data : {url:url, type:'resource'},
