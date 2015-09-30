@@ -448,7 +448,7 @@ class GroupController(base.BaseController):
                    'save': 'save' in request.params,
                    'parent': request.params.get('parent', None)}
         try:
-            self._check_access('group_create', context)
+            self._check_access('group_create', context, {'group_type': group_type})
         except NotAuthorized:
             abort(401, _('Unauthorized to create a group'))
 
