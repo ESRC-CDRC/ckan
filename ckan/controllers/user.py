@@ -442,24 +442,27 @@ class UserController(base.BaseController):
                 user_obj = context['user_obj']
             except NotFound:
                 # Try searching the user
-                del data_dict['id']
-                data_dict['q'] = id
+                try:
+                    del data_dict['id']
+                    data_dict['q'] = id
 
-                if id and len(id) > 2:
-                    user_list = get_action('user_list')(context, data_dict)
-                    if len(user_list) == 1:
-                        # This is ugly, but we need the user object for the
-                        # mailer,
-                        # and user_list does not return them
-                        del data_dict['q']
-                        data_dict['id'] = user_list[0]['id']
-                        user_dict = get_action('user_show')(context, data_dict)
-                        user_obj = context['user_obj']
-                    elif len(user_list) > 1:
-                        h.flash_error(_('"%s" matched several users') % (id))
+                    if id and len(id) > 2:
+                        user_list = get_action('user_list')(context, data_dict)
+                        if len(user_list) == 1:
+                            # This is ugly, but we need the user object for the
+                            # mailer,
+                            # and user_list does not return them
+                            del data_dict['q']
+                            data_dict['id'] = user_list[0]['id']
+                            user_dict = get_action('user_show')(context, data_dict)
+                            user_obj = context['user_obj']
+                        elif len(user_list) > 1:
+                            h.flash_error(_('"%s" matched several users') % (id))
+                        else:
+                            raise NotFound
                     else:
-                        h.flash_error(_('No such user: %s') % id)
-                else:
+                        raise NotFound
+                except:
                     h.flash_error(_('No such user: %s') % id)
 
             if user_obj:
