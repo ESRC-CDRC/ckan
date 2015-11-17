@@ -9,13 +9,12 @@ from pylons import request as req
 import ckan.logic as logic
 import ckan.lib.base as base
 from ckan.common import _
-import ckan.plugins.toolkit as toolkit
+from ckan.plugins.toolkit import asint
 
 log = getLogger(__name__)
 
-MAX_FILE_SIZE = toolkit.asint(
-    config.get('ckan.resource_proxy.max_file_size', 1024 * 1024))
-CHUNK_SIZE = 512
+MAX_FILE_SIZE = asint(config.get('ckan.resource_proxy.max_file_size', 1024**2))
+CHUNK_SIZE = asint(config.get('ckan.resource_proxy.chunk_size', 4096))
 
 
 def proxy_resource(context, data_dict):
@@ -41,10 +40,11 @@ def proxy_resource(context, data_dict):
         # first we try a HEAD request which may not be supported
         did_get = False
         r = requests.head(url, cookies=req.cookies)
-        # 405 would be the appropriate response here, but 400 with
-        # the invalid method mentioned in the text is also possible (#2412)
-        if r.status_code in (400, 405):
-            r = requests.get(url, stream=True, cookies=req.cookies)
+        # Servers can refuse HEAD requests. 405 is the appropriate response,
+        # but 400 with the invalid method mentioned in the text, or a 403
+        # (forbidden) status is also possible (#2412, #2530)
+        if r.status_code in (400, 403, 405):
+            r = requests.get(url, stream=True)
             did_get = True
         r.raise_for_status()
 

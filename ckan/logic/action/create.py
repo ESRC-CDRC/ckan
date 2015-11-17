@@ -177,16 +177,13 @@ def package_create(context, data_dict):
     else:
         rev.message = _(u'REST API: Create object %s') % data.get("name")
 
-    admins = []
     if user:
         user_obj = model.User.by_name(user.decode('utf8'))
         if user_obj:
-            admins = [user_obj]
             data['creator_user_id'] = user_obj.id
 
     pkg = model_save.package_dict_save(data, context)
 
-    model.setup_default_user_roles(pkg, admins)
     # Needed to let extensions know the package and resources ids
     model.Session.flush()
     data['id'] = pkg.id
@@ -213,7 +210,9 @@ def package_create(context, data_dict):
     # Create default views for resources if necessary
     if data.get('resources'):
         logic.get_action('package_create_default_resource_views')(
-            context, {'package': data})
+            {'model': context['model'], 'user': context['user'],
+             'ignore_auth': True},
+            {'package': data})
 
     if not context.get('defer_commit'):
         model.repo.commit()
@@ -283,7 +282,9 @@ def resource_create(context, data_dict):
     package_id = _get_or_bust(data_dict, 'package_id')
     _get_or_bust(data_dict, 'url')
 
-    pkg_dict = _get_action('package_show')(context, {'id': package_id})
+    pkg_dict = _get_action('package_show')(
+        dict(context, return_type='dict'),
+        {'id': package_id})
 
     _check_access('resource_create', context, data_dict)
 
@@ -293,7 +294,7 @@ def resource_create(context, data_dict):
     if not 'resources' in pkg_dict:
         pkg_dict['resources'] = []
 
-    upload = uploader.ResourceUpload(data_dict)
+    upload = uploader.get_resource_uploader(data_dict)
 
     pkg_dict['resources'].append(data_dict)
 
@@ -682,7 +683,7 @@ def _group_or_org_create(context, data_dict, is_org=False):
     session = context['session']
     data_dict['is_organization'] = is_org
 
-    upload = uploader.Upload('group')
+    upload = uploader.get_uploader('group')
     upload.update_data_dict(data_dict, 'image_url',
                             'image_upload', 'clear_upload')
     # get the schema
@@ -723,11 +724,6 @@ def _group_or_org_create(context, data_dict, is_org=False):
 
     group = model_save.group_dict_save(data, context)
 
-    if user:
-        admins = [model.User.by_name(user.decode('utf8'))]
-    else:
-        admins = []
-    model.setup_default_user_roles(group, admins)
     # Needed to let extensions know the group id
     session.flush()
 
@@ -764,6 +760,7 @@ def _group_or_org_create(context, data_dict, is_org=False):
     logic.get_action('activity_create')(activity_create_context, activity_dict)
 
     upload.upload(uploader.get_max_image_size())
+
     if not context.get('defer_commit'):
         model.repo.commit()
     context["group"] = group
@@ -1104,7 +1101,7 @@ def user_invite(context, data_dict):
 
 def _get_random_username_from_email(email):
     localpart = email.split('@')[0]
-    cleaned_localpart = re.sub(r'[^\w]', '-', localpart)
+    cleaned_localpart = re.sub(r'[^\w]', '-', localpart).lower()
 
     # if we can't create a unique user name within this many attempts
     # then something else is probably wrong and we should give up
