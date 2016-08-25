@@ -352,14 +352,17 @@ def field_translator(connection, resource_id, toattr=True):
                 except KeyError:
                     return {mapper[k]: v for k, v in obj.items()}
             elif isinstance(obj, sql.Statement):
-                return sql.Statement([
-                    (sql.Identifier(mapper[f.get_real_name()])
-                     if f.get_real_name() in mapper else f)
-                    for f in obj.tokens
-                ])
+                tokens = obj.tokens
+                new_tokens = [sql.Identifier(mapper[t.get_name()])
+                              if isinstance(t, sql.Identifier) and t.get_name() in mapper else t 
+                              for t in tokens]
+                return sql.Statement(new_tokens)
 
             else:
-                return mapper[obj]
+                if obj in mapper:
+                    return mapper[obj]
+                else:
+                    return obj
     return trans
 
 
@@ -1050,15 +1053,13 @@ def search_data(context, data_dict):
 
 
 
-    import sys
-    # print >>sys.stderr, 'WHERE clause', query_dict['where']
-    where_snippets = [(str(f_trans(sparse(s[0]))),) + tuple(s[1:]) for s in query_dict['where']]
+    where_snippets = [(str(f_trans(sparse(s[0])[0])), s[1:]) for s in query_dict['where']]
     where_clause, where_values = _where(where_snippets)
 
     select_columns = ', '.join(f_trans(query_dict['select'])).replace('%', '%%')
     ts_query = query_dict['ts_query'].replace('%', '%%')
     resource_id = data_dict['resource_id'].replace('%', '%%')
-    sort = [ ' '.join([f_trans(s.split(' ', 1)[0]), s.split(' ', 1)[1]])
+    sort = [ ' '.join([f_trans(t) for t in s.split(' ', 1)])
             for s in query_dict['sort']]
     limit = query_dict['limit']
     offset = query_dict['offset']
@@ -1085,7 +1086,7 @@ def search_data(context, data_dict):
         limit=limit,
         offset=offset)
 
-    print >>sys.stderr, '[datastore_search] SQL:', sql_string
+    #import sys; print >>sys.stderr, '[datastore_search] SQL:', sql_string
     results = _execute_single_statement(context, sql_string, where_values)
 
     _insert_links(data_dict, limit, offset)
