@@ -37,12 +37,13 @@ def resource_dict_save(res_dict, context):
             continue
         if key in fields:
             if isinstance(getattr(obj, key), datetime.datetime):
-                if getattr(obj, key).isoformat() == value:
+                if getattr(obj, key).utctimetuple() == value.utctimetuple():
                     continue
                 if key == 'last_modified' and not new:
                     obj.url_changed = True
             if key == 'url' and not new and obj.url != value:
-                obj.url_changed = True
+                if '://' in obj.url or '://' not in value:
+                    obj.url_changed = True
             setattr(obj, key, value)
         else:
             # resources save extras directly onto the object, instead
