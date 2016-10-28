@@ -2283,10 +2283,15 @@ my.Map = Backbone.View.extend({
     var self = this;
     this.map = new L.Map(this.$map.get(0));
 
-    var mapUrl = "//otile{s}-s.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png";
-    var osmAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="//developer.mapquest.com/content/osm/mq_logo.png">';
-    var bg = new L.TileLayer(mapUrl, {maxZoom: 18, attribution: osmAttribution ,subdomains: '1234'});
-    this.map.addLayer(bg);
+    var buildingTileUrl = "http://datashine.org.uk/tiles/shine_urbanmask_dark/{z}/{x}/{y}.png";
+    var labelTileUrl = "http://datashine.org.uk/tiles/shine_labels_cdrc/{z}/{x}/{y}.png";
+    var cdrcAttribution = 'Map data &copy; 2016 <a href="http://maps.cdrc.ac.uk" target="_blank">CDRC Maps</a>';
+    this.map.addLayer(
+      new L.TileLayer(buildingTileUrl, {maxZoom: 14, minZoom: 8, attribution: cdrcAttribution})
+    );
+    this.map.addLayer(
+      new L.TileLayer(labelTileUrl, {maxZoom: 14, minZoom: 8, attribution: cdrcAttribution})
+    );
 
     this.markers = new L.MarkerClusterGroup(this._clusterOptions);
 
@@ -2296,7 +2301,7 @@ my.Map = Backbone.View.extend({
         this);
     this.features = new L.GeoJSON(null, this.geoJsonLayerOptions);
 
-    this.map.setView([0, 0], 2);
+    this.map.setView([51.51, 0], 8);
 
     this.mapReady = true;
   },
