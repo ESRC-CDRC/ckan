@@ -1212,13 +1212,7 @@ class PackageController(base.BaseController):
                 response.headers['Content-Type'] = content_type
             response.status = status
             environ = request.environ
-            key = ''.join([
-                environ['HTTP_USER_AGENT'],
-                environ['REMOTE_ADDR'],
-                environ.get('HTTP_ACCEPT_LANGUAGE', ''),
-                environ.get('HTTP_ACCEPT_ENCODING', ''),
-            ])
-            key = hashlib.md5(key).hexdigest()
+            key = context['auth_user_obj'].id
             url = rsc.get('url').replace(config['ckan.site_url'], '')
 
             # Tracking user downloads
@@ -1227,11 +1221,7 @@ class PackageController(base.BaseController):
                     yield block
                 if hasattr(app_iter, 'close'):
                     app_iter.close()
-                sql = '''INSERT INTO tracking_raw
-                        (user_key, url, tracking_type)
-                        VALUES ('%s', '%s', '%s');
-                        COMMIT;''' % (key, url, 'download')
-                model.Session.execute(sql)
+                model.tracking_raw_table.insert().execute(user_key=key, url=url, tracking_type='download')
 
             return tracked_iter(key, url)
         elif not 'url' in rsc:
