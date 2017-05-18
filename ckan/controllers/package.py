@@ -1212,7 +1212,16 @@ class PackageController(base.BaseController):
                 response.headers['Content-Type'] = content_type
             response.status = status
             environ = request.environ
-            key = context['auth_user_obj'].id
+            if context['auth_user_obj']:
+                key = context['auth_user_obj'].id
+            else:
+                key = ''.join([
+                    environ['HTTP_USER_AGENT'],
+                    environ['REMOTE_ADDR'],
+                    environ.get('HTTP_ACCEPT_LANGUAGE', ''),
+                    environ.get('HTTP_ACCEPT_ENCODING', ''),
+                ])
+                key = hashlib.md5(key).hexdigest()
             url = rsc.get('url').replace(config['ckan.site_url'], '')
 
             # Tracking user downloads
