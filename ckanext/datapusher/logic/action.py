@@ -100,7 +100,8 @@ def datapusher_submit(context, data_dict):
                     'ignore_hash': data_dict.get('ignore_hash', False),
                     'ckan_url': site_url,
                     'resource_id': res_id,
-                    'set_url_type': data_dict.get('set_url_type', False)
+                    'set_url_type': data_dict.get('set_url_type', False),
+                    'limit': data_dict.get('limit', pylons.config.get('ckan.datapusher.limit', -1))
                 }
             }))
         r.raise_for_status()
