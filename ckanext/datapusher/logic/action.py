@@ -1,14 +1,19 @@
+# encoding: utf-8
+
 import logging
 import json
 import urlparse
 import datetime
 
-import pylons
+from dateutil.parser import parse as parse_date
+
 import requests
 
+import ckan.lib.helpers as h
 import ckan.lib.navl.dictization_functions
 import ckan.logic as logic
 import ckan.plugins as p
+from ckan.common import config
 import ckanext.datapusher.logic.schema as dpschema
 import ckanext.datapusher.interfaces as interfaces
 
@@ -37,7 +42,6 @@ def datapusher_submit(context, data_dict):
 
     :rtype: bool
     '''
-
     schema = context.get('schema', dpschema.datapusher_submit_schema())
     data_dict, errors = _validate(data_dict, schema, context)
     if errors:
@@ -47,10 +51,17 @@ def datapusher_submit(context, data_dict):
 
     p.toolkit.check_access('datapusher_submit', context, data_dict)
 
-    datapusher_url = pylons.config.get('ckan.datapusher.url')
+    try:
+        resource_dict = p.toolkit.get_action('resource_show')(context, {
+            'id': res_id,
+        })
+    except logic.NotFound:
+        return False
 
-    site_url = pylons.config['ckan.site_url']
-    callback_url = site_url.rstrip('/') + '/api/3/action/datapusher_hook'
+    datapusher_url = config.get('ckan.datapusher.url')
+
+    site_url = h.url_for('/', qualified=True)
+    callback_url = h.url_for('/api/3/action/datapusher_hook', qualified=True)
 
     user = p.toolkit.get_action('user_show')(context, {'id': context['user']})
 
@@ -66,25 +77,41 @@ def datapusher_submit(context, data_dict):
         'entity_id': res_id,
         'entity_type': 'resource',
         'task_type': 'datapusher',
-        'last_updated': str(datetime.datetime.now()),
+        'last_updated': str(datetime.datetime.utcnow()),
         'state': 'submitting',
         'key': 'datapusher',
         'value': '{}',
         'error': '{}',
     }
     try:
-        task_id = p.toolkit.get_action('task_status_show')(context, {
+        existing_task = p.toolkit.get_action('task_status_show')(context, {
             'entity_id': res_id,
             'task_type': 'datapusher',
             'key': 'datapusher'
-        })['id']
-        task['id'] = task_id
+        })
+        assume_task_stale_after = datetime.timedelta(seconds=int(
+            config.get('ckan.datapusher.assume_task_stale_after', 3600)))
+        if existing_task.get('state') == 'pending':
+            updated = datetime.datetime.strptime(
+                existing_task['last_updated'], '%Y-%m-%dT%H:%M:%S.%f')
+            time_since_last_updated = datetime.datetime.utcnow() - updated
+            if time_since_last_updated > assume_task_stale_after:
+                # it's been a while since the job was last updated - it's more
+                # likely something went wrong with it and the state wasn't
+                # updated than its still in progress. Let it be restarted.
+                log.info('A pending task was found %r, but it is only %s hours'
+                         'old', existing_task['id'], time_since_last_updated)
+            else:
+                log.info('A pending task was found %s for this resource, so '
+                         'skipping this duplicate task', existing_task['id'])
+                return False
+
+        task['id'] = existing_task['id']
     except logic.NotFound:
         pass
 
     context['ignore_auth'] = True
-    result = p.toolkit.get_action('task_status_update')(context, task)
-    task_id = result['id']
+    p.toolkit.get_action('task_status_update')(context, task)
 
     try:
         r = requests.post(
@@ -101,7 +128,9 @@ def datapusher_submit(context, data_dict):
                     'ckan_url': site_url,
                     'resource_id': res_id,
                     'set_url_type': data_dict.get('set_url_type', False),
-                    'limit': data_dict.get('limit', pylons.config.get('ckan.datapusher.limit', -1))
+                    'limit': data_dict.get('limit', pylons.config.get('ckan.datapusher.limit', -1)),
+                    'task_created': task['last_updated'],
+                    'original_url': resource_dict.get('url'),
                 }
             }))
         r.raise_for_status()
@@ -110,7 +139,7 @@ def datapusher_submit(context, data_dict):
                  'details': str(e)}
         task['error'] = json.dumps(error)
         task['state'] = 'error'
-        task['last_updated'] = str(datetime.datetime.now()),
+        task['last_updated'] = str(datetime.datetime.utcnow()),
         p.toolkit.get_action('task_status_update')(context, task)
         raise p.toolkit.ValidationError(error)
 
@@ -125,7 +154,7 @@ def datapusher_submit(context, data_dict):
                  'status_code': r.status_code}
         task['error'] = json.dumps(error)
         task['state'] = 'error'
-        task['last_updated'] = str(datetime.datetime.now()),
+        task['last_updated'] = str(datetime.datetime.utcnow()),
         p.toolkit.get_action('task_status_update')(context, task)
         raise p.toolkit.ValidationError(error)
 
@@ -134,7 +163,7 @@ def datapusher_submit(context, data_dict):
 
     task['value'] = value
     task['state'] = 'pending'
-    task['last_updated'] = str(datetime.datetime.now()),
+    task['last_updated'] = str(datetime.datetime.utcnow()),
     p.toolkit.get_action('task_status_update')(context, task)
 
     return True
@@ -166,7 +195,10 @@ def datapusher_hook(context, data_dict):
     })
 
     task['state'] = status
-    task['last_updated'] = str(datetime.datetime.now())
+    task['last_updated'] = str(datetime.datetime.utcnow())
+
+    resubmit = False
+
     if status == 'complete':
         # Create default views for resource if necessary (only the ones that
         # require data to be in the DataStore)
@@ -187,8 +219,35 @@ def datapusher_hook(context, data_dict):
                 'create_datastore_views': True,
             })
 
+        # Check if the uploaded file has been modified in the meantime
+        if (resource_dict.get('last_modified') and
+                metadata.get('task_created')):
+            try:
+                last_modified_datetime = parse_date(
+                    resource_dict['last_modified'])
+                task_created_datetime = parse_date(metadata['task_created'])
+                if last_modified_datetime > task_created_datetime:
+                    log.debug('Uploaded file more recent: {0} > {1}'.format(
+                        last_modified_datetime, task_created_datetime))
+                    resubmit = True
+            except ValueError:
+                pass
+        # Check if the URL of the file has been modified in the meantime
+        elif (resource_dict.get('url') and
+                metadata.get('original_url') and
+                resource_dict['url'] != metadata['original_url']):
+            log.debug('URLs are different: {0} != {1}'.format(
+                resource_dict['url'], metadata['original_url']))
+            resubmit = True
+
     context['ignore_auth'] = True
     p.toolkit.get_action('task_status_update')(context, task)
+
+    if resubmit:
+        log.debug('Resource {0} has been modified, '
+                  'resubmitting to DataPusher'.format(res_id))
+        p.toolkit.get_action('datapusher_submit')(
+            context, {'resource_id': res_id})
 
 
 def datapusher_status(context, data_dict):
@@ -211,7 +270,7 @@ def datapusher_status(context, data_dict):
         'key': 'datapusher'
     })
 
-    datapusher_url = pylons.config.get('ckan.datapusher.url')
+    datapusher_url = config.get('ckan.datapusher.url')
     if not datapusher_url:
         raise p.toolkit.ValidationError(
             {'configuration': ['ckan.datapusher.url not in config file']})

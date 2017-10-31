@@ -1,9 +1,11 @@
+# encoding: utf-8
+
 from logging import getLogger
 import urlparse
 
 import requests
 
-import pylons.config as config
+from ckan.common import config
 from pylons import request as req
 
 import ckan.logic as logic
@@ -86,5 +88,5 @@ class ProxyController(base.BaseController):
     def proxy_resource(self, resource_id):
         data_dict = {'resource_id': resource_id}
         context = {'model': base.model, 'session': base.model.Session,
-                   'user': base.c.user or base.c.author}
+                   'user': base.c.user}
         return proxy_resource(context, data_dict)
