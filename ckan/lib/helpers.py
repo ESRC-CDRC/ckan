@@ -868,7 +868,7 @@ def markdown_extract(text, extract_length=190):
     will not be truncated.'''
     if (text is None) or (text.strip() == ''):
         return ''
-    plain = RE_MD_HTML_TAGS.sub('', markdown2.markdown(text))
+    plain = RE_MD_HTML_TAGS.sub('', markdown2.markdown(text, extras=['tables']))
     if not extract_length or len(plain) < extract_length:
         return literal(plain)
     return literal(unicode(truncate(plain, length=extract_length,
@@ -1723,10 +1723,10 @@ def render_markdown(data, auto_link=True, allow_html=False):
     if not data:
         return ''
     if allow_html:
-        data = markdown2.markdown(data.strip())
+        data = markdown2.markdown(data.strip(), extras=['tables'])
     else:
         data = RE_MD_HTML_TAGS.sub('', data.strip())
-        data = markdown2.markdown(data)
+        data = markdown2.markdown(data, extras=['tables'])
     # tags can be added by tag:... or tag:"...." and a link will be made
     # from it
     if auto_link:
