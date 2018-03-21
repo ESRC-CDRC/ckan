@@ -1915,7 +1915,7 @@ def package_search(context, data_dict):
         # then we should remove any mention of capacity from the fq and
         # instead set it to only retrieve public datasets
         fq = data_dict.get('fq', '')
-        if not context.get('ignore_capacity_check', False):
+        if not context.get('ignore_capacity_check', False) and ('capacity:private' not in fq or not authz.is_sysadmin(user)):
             fq = ' '.join(p for p in fq.split(' ')
                           if 'capacity:' not in p)
             data_dict['fq'] = fq + ' capacity:"public"'
