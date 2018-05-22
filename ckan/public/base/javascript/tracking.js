@@ -13,7 +13,7 @@ $(function (){
   $('a.resource-url-analytics').click(function (e){
     var url = $(e.target).closest('a').attr('href');
     if(url.match(/^http/))
-      url = url.replace(/https?:\/\/.*?\//, '/');
+      url = url.replace(/https?:\/\/data\.cdrc\.ac\.uk\//, '/');
     $.ajax({url : '/_tracking',
             data : {url:url, type:'resource'},
             type : 'POST',
